@@ -1,0 +1,58 @@
+{
+	"individual": [
+		{
+			"CommandType": "SetSensorSetControl",
+			"Parameters":[
+				{
+					"Name": "SensorSet",
+					"Type": "booleanarray",
+					"Value": [true, true, true, true, true, true, true, true]
+				}
+			]
+		},
+		{
+			"CommandType": "SetSensorSetControl",
+			"Parameters":[
+				{
+					"Name": "SensorSet",
+					"Type": "booleanarray",
+					"Value": [false, false, false, false, false, false, false, false]
+				}
+			]
+		},
+		{
+			"CommandType": "SetSensorTypeControl",
+			"Parameters":[
+				{
+					"Name": "SensorTypes",
+					"Type": "integerarray",
+					"Value": [0, 0, 0, 0, 0, 0, 0, 0]
+				}
+			]
+		},
+		{
+			"CommandType": "SetSensorTypeControl",
+			"Parameters":[
+				{
+					"Name": "SensorTypes",
+					"Type": "integerarray",
+					"Value": [1, 1, 1, 1, 1, 1, 1, 1]
+				}
+			]
+		},
+		{
+			"CommandType": "SetSensorTypeControl",
+			"Parameters":[
+				{
+					"Name": "SensorTypes",
+					"Type": "integerarray",
+					"Value": [2, 2, 2, 2, 2, 2, 2, 2]
+				}
+			]
+		}
+	],
+	"group": [
+	],
+	"all": [
+	]
+}

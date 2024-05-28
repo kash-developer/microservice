@@ -1,0 +1,38 @@
+{
+	"individual": [
+		{
+			"CommandType": "SetPowerControl",
+			"Parameters":[
+				{
+					"Name": "Power",
+					"Type": "boolean",
+					"Value": true
+				}
+			]
+		},
+		{
+			"CommandType": "SetTemperatureControl",
+			"Parameters":[
+				{
+					"Name": "SettingTemperature",
+					"Type": "number",
+					"Value": 25
+				}
+			]
+		},
+		{
+			"CommandType": "SetPowerControl",
+			"Parameters":[
+				{
+					"Name": "Power",
+					"Type": "boolean",
+					"Value": false
+				}
+			]
+		}
+	],
+	"group": [
+	],
+	"all": [
+	]
+}

@@ -1,0 +1,67 @@
+{
+	"individual": [
+		{
+			"CommandType": "IndividualRelayControl",
+			"Parameters":[
+				{
+					"Name": "LightRelayClosed",
+					"Type": "boolean",
+					"Value": true
+				}
+			]
+		},
+		{
+			"CommandType": "IndividualRelayControl",
+			"Parameters":[
+				{
+					"Name": "LightRelayClosed",
+					"Type": "boolean",
+					"Value": false
+				}
+			]
+		}
+	],
+	"group": [
+		{
+			"CommandType": "AllRelayControl",
+			"Parameters":[
+				{
+					"Name": "LightRelayClosed",
+					"Type": "boolean",
+					"Value": true
+				}
+			]
+		},
+		{
+			"CommandType": "AllRelayControl",
+			"Parameters":[
+				{
+					"Name": "LightRelayClosed",
+					"Type": "boolean",
+					"Value": false
+				}
+			]
+		}
+	],
+	"all": [
+		{
+			"CommandType": "AllRelayControl",
+			"Parameters":[
+				{
+					"Name": "LightRelayClosed",
+					"Type": "boolean",
+					"Value": true
+				}			]
+		},
+		{
+			"CommandType": "AllRelayControl",
+			"Parameters":[
+				{
+					"Name": "LightRelayClosed",
+					"Type": "boolean",
+					"Value": false
+				}
+			]
+		}
+	]
+}

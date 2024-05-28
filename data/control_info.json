@@ -1,0 +1,471 @@
+{
+	"Controller": {
+	},
+	"RemoteInspector": {
+	},
+	"SystemAircon": {
+		"SetPowerControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x41",
+			"RequestParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc3",
+			"ResponseParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			]
+		},
+		"SetTemperatureControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x44",
+			"RequestParameters": [
+				{
+					"Name": "SettingTemperature",
+					"Type": "number"
+				}
+			],
+			"ResponseCode": "0xc4",
+			"ResponseParameters": [
+				{
+					"Name": "SettingTemperature",
+					"Type": "number"
+				}
+			]
+		}
+	},
+	"Light": {
+		"IndividualControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x41",
+			"RequestParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc1",
+			"ResponseParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			]
+		},
+		"GroupControl": {
+			"Target": ["group"],
+			"RequestCode": "0x42",
+			"RequestParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc2",
+			"ResponseParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			]
+		}
+	},
+	"GasValve": {
+		"IndividualControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x41",
+			"RequestParameters": [
+				{
+					"Name": "Closed",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc1",
+			"ResponseParameters": [
+				{
+					"Name": "Closed",
+					"Type": "boolean"
+				},
+				{
+					"Name": "Operating",
+					"Type": "integer"
+				}
+			]
+		},
+		"AllControl": {
+			"Target": ["group", "all"],
+			"RequestCode": "0x42",
+			"RequestParameters": [
+				{
+					"Name": "Closed",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc2",
+			"ResponseParameters": [
+				{
+					"Name": "Closed",
+					"Type": "boolean"
+				},
+				{
+					"Name": "Operating",
+					"Type": "integer"
+				}
+			]
+		}
+	},
+	"Curtain": {
+		"IndividualControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x41",
+			"RequestParameters": [
+				{
+					"Name": "Operation",
+					"Type": "integer"
+				}
+			],
+			"ResponseCode": "0xc1",
+			"ResponseParameters": [
+				{
+					"Name": "Status",
+					"Type": "integer"
+				}
+			]
+		},
+		"AllControl": {
+			"Target": ["group", "all"],
+			"RequestCode": "0x42",
+			"RequestParameters": [
+				{
+					"Name": "Operation",
+					"Type": "integer"
+				}
+			],
+			"ResponseCode": "0xc2",
+			"ResponseParameters": [
+				{
+					"Name": "Status",
+					"Type": "integer"
+				}
+			]
+		}
+	},
+	"DoorLock": {
+		"IndividualControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x41",
+			"RequestParameters": [
+				{
+					"Name": "Opened",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc1",
+			"ResponseParameters": [
+				{
+					"Name": "Opened",
+					"Type": "boolean"
+				},
+				{
+					"Name": "Emergency",
+					"Type": "boolean"
+				}
+			]
+		},
+		"AllControl": {
+			"Target": ["group", "all"],
+			"RequestCode": "0x42",
+			"RequestParameters": [
+				{
+					"Name": "Opened",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc2",
+			"ResponseParameters": [
+				{
+					"Name": "Opened",
+					"Type": "boolean"
+				}
+			]
+		}
+	},
+	"Vantilator": {
+		"PowerControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x41",
+			"RequestParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc1",
+			"ResponseParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			]
+		},
+		"AirVolumeControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x42",
+			"RequestParameters": [
+				{
+					"Name": "AirVolume",
+					"Type": "integer"
+				}
+			],
+			"ResponseCode": "0xc2",
+			"ResponseParameters": [
+				{
+					"Name": "AirVolume",
+					"Type": "integer"
+				}
+			]
+		}
+	},
+	"Breaker": {
+		"IndividualRelayControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x41",
+			"RequestParameters": [
+				{
+					"Name": "LightRelayClosed",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc1",
+			"ResponseParameters": [
+				{
+					"Name": "LightRelayClosed",
+					"Type": "boolean"
+				}
+			]
+		},
+		"AllRelayControl": {
+			"Target": ["group", "all"],
+			"RequestCode": "0x42",
+			"RequestParameters": [
+				{
+					"Name": "LightRelayClosed",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc2",
+			"ResponseParameters": [
+				{
+					"Name": "LightRelayClosed",
+					"Type": "boolean"
+				}
+			]
+		}
+	},
+	"PreventCrimeExt": {
+		"SetSensorSetControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x43",
+			"RequestParameters": [
+				{
+					"Name": "SensorSet",
+					"Type": "booleanarray"
+				}
+			],
+			"ResponseCode": "0xc3",
+			"ResponseParameters": [
+				{
+					"Name": "SensorSet",
+					"Type": "booleanarray"
+				},
+				{
+					"Name": "SensorTypes",
+					"Type": "integerarray"
+				}
+			]
+		},
+		"SetSensorTypeControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x44",
+			"RequestParameters": [
+				{
+					"Name": "SensorTypes",
+					"Type": "integerarray"
+				}
+			],
+			"ResponseCode": "0xc4",
+			"ResponseParameters": [
+				{
+					"Name": "SensorSet",
+					"Type": "booleanarray"
+				},
+				{
+					"Name": "SensorTypes",
+					"Type": "integerarray"
+				}
+			]
+		}
+	},
+	"Boiler": {
+		"HeatingControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x43",
+			"RequestParameters": [
+				{
+					"Name": "Heating",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc3",
+			"ResponseParameters": [
+				{
+					"Name": "Heating",
+					"Type": "boolean"
+				}
+			]
+		},
+		"SetTemperatureControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x44",
+			"RequestParameters": [
+				{
+					"Name": "SettingTemperature",
+					"Type": "number"
+				}
+			],
+			"ResponseCode": "0xc4",
+			"ResponseParameters": [
+				{
+					"Name": "SettingTemperature",
+					"Type": "number"
+				}
+			]
+		},
+		"SetOutGoingModeControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x45",
+			"RequestParameters": [
+				{
+					"Name": "Outgoing",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc5",
+			"ResponseParameters": [
+				{
+					"Name": "Outgoing",
+					"Type": "boolean"
+				}
+			]
+		}
+	},
+	"TemperatureController": {
+		"HeatingControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x43",
+			"RequestParameters": [
+				{
+					"Name": "Heating",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc3",
+			"ResponseParameters": [
+				{
+					"Name": "Heating",
+					"Type": "boolean"
+				}
+			]
+		},
+		"SetTemperatureControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x44",
+			"RequestParameters": [
+				{
+					"Name": "SettingTemperature",
+					"Type": "number"
+				}
+			],
+			"ResponseCode": "0xc4",
+			"ResponseParameters": [
+				{
+					"Name": "SettingTemperature",
+					"Type": "number"
+				}
+			]
+		},
+		"SetOutGoingModeControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x45",
+			"RequestParameters": [
+				{
+					"Name": "Outgoing",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc5",
+			"ResponseParameters": [
+				{
+					"Name": "Outgoing",
+					"Type": "boolean"
+				}
+			]
+		}
+	},
+	"PowerGate": {
+		"IndividualControl": {
+			"Target": ["individual"],
+			"RequestCode": "0x41",
+			"RequestParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc1",
+			"ResponseParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			]
+		},
+		"AllControl": {
+			"Target": ["group", "all"],
+			"RequestCode": "0x42",
+			"RequestParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			],
+			"ResponseCode": "0xc2",
+			"ResponseParameters": [
+				{
+					"Name": "Power",
+					"Type": "boolean"
+				}
+			]
+		}
+	},
+	"Phone": {
+		"Call": {
+			"Target": ["individual"],
+			"RequestCode": "0x42",
+			"RequestParameters": [
+				{
+					"Name": "CallTo",
+					"Type": "string"
+				}
+			],
+			"ResponseCode": "0xc2",
+			"ResponseParameters": [
+			]
+		}
+	}
+}

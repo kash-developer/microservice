@@ -1,0 +1,58 @@
+{
+	"individual": [
+		{
+			"CommandType": "HeatingControl",
+			"Parameters":[
+				{
+					"Name": "Heating",
+					"Type": "boolean",
+					"Value": true
+				}
+			]
+		},
+		{
+			"CommandType": "HeatingControl",
+			"Parameters":[
+				{
+					"Name": "Heating",
+					"Type": "boolean",
+					"Value": false
+				}
+			]
+		},
+		{
+			"CommandType": "SetTemperatureControl",
+			"Parameters":[
+				{
+					"Name": "SettingTemperature",
+					"Type": "number",
+					"Value": 25
+				}
+			]
+		},
+		{
+			"CommandType": "SetOutGoingModeControl",
+			"Parameters":[
+				{
+					"Name": "Outgoing",
+					"Type": "boolean",
+					"Value": true
+				}
+			]
+		},
+		{
+			"CommandType": "SetOutGoingModeControl",
+			"Parameters":[
+				{
+					"Name": "Outgoing",
+					"Type": "boolean",
+					"Value": false
+				}
+			]
+		},
+	],
+	"group": [
+	],
+	"all": [
+	]
+}

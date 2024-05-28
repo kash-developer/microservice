@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{8CA90959-5024-4107-A0A1-C822C9A1A149}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>X4506Lib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(Solutiondir)\..\..\src;$(Solutiondir)\..\..\linux\include;$(Solutiondir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4005</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\boiler_device.cpp" />
+    <ClCompile Include="..\..\..\src\breaker_device.cpp" />
+    <ClCompile Include="..\..\..\src\controller_device.cpp" />
+    <ClCompile Include="..\..\..\src\curtain_device.cpp" />
+    <ClCompile Include="..\..\..\src\doorlock_device.cpp" />
+    <ClCompile Include="..\..\..\src\forwarder_lib.cpp" />
+    <ClCompile Include="..\..\..\src\gasvalve_device.cpp" />
+    <ClCompile Include="..\..\..\src\home_device_lib.cpp" />
+    <ClCompile Include="..\..\..\src\httpu_message.cpp" />
+    <ClCompile Include="..\..\..\src\httpu_server.cpp" />
+    <ClCompile Include="..\..\..\src\http_message.cpp" />
+    <ClCompile Include="..\..\..\src\http_request.cpp" />
+    <ClCompile Include="..\..\..\src\http_response.cpp" />
+    <ClCompile Include="..\..\..\src\http_server.cpp" />
+    <ClCompile Include="..\..\..\src\jsoncpp.cpp" />
+    <ClCompile Include="..\..\..\src\light_device.cpp" />
+    <ClCompile Include="..\..\..\src\phone_device.cpp" />
+    <ClCompile Include="..\..\..\src\powergate_device.cpp" />
+    <ClCompile Include="..\..\..\src\prevent_crime_ext_device.cpp" />
+    <ClCompile Include="..\..\..\src\remote_inspector_device.cpp" />
+    <ClCompile Include="..\..\..\src\serial_device.cpp" />
+    <ClCompile Include="..\..\..\src\system_aircon_device.cpp" />
+    <ClCompile Include="..\..\..\src\temperature_controller_device.cpp" />
+    <ClCompile Include="..\..\..\src\tools.cpp" />
+    <ClCompile Include="..\..\..\src\trace.cpp" />
+    <ClCompile Include="..\..\..\src\vantilator_device.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\boiler_device.h" />
+    <ClInclude Include="..\..\..\src\breaker_device.h" />
+    <ClInclude Include="..\..\..\src\controller_device.h" />
+    <ClInclude Include="..\..\..\src\curtain_device.h" />
+    <ClInclude Include="..\..\..\src\doorlock_device.h" />
+    <ClInclude Include="..\..\..\src\forwarder_lib.h" />
+    <ClInclude Include="..\..\..\src\gasvalve_device.h" />
+    <ClInclude Include="..\..\..\src\home_device_lib.h" />
+    <ClInclude Include="..\..\..\src\httpu_message.h" />
+    <ClInclude Include="..\..\..\src\httpu_server.h" />
+    <ClInclude Include="..\..\..\src\http_message.h" />
+    <ClInclude Include="..\..\..\src\http_request.h" />
+    <ClInclude Include="..\..\..\src\http_response.h" />
+    <ClInclude Include="..\..\..\src\http_server.h" />
+    <ClInclude Include="..\..\..\src\light_device.h" />
+    <ClInclude Include="..\..\..\src\phone_device.h" />
+    <ClInclude Include="..\..\..\src\powergate_device.h" />
+    <ClInclude Include="..\..\..\src\prevent_crime_ext_device.h" />
+    <ClInclude Include="..\..\..\src\remote_inspector_device.h" />
+    <ClInclude Include="..\..\..\src\serial_device.h" />
+    <ClInclude Include="..\..\..\src\system_aircon_device.h" />
+    <ClInclude Include="..\..\..\src\temperature_controller_device.h" />
+    <ClInclude Include="..\..\..\src\tools.h" />
+    <ClInclude Include="..\..\..\src\trace.h" />
+    <ClInclude Include="..\..\..\src\vantilator_device.h" />
+    <ClInclude Include="..\..\..\src\win_porting.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

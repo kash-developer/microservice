@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="/tabulator/dist/css/tabulator.min.css" rel="stylesheet">
+	<script type="text/javascript" src="/tabulator/dist/js/tabulator.min.js"></script>
+</head>
+
+<body onload="onload()">
+<h2 align="center"><div id="device-name"></div><br/></h1>
+	
+<table width="90%"><tr><td>
+	<div id="configuration-table-txt"></div>
+	<div id="configuration-table"></div><br/>
+</td></tr></table>
+
+<br/>
+<br/>
+<h3>Device Control</h3>
+<form>
+	<table width="90%">
+		<tr> <td width="30%">
+			Command: 
+			<select name="Command" id="combo-command" onchange="cmdSelected()"></select>
+		</td>
+		<td>
+			SubId: 
+			<select name="SubId" id="combo-subids"></select>
+		</td> </tr>
+	</table>
+
+	<table width="90%"><tr><td>
+		<div id="param-table"></div>
+	</td></tr></table>
+
+	<br/>
+	<input type="button" value="Send Command" onclick="sendCommand()"></input>
+	<input type="button" value="refresh Status" onclick="loadDeviceStatus()"></input>
+</form>
+<br/><br/>
+
+<br/><br/>
+<h3>Device Status</h3>
+
+<table width="90%"><tr><td>
+<div id="devices-table-0-txt"></div>
+<div id="devices-table-0"></div><br/>
+<div id="devices-table-1-txt"></div>
+<div id="devices-table-1"></div><br/>
+<div id="devices-table-2-txt"></div>
+<div id="devices-table-2"></div><br/>
+<div id="devices-table-3-txt"></div>
+<div id="devices-table-3"></div><br/>
+<div id="devices-table-4-txt"></div>
+<div id="devices-table-4"></div><br/>
+<div id="devices-table-5-txt"></div>
+<div id="devices-table-5"></div><br/>
+<div id="devices-table-6-txt"></div>
+<div id="devices-table-6"></div><br/>
+<div id="devices-table-7-txt"></div>
+<div id="devices-table-7"></div><br/>
+<div id="devices-table-8-txt"></div>
+<div id="devices-table-8"></div><br/>
+<div id="devices-table-9-txt"></div>
+<div id="devices-table-9"></div><br/>
+</td></tr></table>
+
+<h3>Device Characteristic</h3>
+<table width="90%"><tr><td>
+<div id="devices-table-charactoristic-txt"></div>
+<div id="devices-table-charactoristic"></div><br/>
+</td></tr></table>
+
+<script>
+//loadDeviceStatus();	
+//loadDeviceControls();
+
+var g_cmd_obj;
+var g_param_table;
+
+var g_device_id, g_device_id_num;
+var g_sub_device_id, g_sub_device_id_num;
+
+var g_device_name;
+
+function onload()
+{
+	var path, paths;
+	
+	path = window.location.pathname;
+	console.log("path: " + path);
+	paths = path.split('/');
+	console.log("paths: " + paths);
+	console.log("deviceid, sub_id: ", paths[4], paths[5]);
+	console.log("to 16: ", parseInt(paths[4], 16), parseInt(paths[5], 16));
+	
+	g_device_id = paths[4];
+	g_sub_device_id = paths[5];
+	if(g_sub_device_id == undefined){
+		g_sub_device_id = "";
+	}
+
+	g_device_id_num = parseInt(paths[4], 16);
+	g_sub_device_id_num = parseInt(paths[5], 16);
+	
+
+	switch(g_device_id_num){
+		case 0x02:
+			g_device_name = "System Air Conditioner";
+			break;
+		case 0x04:
+			g_device_name = "Microwave Oven";
+			break;
+		case 0x09:
+			g_device_name = "Dish Washer";
+			break;
+		case 0x0a:
+			g_device_name = "Drum Washer";
+			break;
+		case 0x0e:
+			g_device_name = "Light";
+			break;
+		case 0x12:
+			g_device_name = "Gas Valve";
+			break;
+		case 0x13:
+			g_device_name = "Curtain";
+			break;
+		case 0x30:
+			g_device_name = "Remote Inspector";
+			break;
+		case 0x31:
+			g_device_name = "Door Lock";
+			break;
+		case 0x32:
+			g_device_name = "Vantilator";
+			break;
+		case 0x33:
+			g_device_name = "Breaker";
+			break;
+		case 0x34:
+			g_device_name = "Prevent Crime EXT.";
+			break;
+		case 0x35:
+			g_device_name = "Boiler";
+			break;
+		case 0x36:
+			g_device_name = "Temperature Controller";
+			break;
+		case 0x37:
+			g_device_name = "Zigbee";
+			break;
+		case 0x38:
+			g_device_name = "Power Meter";
+			break;
+		case 0x39:
+			g_device_name = "Power Gate";
+			break;
+		case 0xea:
+			g_device_name = "Phone";
+			break;
+		default:
+			g_device_name = "Unknown: " + g_device_id;
+			break;
+	}
+	console.log("device name: ", g_device_name);
+
+	
+	div = document.getElementById("device-name");
+	div.innerHTML = g_device_name;
+
+	loadDeviceStatus();	
+	loadDeviceControls();
+
+}
+
+function int2hex_str(val)
+{
+	var str_hex;
+	
+	str_hex = val.toString(16);
+	str_hex.length % 2 ? str_hex = "0" + str_hex : str_hex;
+	
+	str_hex = "0x" + str_hex;
+	return str_hex;
+}
+
+function loadDeviceControls()
+{
+	var url;
+	var body;
+	var http = new XMLHttpRequest();
+	var result;
+	
+	url = "/smarthome/v1/cmdInfo/" + g_device_id + "/" + g_sub_device_id;
+	
+	http.open("GET", url, false);
+	http.send(null);
+
+	result = http.responseText;
+	
+	console.log(result)
+	drawControlTables(result);
+}
+
+function loadDeviceStatus()
+{
+	var url;
+	var body;
+	var http = new XMLHttpRequest();
+	var result;
+	var json_conf, json_char, json_status;
+
+	//characteristic
+	url = "/smarthome/v1/characteristic/" + g_device_id + "/" + g_sub_device_id;
+	
+	http.open("GET", url, false);
+	http.send(null);
+
+	result = http.responseText;
+	console.log("result: ", result);
+	json_char = JSON.parse(result);
+	console.log(result)
+	
+	//status
+	url = "/smarthome/v1/status/" + g_device_id + "/" + g_sub_device_id;
+	
+	http.open("GET", url, false);
+	http.send(null);
+
+	result = http.responseText;
+	json_status = JSON.parse(result);
+	console.log(result)
+	
+	//drawConfigurationTable(json_conf);
+	drawCharacteristicTable(json_char);
+	drawStatusTables(json_status);
+}
+
+function sendCommand()
+{
+	var params = [];
+	var command = Object(), control = Object();
+	var param = Object();
+	var cmd_sel = document.getElementById("combo-command");
+	var sub_ids_sel = document.getElementById("combo-subids");
+	var int_sub_id;
+
+	var url;
+	var body = new Object()
+	var http = new XMLHttpRequest();
+	var json_status;
+	
+	var rows = g_param_table.getRows();
+
+	params = [];
+	for(var i=0; i<rows.length; i++){
+		param = {};
+		param['Name'] = rows[i].getData().parameter;
+		param['Type'] = rows[i].getData().datatype;
+		
+		console.log("set param: ", i, param['Name']);
+		if(rows[i].getData().datatype == "integer"){
+			param['Value'] = parseInt(rows[i].getData().value);
+		}
+		else if(rows[i].getData().datatype == "number"){
+			param['Value'] = parseFloat(rows[i].getData().value);
+		}
+		else if(rows[i].getData().datatype == "boolean"){
+			if(rows[i].getData().value == "false"){
+				param['Value'] = false;
+			}
+			else if(parseInt(rows[i].getData().value) == 0){
+				param['Value'] = false;
+			}
+			else{
+				param['Value'] = true;
+			}
+		}
+		else if(rows[i].getData().datatype == "integerarray"){
+			var arr = rows[i].getData().value.split(',').map(function(item) {
+				return parseInt(item, 10);
+			});
+			if(arr.length < rows[i].getData().arraysize){
+				for(var j=arr.length; j<rows[i].getData().arraysize; j++){
+					arr.push(0);
+				}
+			}
+			if(arr.length > rows[i].getData().arraysize){
+				arr = arr.slice(0, rows[i].getData().arraysize);
+			}
+			param['Value'] = arr;
+		}
+		else if(rows[i].getData().datatype == "booleanarray"){
+			var arr = rows[i].getData().value.split(',').map(function(item) {
+				if(item == "false"){
+					return false;
+				}
+				else if(parseInt(item) == 0){
+					return false;
+				}
+				else{
+					return true;
+				}
+			});
+			if(arr.length < rows[i].getData().arraysize){
+				for(var j=arr.length; j<rows[i].getData().arraysize; j++){
+					arr.push(false);
+				}
+			}
+			if(arr.length > rows[i].getData().arraysize){
+				arr = arr.slice(0, rows[i].getData().arraysize);
+			}
+			param['Value'] = arr;
+		}
+		else{
+			param['Value'] = rows[i].getData().value;
+		}
+		params.push(param);
+		console.log("params: ", params);
+	}
+
+	int_sub_id = parseInt(sub_ids_sel.value, 16);
+	
+	control["CommandType"] = cmd_sel.value;
+	control["Parameters"] = params;
+	
+	console.log("int sub id: ", int_sub_id, int_sub_id & 0x0f)
+	if((int_sub_id & 0x0f) == 0x0f){
+		console.log("it's group")
+		var sub_device = Object(), sub_devices = [];
+		
+		sub_device["SubDeviceID"] = sub_ids_sel.value;
+		sub_device["Control"] = [];
+		sub_device["Control"].push(control);
+		command["SubDeviceList"] = []
+		command["SubDeviceList"].push(sub_device);
+	}
+	else{
+		console.log("it's subdevice")
+		command = Object();
+		command["Control"] = [];
+		command["Control"].push(control);		
+	}
+	
+	url = "/smarthome/v1/control/" + g_device_id + "/" + sub_ids_sel.value;
+	console.log("path: ", url)
+	console.log("command: ", command)
+
+	http.open("POST", url, false);
+	http.send(JSON.stringify(command));
+
+	if(http.status != 200){
+		alert("controlling the device failed.")
+		return -1;
+	}
+
+	result = http.responseText;
+	console.log("control response\n", result);
+	
+	url = "/smarthome/v1/status/" + g_device_id + "/" + g_sub_device_id;
+	
+	http.open("GET", url, false);
+	http.send(null);
+
+	result = http.responseText;
+	json_status = JSON.parse(result);
+
+	drawStatusTables(json_status);
+}
+
+function cmdSelected()
+{
+	var controlls, control, sub_dis, params;
+	var cmd_sel = document.getElementById("combo-command");
+	var sub_ids_sel = document.getElementById("combo-subids");
+
+	controlls = g_cmd_obj["CommandInformation"];
+	control = controlls[cmd_sel.selectedIndex];
+	sub_ids = control["SubDeviceIDs"];
+
+	sub_ids_sel.innerHTML = "";
+	for(var i=0; i<sub_ids.length; i++){
+		var opt = "<option>0x" + sub_ids[i].toString(16).padStart(2, "0") + "</option>"
+		sub_ids_sel.innerHTML += opt;
+	}
+	sub_ids_sel.selectedIndex = 0;
+
+
+	var tabledata;
+	var tablecolumns;
+	var tabledatarow;
+
+	tablecolumns = [
+		{title: "Index", field: "idx", width:"10%"},
+		{title: "Parameter", field: "parameter", width:"20%"},
+		{title: "Value", field: "value", width:"40%", editor:true},
+		{title: "Type", field: "datatype", width:"20%"},
+		{title: "ArraySize", field: "arraysize", width:"10%"}
+	];
+
+	params = control["Parameters"];
+	tabledata = [];
+	for(var i=0; i<params.length; i++){
+		tabledatarow = {idx: i, parameter: params[i]['Name'], value: 0, datatype: params[i]['Type'], arraysize: params[i]['ArraySize']}
+		tabledata.push(tabledatarow)
+	}
+	g_param_table = new Tabulator("#param-table", {
+		data:tabledata, //set initial table data
+		columns:tablecolumns,
+	});
+}
+
+function drawControlTables(json_entries)
+{
+	var controlls, control;
+	g_cmd_obj = JSON.parse(json_entries);
+	var cmd_sel = document.getElementById("combo-command");
+
+	cmd_sel.innerHTML = "";
+	controlls = g_cmd_obj["CommandInformation"];
+	
+	if(controlls == null){
+		return;
+	}
+	
+	for(var i=0; i<controlls.length; i++){
+		control = controlls[i];
+		var opt = "<option>" + control["CommandType"] + "</option>"
+		cmd_sel.innerHTML += opt;
+	}
+
+	cmd_sel.selectedIndex = 0;
+	cmdSelected();
+}
+
+function drawConfigurationTable(json_conf)
+{
+	var div;
+	var table;
+	var tabledata;
+	var tablecolumns, tabledatarow;
+	var table_id;
+
+	var str_hex, sub_id;
+	var confs, conf;
+	
+	tablecolumns = [
+		{title: "Status", field: "status", width:"40%"},
+		{title: "Value", field: "value", width:"40%", editor:true},
+		{title: "Attrubute", field: "attr", width:"20%"}
+	]
+
+	//configuration
+	confs = json_conf['Configuration']
+	for(var i=0; i<confs.length; i++){
+		conf = confs[i];
+		
+		/*
+		if(conf['Name'].localeCompare("DeviceID") == 0){
+			g_device_id = conf['Value'];
+		}
+		*/
+		if(conf['Name'] === "DeviceName"){
+			g_device_name = conf['Value'];
+		}
+	}
+	console.log("name: ", g_device_id, g_device_name);
+	
+	div = document.getElementById("device-name");
+	div.innerHTML = g_device_name;
+
+	div = document.getElementById("configuration-table-txt");
+	div.innerHTML = "Configuration";
+
+	tabledata = [];
+	for(var i=0; i<confs.length; i++){
+		conf = confs[i];
+		
+		key = conf['Name'];
+		if(typeof conf['Value'] == "number"){
+			str_hex = int2hex_str(conf['Value']);
+			val = str_hex + " (" + conf['Value'].toString(10) + ")";
+		}
+		else{
+			val = conf['Value'];
+		}
+		tabledatarow = {status: key, value: val, attr:""};
+		tabledata.push(tabledatarow);
+	}
+
+	table = new Tabulator("#configuration-table", {
+		data:tabledata, //set initial table data
+		columns:tablecolumns,
+	});
+	
+	return;
+}
+
+function drawCharacteristicTable(json_char)
+{
+	var div;
+	var table;
+	var tabledata;
+	var tablecolumns, tabledatarow;
+	var table_id;
+
+	var str_hex, sub_id;
+	var dev_chars, dev_char, char_name, char_type, char_value;
+
+	tablecolumns = [
+		{title: "Characteristic", field: "status", width:"40%"},
+		{title: "Value", field: "value", width:"40%", editor:true},
+		{title: "Type", field: "type", width:"20%"}
+	]
+
+	tabledata = [];
+
+	///dev_char = json_char['DeviceList'][0];
+	//subs_char = dev_char['SubDeviceList'];
+	dev_chars = json_char['SubDeviceList'];
+	if(dev_chars == undefined){
+		dev_chars = json_char['Characteristic'];
+	}
+	else{
+		dev_chars = json_char['SubDeviceList'][0]['Characteristic'];
+	}
+	console.log(dev_chars);
+	
+	for(var i=0; i<dev_chars.length; i++){
+		dev_char = dev_chars[i];
+
+		char_name = dev_char['Name'];
+		char_type = dev_char['Type'];
+		char_value = dev_char['Value'];
+
+		tabledatarow = {status: char_name, value: char_value, type: char_type}
+		tabledata.push(tabledatarow)
+	}
+	
+	table = new Tabulator(String("#devices-table-charactoristic"), {
+		data:tabledata, //set initial table data
+		columns:tablecolumns,
+	});
+
+	return;
+}
+
+function drawStatusTables(json_status)
+{
+	var div;
+
+	var table;
+	var tabledata;
+	var tablecolumns;
+	var tabledatarow;
+	var table_id;
+
+	var str_hex, sub_id;
+
+	var subs_status, sub_statuses, sub_status;
+	var status_name, status_value, status_type;
+
+	tablecolumns = [
+		{title: "Status", field: "status", width:"40%"},
+		{title: "Value", field: "value", width:"40%", editor:true},
+		{title: "Type", field: "type", width:"20%"}
+	]
+	
+	subs_status = json_status['SubDeviceList'];
+	console.log("subs: ", subs_status);
+	if(subs_status == undefined){
+		sub_statuses = json_status['Status'];
+			
+		console.log("	sub_chars: ", sub_statuses.length, sub_statuses);
+
+		tabledata = [];
+		for(var j=0; j<sub_statuses.length; j++){
+			status_name = sub_statuses[j]['Name'];
+			status_type = sub_statuses[j]['Type'];
+			status_value = sub_statuses[j]['Value'];
+			
+			tabledatarow = {status: status_name, value: status_value, type: status_type}
+			tabledata.push(tabledatarow)
+		}
+
+		table_id = "devices-table-0";
+		div = document.getElementById(String(table_id + "-txt"));
+		div.innerHTML = String(g_device_name + ": " + g_sub_device_id)
+
+		table = new Tabulator(String("#" + table_id), {
+			data:tabledata, //set initial table data
+			columns:tablecolumns,
+		});
+		table.sub_did = g_sub_device_id;
+	}
+	else{
+		for(var i=0; i<subs_status.length; i++){
+			tabledata = [];
+
+			sub_id = subs_status[i]['SubDeviceID'];
+			sub_statuses = subs_status[i]['Status'];
+				
+			console.log("	sub_status: ", sub_statuses.length, sub_statuses);
+
+			for(var j=0; j<sub_statuses.length; j++){
+				status_name = sub_statuses[j]['Name'];
+				status_type = sub_statuses[j]['Type'];
+				status_value = sub_statuses[j]['Value'];
+				
+				
+				tabledatarow = {status: status_name, value: status_value, type: status_type}
+				tabledata.push(tabledatarow)
+			}
+
+			table_id = String("devices-table-" + i)
+			div = document.getElementById(String(table_id + "-txt"));
+			div.innerHTML = String(g_device_name + ": " + sub_id)
+
+			table = new Tabulator(String("#" + table_id), {
+				data:tabledata, //set initial table data
+				columns:tablecolumns,
+			});
+			table.sub_did = sub_id;
+		}
+	}
+
+	return;
+}	
+
+
+</script>
+
+</body>
+
+</html>

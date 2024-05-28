@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="/tabulator/dist/css/tabulator.min.css" rel="stylesheet">
+	<script type="text/javascript" src="/tabulator/dist/js/tabulator.min.js"></script>
+</head>
+
+<body>
+<h2 align="center">Controller<br/></h1>
+
+<br/><br/>
+<h4>Device List</h4>
+<div id="devices-table" width=300></div>
+
+
+<script>
+
+loadDeviceStatus();	
+
+
+function int2hex_str(val)
+{
+	var str_hex;
+	
+	str_hex = val.toString(16);
+	str_hex.length % 2 ? str_hex = "0" + str_hex : str_hex;
+	
+	str_hex = "0x" + str_hex;
+	return str_hex;
+}
+
+function loadDeviceStatus()
+{
+	var url;
+	var body;
+	var http = new XMLHttpRequest();
+	var result;
+	var json_conf, json_dev_list;
+		
+	url = "./devicelist";
+	http.open("GET", url, false);
+	http.send(null);
+
+	result = http.responseText;
+	console.log(result)
+	json_dev_list = JSON.parse(result);
+	
+	drawDeviceListTable(json_dev_list);
+}
+
+function drawDeviceListTable(json_dev_list)
+{
+	var div;
+	var table;
+	var tabledata;
+	var tablecolumns, tabledatarow;
+	var table_id;
+
+	var str_hex, sub_id;
+	var device_list, device;
+	
+	tablecolumns = [
+		{title: "Device Name", field: "devname"},
+		{title: "Device ID", field: "devid"},
+		{title: "Device SubIDs", field: "devsubids"},
+		{title: "SubDevice Number", field: "devnumber"},
+		{title: "Type", field: "devtype"},
+		{title: "BaseUrl", field: "devbaseurl"}
+	]
+
+	//configuration
+	device_list = json_dev_list['DeviceList']
+
+	tabledata = [];
+	for(var i=0; i<device_list.length; i++){
+		device = device_list[i];
+
+		device_name = device["DeviceName"]
+		device_id = device["DeviceID"]
+		sub_ids = device["DeviceSubIDs"]
+		dev_num = sub_ids.length
+		device_type = device["Type"];
+		base_url = device["BaseUrl"];
+		
+		linkurl = "./ui/" + String(device_id)
+
+		tabledatarow = {devname:device_name, devid:device_id, devsubids:sub_ids, devnumber:dev_num, devtype: device_type, devbaseurl:base_url, linkurl: linkurl}
+		tabledata.push(tabledatarow)
+	}
+
+	table = new Tabulator("#devices-table", {
+		layout:"fitColumns",
+		autoResize:true,
+    	data:tabledata,
+    	columns:tablecolumns,
+		rowClick:function(e, row){
+			console.log("click: " + row.getData().linkurl)
+			window.open(row.getData().linkurl)
+		}
+	});
+	
+	return;
+
+
+
+
+
+	var table;
+	var tabledata;
+	var tablecolumns;
+	var printIcon = function(cell, formatterParams, onRendered){ //plain text value
+    		return "<i class='fa fa-print'></i>";
+	}
+	var tabledatarow;
+
+	devices = null;
+
+	device_id = json_doc['device_id'];
+	gid = json_doc['sub_gid']
+	did = json_doc['sub_did']
+
+	tablecolumns = [
+		{title: "Status", field: "status", width:"40%"},
+		{title: "Value", field: "value", width:"40%", editor:true},
+		{title: "Attrubute", field: "attr", width:"20%"}
+	]
+	tabledata = [];
+
+	devices = json_doc['devices']
+	configuration = json_doc['configuration']
+
+	for(key in configuration){
+		tabledatarow = {status: key, value: configuration[key], attr:""}
+		tabledata.push(tabledatarow)
+	}
+
+	table = new Tabulator("#status-table", {
+    data:tabledata, //set initial table data
+    columns:tablecolumns,
+	dataChanged:function(data){
+		console.log("changed: ", data);
+		data[0] = {status:1, value: 2, attr:3}
+	},
+	});
+
+
+	tablecolumns = [
+		{title: "Device Type", field: "dtype"},
+		{title: "SubID", field: "subid"}
+	]
+	tabledata = [];
+
+	if(devices != null){
+		for(var i=0; i<devices.length; i++){
+			device = devices[i];
+
+			device_id = device["device_id"]
+			gid = device["sub_gid"]
+			did = device["sub_did"]
+			device_name = device["type"]
+			sub_id = gid + did
+			input_url = "./device/" + String(device_id) + "/" + String(sub_id) + "/ui"
+
+			name = device_name + "_" + String(sub_id)
+			args = String(device_id) + ", " + String(sub_id)
+
+			tabledatarow = {dtype:device_name, subid:sub_id, url:input_url}
+			tabledata.push(tabledatarow)
+		}
+	}
+
+	table = new Tabulator("#devices-table", {
+		layout:"fitColumns",
+		autoResize:true,
+    	data:tabledata,
+    	columns:tablecolumns,
+		rowClick:function(e, row){
+			console.log("click: " + row.getData().url)
+			window.open(row.getData().url)
+		}
+	});
+}	
+
+
+</script>
+
+</body>
+
+</html>

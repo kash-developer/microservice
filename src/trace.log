@@ -1,0 +1,481 @@
+Start---------------------<23:36:54> [home_device.cpp:214:main()] type: forwarder
+<23:36:54> [home_device.cpp:216:main()] check: systemAircon
+<23:36:54> [home_device.cpp:230:main()] 1
+<23:36:54> [home_device.cpp:237:main()] 2
+<23:36:54> [serial_device.cpp:50:init()] set receiving port: 19999
+<23:36:54> [serial_device.cpp:119:init()] my sock port: 45352
+<23:36:54> [serial_device.cpp:50:init()] set receiving port: 17777
+<23:36:54> [serial_device.cpp:119:init()] my sock port: 34902
+<23:36:54> [home_device.cpp:243:main()] 3
+<23:36:54> [serial_device.cpp:290:runReadThread_multicast()] multicast receiver thread start.
+<23:36:54> [serial_device.cpp:290:runReadThread_multicast()] multicast receiver thread start.
+<23:36:54> [home_device.cpp:249:main()] 4
+<23:36:54> [home_device.cpp:214:main()] type: light
+<23:36:54> [home_device.cpp:216:main()] check: light
+<23:36:54> [home_device.cpp:216:main()] check: light
+<23:36:54> [home_device.cpp:216:main()] check: light
+<23:36:54> [home_device.cpp:216:main()] check: light
+<23:36:54> [light_device.cpp:22:init()] in lihght init.
+<23:36:54> [home_device_lib.cpp:127:init()] http: 28881
+<23:36:54> [serial_device.cpp:50:init()] set receiving port: 17777
+<23:36:54> [serial_device.cpp:119:init()] my sock port: 50990
+<23:36:54> [serial_device.cpp:290:runReadThread_multicast()] multicast receiver thread start.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [home_device.cpp:214:main()] type: gasValve
+<23:36:54> [home_device.cpp:216:main()] check: gasValve
+<23:36:54> [home_device.cpp:216:main()] check: gasValve
+<23:36:54> [home_device.cpp:216:main()] check: gasValve
+<23:36:54> [home_device.cpp:216:main()] check: gasValve
+<23:36:54> [home_device.cpp:216:main()] check: gasValve
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:300:runClosingSocketThread()] ClosingSocketThread started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [gasvalve_device.cpp:19:init()] in gas valve init.
+<23:36:54> [home_device_lib.cpp:127:init()] http: 28884
+<23:36:54> [serial_device.cpp:50:init()] set receiving port: 17777
+<23:36:54> [serial_device.cpp:119:init()] my sock port: 54960
+<23:36:54> [serial_device.cpp:290:runReadThread_multicast()] multicast receiver thread start.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:300:runClosingSocketThread()] ClosingSocketThread started.
+<23:36:54> [home_device.cpp:214:main()] type: controller
+<23:36:54> [home_device.cpp:216:main()] check: curtain
+<23:36:54> [home_device.cpp:216:main()] check: curtain
+<23:36:54> [controller_device.cpp:35:init()] in controller init.
+<23:36:54> [home_device_lib.cpp:127:init()] http: 28880
+<23:36:54> [serial_device.cpp:50:init()] set receiving port: 17777
+<23:36:54> [serial_device.cpp:119:init()] my sock port: 45347
+<23:36:54> [controller_device.cpp:80:init()] add device: light, 14, 1, 1
+<23:36:54> [controller_device.cpp:55:init()] it is not json object: device2
+<23:36:54> [controller_device.cpp:80:init()] add device: doorlock, 49, 0, 2
+<23:36:54> [controller_device.cpp:80:init()] add device: vantilator, 50, 0, 3
+<23:36:54> [controller_device.cpp:80:init()] add device: gasvalve, 18, 0, 4
+<23:36:54> [controller_device.cpp:80:init()] add device: curtain, 19, 0, 5
+<23:36:54> [controller_device.cpp:80:init()] add device: boiler, 53, 1, 1
+<23:36:54> [controller_device.cpp:80:init()] add device: temperaturecontrol, 54, 1, 1
+<23:36:54> [controller_device.cpp:80:init()] add device: breaker, 51, 0, 1
+<23:36:54> [controller_device.cpp:80:init()] add device: preventcrimeext, 52, 0, 1
+<23:36:54> [controller_device.cpp:80:init()] add device: systemaircon, 2, 1, 1
+<23:36:54> [controller_device.cpp:80:init()] add device: powergate, 57, 1, 1
+<23:36:54> [controller_device.cpp:80:init()] add device: remoteinspector, 48, 0, 1
+<23:36:54> [serial_device.cpp:290:runReadThread_multicast()] multicast receiver thread start.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:300:runClosingSocketThread()] ClosingSocketThread started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:36:54> [http_server.cpp:136:runServerThread()] HttpServer started.
+<23:37:19> [http_server.cpp:211:processClientThread()] received request----------------
+GET /ui HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:19> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /ui
+
+<23:37:19> [home_device_lib.cpp:250:recvHttpRequest()] get http request: GET, /ui
+
+<23:37:19> [tools.cpp:57:getFileString()] get file: ./web/devices/controller.html
+<23:37:19> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:19> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:19> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:19> [http_response.cpp:68:sendResponse()] Content-Type: text/html
+<23:37:19> [http_response.cpp:68:sendResponse()] Content-Length: 3766
+<23:37:19> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:19> [http_response.cpp:86:sendResponse()] end of sending response: 3851
+
+<23:37:19> [http_server.cpp:211:processClientThread()] received request----------------
+GET /tabulator/dist/css/tabulator.min.css HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: text/css,*/*;q=0.1
+Referer: http://192.168.0.34:28880/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:19> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /tabulator/dist/css/tabulator.min.css
+
+<23:37:19> [home_device_lib.cpp:250:recvHttpRequest()] get http request: GET, /tabulator/dist/css/tabulator.min.css
+
+<23:37:19> [tools.cpp:57:getFileString()] get file: ./web/tabulator/dist/css/tabulator.min.css
+<23:37:19> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:19> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:19> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:19> [http_response.cpp:68:sendResponse()] Content-Type: text/css
+<23:37:19> [http_response.cpp:68:sendResponse()] Content-Length: 22681
+<23:37:19> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:19> [http_response.cpp:86:sendResponse()] end of sending response: 22766
+
+<23:37:19> [http_server.cpp:211:processClientThread()] received request----------------
+GET /tabulator/dist/js/tabulator.min.js HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: */*
+Referer: http://192.168.0.34:28880/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:19> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /tabulator/dist/js/tabulator.min.js
+
+<23:37:19> [home_device_lib.cpp:250:recvHttpRequest()] get http request: GET, /tabulator/dist/js/tabulator.min.js
+
+<23:37:19> [tools.cpp:57:getFileString()] get file: ./web/tabulator/dist/js/tabulator.min.js
+<23:37:19> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:19> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:19> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:19> [http_response.cpp:68:sendResponse()] Content-Type: application/js
+<23:37:19> [http_response.cpp:68:sendResponse()] Content-Length: 360023
+<23:37:19> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:19> [http_response.cpp:86:sendResponse()] end of sending response: 360115
+
+<23:37:19> [http_server.cpp:211:processClientThread()] received request----------------
+GET /status HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: */*
+Referer: http://192.168.0.34:28880/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:19> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /status
+
+<23:37:19> [home_device_lib.cpp:250:recvHttpRequest()] get http request: GET, /status
+
+<23:37:19> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:19> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:19> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:19> [http_response.cpp:68:sendResponse()] Content-Type: application/json
+<23:37:19> [http_response.cpp:68:sendResponse()] Content-Length: 1265
+<23:37:19> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:19> [http_response.cpp:86:sendResponse()] end of sending response: 1357
+
+<23:37:19> [http_server.cpp:211:processClientThread()] received request----------------
+GET /favicon.ico HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Referer: http://192.168.0.34:28880/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:19> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /favicon.ico
+
+<23:37:19> [home_device_lib.cpp:250:recvHttpRequest()] get http request: GET, /favicon.ico
+
+<23:37:19> [tools.cpp:57:getFileString()] get file: ./web/favicon.ico
+<23:37:19> [tools.cpp:66:getFileString()] fileopen failed: ./web/favicon.ico
+<23:37:19> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:19> [http_response.cpp:59:sendResponse()] HTTP/1.1 404 Not Found
+<23:37:19> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:19> [http_response.cpp:68:sendResponse()] Content-Length: 0
+<23:37:19> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:19> [http_response.cpp:86:sendResponse()] end of sending response: 64
+
+<23:37:23> [http_server.cpp:211:processClientThread()] received request----------------
+GET /device/49/2/ui HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://192.168.0.34:28880/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:23> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /device/49/2/ui
+
+<23:37:23> [tools.cpp:57:getFileString()] get file: ./web/devices/ui.html
+<23:37:23> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:23> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:23> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:23> [http_response.cpp:68:sendResponse()] Content-Type: text/html
+<23:37:23> [http_response.cpp:68:sendResponse()] Content-Length: 7876
+<23:37:23> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:23> [http_response.cpp:86:sendResponse()] end of sending response: 7961
+
+<23:37:23> [http_server.cpp:211:processClientThread()] received request----------------
+GET /tabulator/dist/css/tabulator.min.css HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: text/css,*/*;q=0.1
+Referer: http://192.168.0.34:28880/device/49/2/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:23> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /tabulator/dist/css/tabulator.min.css
+
+<23:37:23> [home_device_lib.cpp:250:recvHttpRequest()] get http request: GET, /tabulator/dist/css/tabulator.min.css
+
+<23:37:23> [tools.cpp:57:getFileString()] get file: ./web/tabulator/dist/css/tabulator.min.css
+<23:37:23> [http_server.cpp:211:processClientThread()] received request----------------
+GET /tabulator/dist/js/tabulator.min.js HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: */*
+Referer: http://192.168.0.34:28880/device/49/2/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:23> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /tabulator/dist/js/tabulator.min.js
+
+<23:37:23> [home_device_lib.cpp:250:recvHttpRequest()] get http request: GET, /tabulator/dist/js/tabulator.min.js
+
+<23:37:23> [tools.cpp:57:getFileString()] get file: ./web/tabulator/dist/js/tabulator.min.js
+<23:37:23> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:23> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:23> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:23> [http_response.cpp:68:sendResponse()] Content-Type: text/css
+<23:37:23> [http_response.cpp:68:sendResponse()] Content-Length: 22681
+<23:37:23> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:23> [http_response.cpp:86:sendResponse()] end of sending response: 22766
+
+<23:37:23> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:23> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:23> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:23> [http_response.cpp:68:sendResponse()] Content-Type: application/js
+<23:37:23> [http_response.cpp:68:sendResponse()] Content-Length: 360023
+<23:37:23> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:23> [http_response.cpp:86:sendResponse()] end of sending response: 360115
+
+<23:37:23> [http_server.cpp:211:processClientThread()] received request----------------
+GET /device/49/2/status HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: */*
+Referer: http://192.168.0.34:28880/device/49/2/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:23> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /device/49/2/status
+
+<23:37:23> [serial_device.cpp:467:send_multicast()] sent: f7 31 02 01 00 c5 f0 
+<23:37:23> [serial_device.cpp:316:runReadThread_multicast()] received: 45347: f7 31 02 01 00 c5 f0 
+<23:37:23> [serial_device.cpp:312:runReadThread_multicast()] mine. skip
+<23:37:23> [serial_device.cpp:316:runReadThread_multicast()] received: 45347: f7 31 02 01 00 c5 f0 
+<23:37:23> [serial_device.cpp:316:runReadThread_multicast()] received: 45347: f7 31 02 01 00 c5 f0 
+<23:37:23> [gasvalve_device.cpp:163:processSerialCommand()] in process command...
+<23:37:23> [gasvalve_device.cpp:173:processSerialCommand()] invalid device id: 31
+<23:37:23> [light_device.cpp:219:processSerialCommand()] in process command...
+<23:37:23> [light_device.cpp:229:processSerialCommand()] invalid device id: 31
+<23:37:23> [serial_device.cpp:467:send_multicast()] sent: f7 31 02 01 00 c5 f0 
+<23:37:23> [serial_device.cpp:316:runReadThread_multicast()] received: 35317: f7 31 02 01 00 c5 f0 
+<23:37:23> [serial_device.cpp:316:runReadThread_multicast()] received: 40389: f7 31 02 01 00 c5 f0 
+<23:37:33> [controller_device.cpp:898:getDeviceStatus_doorLock()] get command response failed.
+<23:37:33> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:33> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:33> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:33> [http_response.cpp:68:sendResponse()] Content-Type: application/json
+<23:37:33> [http_response.cpp:68:sendResponse()] Content-Length: 96
+<23:37:33> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:33> [http_response.cpp:86:sendResponse()] end of sending response: 186
+
+<23:37:46> [http_server.cpp:211:processClientThread()] received request----------------
+GET /device/18/4/ui HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://192.168.0.34:28880/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:46> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /device/18/4/ui
+
+<23:37:46> [tools.cpp:57:getFileString()] get file: ./web/devices/ui.html
+<23:37:46> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:46> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:46> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:46> [http_response.cpp:68:sendResponse()] Content-Type: text/html
+<23:37:46> [http_response.cpp:68:sendResponse()] Content-Length: 7876
+<23:37:46> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:46> [http_response.cpp:86:sendResponse()] end of sending response: 7961
+
+<23:37:46> [http_server.cpp:211:processClientThread()] received request----------------
+GET /tabulator/dist/js/tabulator.min.js HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: */*
+Referer: http://192.168.0.34:28880/device/18/4/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:46> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /tabulator/dist/js/tabulator.min.js
+
+<23:37:46> [home_device_lib.cpp:250:recvHttpRequest()] get http request: GET, /tabulator/dist/js/tabulator.min.js
+
+<23:37:46> [tools.cpp:57:getFileString()] get file: ./web/tabulator/dist/js/tabulator.min.js
+<23:37:46> [http_server.cpp:211:processClientThread()] received request----------------
+GET /tabulator/dist/css/tabulator.min.css HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: text/css,*/*;q=0.1
+Referer: http://192.168.0.34:28880/device/18/4/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:46> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /tabulator/dist/css/tabulator.min.css
+
+<23:37:46> [home_device_lib.cpp:250:recvHttpRequest()] get http request: GET, /tabulator/dist/css/tabulator.min.css
+
+<23:37:46> [tools.cpp:57:getFileString()] get file: ./web/tabulator/dist/css/tabulator.min.css
+<23:37:46> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:46> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:46> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:46> [http_response.cpp:68:sendResponse()] Content-Type: text/css
+<23:37:46> [http_response.cpp:68:sendResponse()] Content-Length: 22681
+<23:37:46> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:46> [http_response.cpp:86:sendResponse()] end of sending response: 22766
+
+<23:37:46> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:46> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:46> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:46> [http_response.cpp:68:sendResponse()] Content-Type: application/js
+<23:37:46> [http_response.cpp:68:sendResponse()] Content-Length: 360023
+<23:37:46> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:46> [http_response.cpp:86:sendResponse()] end of sending response: 360115
+
+<23:37:46> [http_server.cpp:211:processClientThread()] received request----------------
+GET /device/18/4/status HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: */*
+Referer: http://192.168.0.34:28880/device/18/4/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:46> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /device/18/4/status
+
+<23:37:46> [serial_device.cpp:467:send_multicast()] sent: f7 12 04 01 00 e0 ee 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 45347: f7 12 04 01 00 e0 ee 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 45347: f7 12 04 01 00 e0 ee 
+<23:37:46> [serial_device.cpp:312:runReadThread_multicast()] mine. skip
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 45347: f7 12 04 01 00 e0 ee 
+<23:37:46> [gasvalve_device.cpp:163:processSerialCommand()] in process command...
+<23:37:46> [serial_device.cpp:467:send_multicast()] sent: f7 12 04 81 02 00 02 60 f2 
+<23:37:46> [serial_device.cpp:467:send_multicast()] sent: f7 12 04 01 00 e0 ee 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 54960: f7 12 04 81 02 00 02 60 f2 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 54960: f7 12 04 81 02 00 02 60 f2 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 54960: f7 12 04 81 02 00 02 60 f2 
+<23:37:46> [serial_device.cpp:312:runReadThread_multicast()] mine. skip
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 35317: f7 12 04 01 00 e0 ee 
+<23:37:46> [serial_device.cpp:467:send_multicast()] sent: f7 12 04 81 02 00 02 60 f2 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 35317: f7 12 04 81 02 00 02 60 f2 
+<23:37:46> [light_device.cpp:219:processSerialCommand()] in process command...
+<23:37:46> [light_device.cpp:229:processSerialCommand()] invalid device id: 12
+<23:37:46> [light_device.cpp:219:processSerialCommand()] in process command...
+<23:37:46> [light_device.cpp:229:processSerialCommand()] invalid device id: 12
+<23:37:46> [controller_device.cpp:143:processSerialCommand()] in process command...
+<23:37:46> [serial_device.cpp:467:send_multicast()] sent: f7 12 04 0f 00 ee 0a 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 45347: f7 12 04 0f 00 ee 0a 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 45347: f7 12 04 0f 00 ee 0a 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 45347: f7 12 04 0f 00 ee 0a 
+<23:37:46> [serial_device.cpp:312:runReadThread_multicast()] mine. skip
+<23:37:46> [gasvalve_device.cpp:163:processSerialCommand()] in process command...
+<23:37:46> [serial_device.cpp:467:send_multicast()] sent: f7 12 04 8f 02 00 02 6e 0e 
+<23:37:46> [light_device.cpp:219:processSerialCommand()] in process command...
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 54960: f7 12 04 8f 02 00 02 6e 0e 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 54960: f7 12 04 8f 02 00 02 6e 0e 
+<23:37:46> [serial_device.cpp:467:send_multicast()] sent: f7 12 04 0f 00 ee 0a 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 54960: f7 12 04 8f 02 00 02 6e 0e 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 35317: f7 12 04 0f 00 ee 0a 
+<23:37:46> [light_device.cpp:229:processSerialCommand()] invalid device id: 12
+<23:37:46> [light_device.cpp:219:processSerialCommand()] in process command...
+<23:37:46> [light_device.cpp:229:processSerialCommand()] invalid device id: 12
+<23:37:46> [serial_device.cpp:312:runReadThread_multicast()] mine. skip
+<23:37:46> [serial_device.cpp:467:send_multicast()] sent: f7 12 04 8f 02 00 02 6e 0e 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 35317: f7 12 04 8f 02 00 02 6e 0e 
+<23:37:46> [controller_device.cpp:143:processSerialCommand()] in process command...
+<23:37:46> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:46> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:46> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:46> [http_response.cpp:68:sendResponse()] Content-Type: application/json
+<23:37:46> [http_response.cpp:68:sendResponse()] Content-Length: 328
+<23:37:46> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:46> [http_response.cpp:86:sendResponse()] end of sending response: 419
+
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 40389: f7 12 04 01 00 e0 ee 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 40389: f7 12 04 81 02 00 02 60 f2 
+<23:37:46> [serial_device.cpp:316:runReadThread_multicast()] received: 40389: f7 12 04 0f 00 ee 0a 
+<23:37:46> [http_server.cpp:211:processClientThread()] received request----------------
+GET /device/18/4/cmdInfo HTTP/1.1
+Host: 192.168.0.34:28880
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36
+Accept: */*
+Referer: http://192.168.0.34:28880/device/18/4/ui
+Accept-Encoding: gzip, deflate
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Content-Length: 0
+
+
+<23:37:46> [controller_device.cpp:224:recvHttpRequest()] in controller, get http request: GET, /device/18/4/cmdInfo
+
+<23:37:46> [http_response.cpp:58:sendResponse()] send response........----...
+<23:37:46> [http_response.cpp:59:sendResponse()] HTTP/1.1 200 OK
+<23:37:46> [http_response.cpp:68:sendResponse()] Connection: close
+<23:37:46> [http_response.cpp:68:sendResponse()] Content-Type: application/json
+<23:37:46> [http_response.cpp:68:sendResponse()] Content-Length: 192
+<23:37:46> [http_response.cpp:70:sendResponse()] ---------------------------
+<23:37:46> [http_response.cpp:86:sendResponse()] end of sending response: 283
+

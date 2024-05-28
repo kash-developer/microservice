@@ -1,0 +1,16 @@
+{
+	"DebugLevel": 10,
+	"Http": {
+		"Port": 28888
+	},
+	"Device": {
+		"DeviceID": 51,
+		"SubDeviceIDs": [1, 2, 3, 4, 5, 6, 7, 8]
+	},
+	"Breaker": {
+		"Characteristics": {
+			"Version": 1,
+			"CompanyCode": 1
+		}
+	}
+}

@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">baresip</string>
+    <string name="app_name_plus" translatable="false">baresip+</string>
+    <!-- About Activity -->
+    <string name="about_title">About baresip</string>
+    <string name="about_title_plus">About baresip+</string>
+    <string name="about_text">
+        <![CDATA[
+        <h1>Baresip library based SIP User Agent</h1>
+        <p>Juha Heinanen <jh@tutpro.com></p>
+        <p>Version %1$s</p>
+        <h2>Usage Hints</h2>
+        <ul>
+            <li>Check that default values in baresip\'s Settings meet your needs
+                (touch item titles for help).</li>
+            <li>Then in Accounts, create one or more accounts (again touch item titles for help).</li>
+            <li>A new account can be partially configured automatically. See
+                <a href="https://github.com/juha-h/baresip-studio/wiki/Automatic-Account-Configuration">Wiki</a>
+                for more information.</li>
+            <li>Registration status of an account is shown with a colored dot: green (registration
+                succeeded), yellow (registration is in progress), red (registration failed), white (registration
+                has not been activated).</li>
+            <li>Touch on the dot leads directly to account configuration.</li>
+            <li>Swipe down gesture causes re-registration of the currently shown account.</li>
+            <li>Long touch on currently shown account enables or disables account\'s registration.</li>
+            <li>Swipe left/right gesture toggles between the accounts.</li>
+            <li>Icon at the top of the main screen toggles speakerphone.</li>
+            <li>Icons at the bottom of the main screen lead to voicemail (if Voicemail URI has been
+                configured for the account), contacts, messages, and call history, and allow toggling
+                between numeric and alphanumeric keyboard.</li>
+            <li>Previous call party can be reselect by touching the call icon when Callee is empty.</li>
+            <li>Peers of calls and messages can be added to contacts by long touches.</li>
+            <li>Long touches can also be used to remove calls, chats, messages, and contacts.</li>
+            <li>Touch/long touch of contact icon can be used to install/remove image avatar.</li>
+        </ul>
+        <h2>Privacy Policy</h2>
+            Privacy policy is available <a href="https://raw.githubusercontent.com/juha-h/baresip-studio/master/PrivacyPolicy.txt">here</a>.
+        <h2>Source code</h2>
+            Source code is available at <a href="https://github.com/juha-h/baresip-studio">GitHub</a>,
+            where also issues can be reported.
+        <h2>Licenses</h2>
+        <ul>
+            <li><b>BSD-3-Clause</b> except the following:</li>
+            <li><b>Apache 2.0</b> AMR codec, TLS security, and ZRTP
+            media encryption</li>
+            <li><b>LGPL 2.1</b> G.722 and G.726 codecs</li>
+            <li><b>GNU GPLv3</b> G.729 codec</li>
+        </ul>
+        ]]>
+    </string>
+    <string name="about_text_plus">
+        <![CDATA[
+        <h1>Baresip library based SIP User Agent with video calls</h1>
+        <p>Juha Heinanen &lt;jh@tutpro.com&gt;</p>
+        <p>Version %1$s</p>
+        <h2>Usage Hints</h2>
+        <ul>
+            <li>Check that default values in baresip+\'s Settings meet your needs
+                (touch item titles for help).</li>
+            <li>Then in Accounts, create one or more accounts (again touch item titles for help).</li>
+            <li>A new account can be partially configured automatically. See
+                <a href="https://github.com/juha-h/baresip-studio/wiki/Automatic-Account-Configuration">Wiki</a>
+                for more information.</li>
+            <li>Registration status of an account is shown with a colored dot: green (registration
+                succeeded), yellow (registration is in progress), red (registration failed), white (registration
+                has not been activated).</li>
+            <li>Touch on the dot leads directly to account configuration.</li>
+            <li>Swipe down gesture causes re-registration of the currently shown account.</li>
+            <li>Long touch on currently shown account enables or disables account\'s registration.</li>
+            <li>Swipe left/right gesture toggles between the accounts.</li>
+            <li>Icon at the top of the main screen toggles speakerphone.</li>
+            <li>Icons at the bottom of the main screen lead to voicemail (if Voicemail URI has been
+                configured for the account), contacts, messages, and call history, and allow toggling
+                between numeric and alphanumeric keyboard.</li>
+            <li>Previous call party can be reselect by touching the call icon when Callee is empty.</li>
+            <li>Peers of calls and messages can be added to contacts by long touches.</li>
+            <li>Long touches can also be used to remove calls, chats, messages, and contacts.</li>
+            <li>Touch/long touch of contact icon can be used to install/remove image avatar.</li>
+        </ul>
+        <h2>Known Issues</h2>
+        <ul>
+            <li>In video calls, the device needs to be held in landscape
+            mode rotated 90 degrees left from portrait orientation.</li>
+            <li>Selfview is not properly shown when video stream is sendonly.</li>
+        </ul>
+        <h2>Privacy Policy</h2>
+            Privacy policy is available <a href="https://raw.githubusercontent.com/juha-h/baresip-studio/video/PrivacyPolicy.txt">here</a>.
+        <h2>Source code</h2>
+        Source code is available at <a href="https://github.com/juha-h/baresip-studio">GitHub</a>,
+        where also issues can be reported.
+        <h2>Licenses</h2>
+        <ul>
+            <li><b>BSD-3-Clause</b> except the following:</li>
+            <li><b>Apache 2.0</b> AMR codec and TLS security</li>
+            <li><b>LGPL 2.1</b> G.722 and G.726 codecs</li>
+            <li><b>AGPLv4</b> ZRTP media encryption</li>
+            <li><b>GNU GPLv2</b> H.264 and H.265 codecs</li>
+            <li><b>GNU GPLv3</b> G.729 codec</li>
+            <li><b>AOMedia</b> AV1 codec</li>
+        </ul>
+        ]]>
+    </string>
+    <!-- Account Activity -->
+    <string name="account">Account</string>
+    <string name="account_nickname">Account Nickname</string>
+    <string name="account_nickname_help">Nickname (if any) used to identify this account within
+        baresip app.</string>
+    <string name="nickname">Nickname</string>
+    <string name="invalid_account_nickname">Invalid Account Nickname \'%1$s\'</string>
+    <string name="non_unique_account_nickname">Nickname \'%1$s\' already exists</string>
+    <string name="display_name">Display Name</string>
+    <string name="your_name">Your Name</string>
+    <string name="display_name_help">Name (if any) used in From URI of outbound requests.</string>
+    <string name="invalid_display_name">Invalid Display Name \'%1$s\'</string>
+    <string name="authentication_username">Authentication Username</string>
+    <string name="authentication_username_help">Authentication username
+    if authentication of SIP requests is required.  Default value is account\'s username.
+    </string>
+    <string name="invalid_authentication_username">Invalid Authentication Username \'%1$s\'</string>
+    <string name="authentication_password">Authentication Password</string>
+    <string name="authentication_password_help">Authentication
+    Password up to 64 characters. If Authentication Username is given, but Password is not
+    given, it will be asked when baresip is started.
+    </string>
+    <string name="invalid_authentication_password">Invalid Authentication Password \'%1$s\'</string>
+    <string name="outbound_proxies">Outbound Proxies</string>
+    <string name="outbound_proxies_help">SIP URI of one or two proxies that must be used when sending requests.
+        If two is given, REGISTER requests are sent to both and other requests are sent to
+        one that responds.  If no outbound proxy is given, requests are sent based on
+        DNS NAPTR/SRV/A record lookup of callee URI hostpart. If hostpart of SIP URI is an IPv6
+        address, the address must be written inside brackets [].
+\nExamples:
+\n • sip:example.com:5061;transport=tls
+\n • sip:[2001:67c:223:777::10];transport=tcp
+\n • sip:192.168.43.50:443;transport=wss
+    </string>
+    <string name="sip_uri_of_proxy_server">SIP URI of Proxy Server</string>
+    <string name="sip_uri_of_another_proxy_server">SIP URI of another Proxy Server</string>
+    <string name="invalid_proxy_server_uri">Invalid Proxy Server URI \'%1$s\'</string>
+    <string name="register">Register</string>
+    <string name="register_help">If checked, registration is enabled and REGISTER requests are sent
+        at the interval specified by Registration Interval.</string>
+    <string name="reg_int">Registration Interval</string>
+    <string name="reg_int_help">Tells how often (in seconds) baresip sends REGISTER requests.
+        Valid values are from 60 to 3600.</string>
+    <string name="invalid_reg_int">Invalid Registration Interval\'%1$s\'</string>
+    <string name="media_nat">Media NAT Traversal</string>
+    <string name="media_nat_help">Selects media NAT traversal protocol (if any).  Possible choices are STUN
+        (Session Traversal Utilities for NAT, RFC 5389) and ICE (Interactive Connectivity
+        Establishment, RFC 5245).
+    </string>
+    <string name="stun_server">STUN/TURN Server</string>
+    <string name="stun_server_help">A STUN/TURN Server URI of form scheme:host[:port][\?transport=udp|tcp],
+        where scheme is \'stun\', \'stuns\', \'turn\', or \'turns\'. Factory default STUN Server
+        for STUN and ICE protocols is \'stun:stun.l.google.com:19302\' pointing to public Google
+        STUN server. There is no factory default TURN server.
+    </string>
+    <string name="stun_server_uri">STUN/TURN Server URI</string>
+    <string name="invalid_stun_server">Invalid STUN/TURN Server URI \'%1$s\'</string>
+    <string name="stun_server_default" translatable="false">stun:stun.l.google.com:19302</string>
+    <string name="stun_username">STUN/TURN Username</string>
+    <string name="stun_username_help">Username if required by STUN/TURN server</string>
+    <string name="invalid_stun_username">Invalid Username \'%1$s\'</string>
+    <string name="stun_password">STUN/TURN Password</string>
+    <string name="stun_password_help">Password if required by STUN/TURN server</string>
+    <string name="invalid_stun_password">Invalid Password \'%1$s\'</string>
+    <string name="media_encryption">Media Encryption</string>
+    <string name="media_encryption_help">Selects media transport encryption protocol (if any).
+\n • ZRTP (recommended) means that ZRTP end-to-end media encryption negotiation is tried after
+            the call has been established.
+\n • DTLS-SRTPF means that UDP/TLS/RTP/SAVPF is offered in outgoing call and that RTP/SAVP,
+            RTP/SAVPF, UDP/TLS/RTP/SAVP, or UDP/TLS/RTP/SAVPF is used if offered in incoming call.
+\n • SRTP-MANDF means that RTP/SAVPF is offered in outgoing call and required in incoming call.
+\n • SRTP-MAND means that RTP/SAVP is offered in outgoing call and required in incoming call.
+\n • SRTP means that RTP/AVP is offered in outgoing call and that RTP/SAVP or RTP/SAVPF is used
+            if offered in incoming call.
+    </string>
+    <string name="prefer_ipv6_media">Prefer IPv6 Media</string>
+    <string name="prefer_ipv6_media_help">If checked, offer to use IPv6 media protocol (if available) when media protocol of peer cannot be automatically determined.</string>
+    <string name="rtcp_mux">RTCP Multiplexing</string>
+    <string name="rtcp_mux_help">If checked, RTP and RTCP packets are multiplexed on a single port (RFC 5761).</string>
+    <string name="dtmf_mode">DTMF Mode</string>
+    <string name="dtmf_mode_help">Selects how DTMF tones 0–9, #, *, and A-D are sent.</string>
+    <string name="dtmf_inband">In-band RTP Events</string>
+    <string name="dtmf_info">SIP INFO Requests</string>
+    <string name="answer_mode">Answer Mode</string>
+    <string name="answer_mode_help">Selects how incoming calls are answered.</string>
+    <string name="manual">Manual</string>
+    <string name="auto">Automatic</string>
+    <string name="voicemail_uri">Voicemail URI</string>
+    <string name="voicemain_uri_help">SIP URI for checking of voicemail messages. If left empty, voicemail
+        messages (Message Waiting Indications) are not subscribed to.
+    </string>
+    <string name="invalid_voicemail_uri">Invalid Voicemail URI \'%1$s\'</string>
+    <string name="country_code">Country Code</string>
+    <string name="country_code_help">E.164 country code of this account.  If From URI userpart of
+        incoming call or message contains a telephone number that does not start with \'+\' sign and if contact
+        lookup fails, the number is prefixed with this country code and contact lookup is
+        tried again. If the telephone number starts with a single digit \'0\', digit \'0\' is removed
+        before the number is prefixed.
+    </string>
+    <string name="country_code_hint">+code</string>
+    <string name="invalid_country_code">Invalid Country Code \'%1$s\'</string>
+    <string name="telephony_provider">Telephony Provider</string>
+    <string name="telephony_provider_help">SIP URI host part used in calls to telephone numbers.
+        Factory default is account\'s domain. If not given, this account cannot be used to call
+        telephone numbers.
+    </string>
+    <string name="telephony_provider_hint">SIP URI host part</string>
+    <string name="invalid_sip_uri_hostpart">Invalid SIP URI host part \'%1$s\'</string>
+    <string name="default_account">Default Account</string>
+    <string name="default_account_help">If checked, this account is selected when baresip is started.
+    </string>
+    <!-- Accounts Activity -->
+    <string name="accounts">Accounts</string>
+    <string name="new_account">New Account</string>
+    <string name="accounts_help">When a new account is created, account\'s port number and transport
+        protocol may be optionally given: &lt;user&gt;@&lt;domain&gt;[:&lt;port&gt;][;transport=udp|tcp|tls].
+        If &lt;port&gt; is given and transport protocol is not given, transport protocol defaults to udp.
+        If &lt;port&gt; is not given and transport protocol is given, &lt;port&gt; defaults to 5060 or 5061 (TLS).
+        If neither is given and no outbound proxy is specified, account\'s registrar (if any) is
+        determined solely based on domain\'s DNS information.
+    </string>
+    <string name="user_domain">user@domain</string>
+    <string name="invalid_aor">Invalid user@domain[:port][;transport=udp|tcp|tls] \'%1$s\'</string>
+    <string name="account_exists">Account \'%1$s\' already exists.</string>
+    <string name="account_allocation_failure">"Failed to allocate new account.</string>
+    <string name="encrypt_password">Encrypt Password</string>
+    <string name="decrypt_password">Decrypt Password</string>
+    <string name="delete_account">Do you want to delete account \'%1$s\'\?</string>
+    <!-- Baresip Service -->
+    <string name="answer">Answer</string>
+    <string name="reject">Reject</string>
+    <string name="incoming_call_from">Incoming call from</string>
+    <string name="missed_call_from">Missed call from</string>
+    <string name="missed_calls">Missed calls</string>
+    <string name="missed_calls_count">%1$d missed calls</string>
+    <string name="transfer_request_to">Call transfer request to</string>
+    <string name="message_from">Message from</string>
+    <!-- Boot Completed Receiver -->
+    <string name="tap_to_start">Tap to start application</string>
+    <!-- Calls Activity -->
+    <string name="call_history">Call History</string>
+    <string name="call_details">Call Details</string>
+    <string name="call">Call</string>
+    <string name="calls_calls">calls</string>
+    <string name="calls_call">call</string>
+    <string name="peer">Peer</string>
+    <string name="direction">Direction</string>
+    <string name="time">Time</string>
+    <string name="calls_duration">Duration</string>
+    <string name="calls_call_message_question">Do you want to call or send message to \'%1$s\'\?</string>
+    <string name="calls_add_delete_question">Do you want to add \'%1$s\' to contacts or delete
+        %2$s from call history\?
+    </string>
+    <string name="calls_delete_question">Do you want to delete \'%1$s\' %2$s from call history\?
+    </string>
+    <string name="delete_history">Delete</string>
+    <string name="disable_history">Disable</string>
+    <string name="enable_history">Enable</string>
+    <string name="delete_history_alert">Do you want to delete call history of account \'%1$s\'\?</string>
+    <!-- Chat Activity -->
+    <string name="chat">Chat Messages</string>
+    <string name="chat_with">Chat with %1$s</string>
+    <string name="new_message">New message</string>
+    <string name="long_message_question">Do you want to delete message or add peer \'%1$s\' to contacts\?</string>
+    <string name="short_message_question">Do you want to delete message\?</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="sending_failed">Sending of message failed</string>
+    <string name="message_failed">Failed</string>
+    <!-- Chats Activity -->
+    <string name="chats">Chat History</string>
+    <string name="today">Today</string>
+    <string name="you">You</string>
+    <string name="new_chat_peer">New Chat Peer</string>
+    <string name="invalid_chat_peer_uri">Invalid chat peer URI</string>
+    <string name="long_chat_question">Do you want to delete chat with peer \'%1$s\' or
+        add peer to contacts\?</string>
+    <string name="short_chat_question">Do you want to delete chat with \'%1$s\'\?</string>
+    <string name="delete_chats">Delete</string>
+    <string name="delete_chats_alert">Do you want to delete chat history of account \'%1$s\'\?</string>
+    <!-- Codecs Activity -->
+    <string name="audio_codecs">Audio Codecs</string>
+    <string name="audio_codecs_help">List of audio codecs in priority order. Drag to reorder,
+        swipe right to enable or disable.</string>
+    <string name="video_codecs">Video Codecs</string>
+    <string name="video_codecs_help">List of video codecs in priority order. Drag to reorder,
+        swipe right to enable or disable.</string>
+    <string name="codec_action">Reorder</string>
+    <!-- Config Activity -->
+    <string name="configuration">Settings</string>
+    <string name="start_automatically">Start Automatically</string>
+    <string name="start_automatically_help">If checked, baresip starts automatically after device (re)start.</string>
+    <string name="battery_optimizations">Battery Optimizations</string>
+    <string name="battery_optimizations_help">Disable battery optimizations (recommended) if you want
+        to reduce likelihood that Android restricts baresip\'s access to network or enters baresip
+        to standby state.</string>
+    <string name="listen_address">Listen Address</string>
+    <string name="listen_address_help">IP address and port of form \'address:port\' at which baresip listens
+        for incoming SIP requests.  If IP address is an IPv6 address, it must be written inside
+        brackets [].  IPv4 address 0.0.0.0 or IPv6 address [::] makes baresip listen at all
+        available addresses. If left empty (factory default), baresip listens at port 5060 of
+        all available addresses.
+    </string>
+    <string name="invalid_listen_address">Invalid Listen Address</string>
+    <string name="_0_0_0_0_5060" translatable="false">0.0.0.0:5060</string>
+    <string name="address_family">Address Family</string>
+    <string name="address_family_help">Chooses which IP addresses baresip is
+        using.  If IPv4 or IPv6 is chosen, baresip uses only IPv4 or IPv6 addresses.  If neither is
+        chosen, baresip uses both IPv4 and IPv6 addresses.
+    </string>
+    <string name="dns_servers">DNS Servers</string>
+    <string name="dns_servers_help">Comma separated list of addresses of DNS servers.  If not given,
+        DNS server addresses are obtained dynamically from the system. Each DNS address is of form
+        \'ip:port\' or \'ip\'. If port is omitted, it defaults to 53.  If ip is an IPv6 address and
+        also port is given, ip must
+        be written inside brackets [].  As an example, list \'8.8.8.8:53,[2001:4860:4860::8888]:53\'
+        points to IPv4 and IPv6 addresses of public Google DNS servers.</string>
+    <string name="invalid_dns_servers">Invalid DNS Servers</string>
+    <string name="failed_to_set_dns_servers">Failed to set DNS servers</string>
+    <string name="tls_certificate_file">TLS Certificate File</string>
+    <string name="tls_certificate_file_help">If checked, a file containing TLS certificate and
+        private key of this baresip instance has been or will be loaded. In Android versions 9 and
+        below, a file called \'cert.pem\' is loaded from Download folder. For security reasons,
+        delete the file after loading.</string>
+    <string name="verify_server">Verify Server Certificates</string>
+    <string name="verify_server_error">Server Certificates cannot be verified without
+        TLS CA file.</string>
+    <string name="verify_server_help">If checked, baresip verifies TLS certificates of SIP User
+        Agent and SIP Proxy Servers when TLS transport is used.  If checked, also TLS CA File has
+        to be loaded.</string>
+    <string name="tls_ca_file">TLS CA File</string>
+    <string name="tls_ca_file_help">If checked, a file containing TLS certificates
+        of needed Certificate Authorities has been or will be loaded. In Android versions 9 and
+        below, a file called \'ca_certs.crt\' is loaded from Download folder.</string>
+    <string name="audio">Audio</string>
+    <string name="audio_settings">Audio Settings</string>
+    <string name="audio_modules_title">Audio Modules</string>
+    <string name="audio_modules_help">Audio codecs provided by the checked modules are
+        available for use by the accounts.</string>
+    <string name="failed_to_load_module">Failed to load module.</string>
+    <string name="aec">Acoustic Echo Cancellation</string>
+    <string name="aec_help">If checked, echo cancellation is attempted on call audio.</string>
+    <string name="aec_extended_filter">AEC Extended Filter</string>
+    <string name="aec_extended_filter_help">If checked, echo cancellation is using extended filter.</string>
+    <string name="opus_bit_rate">Opus Bit Rate</string>
+    <string name="opus_bit_rate_help">Average maximum bit rate used by Opus audio stream.
+        Valid values are 6000-510000. Factory default is 28000.</string>
+    <string name="_28000" translatable="false">28000</string>
+    <string name="opus_packet_loss">Expected Opus packet-loss</string>
+    <string name="opus_packet_loss_help">Expected Opus audio stream packet loss percentage,
+        from 0–100. By default 0, turning off Opus Forward Error Correction (FEC).</string>
+    <string name="_0" translatable="false">0</string>
+    <string name="invalid_opus_bitrate">Invalid Opus bitrate</string>
+    <string name="invalid_opus_packet_loss">Invalid Opus Packet Loss Percentage</string>
+    <string name="audio_delay">Audio Delay</string>
+    <string name="audio_delay_help">Time (in milliseconds) to wait audio from callee when call is established.
+        Set to a higher value if you miss audio from callee at the beginning of the call.</string>
+    <string name="invalid_audio_delay">Invalid Audio Delay \'%1$s\'. Valid values are from 100 to 3000.</string>
+    <string name="default_call_volume">Default Call Volume</string>
+    <string name="default_call_volume_help">If set, default call audio volume at scale 1–10.</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="dark_theme_help">Force dark display theme</string>
+    <string name="video_size">Video Frame Size</string>
+    <string name="video_size_help">Size of transmitted video frames (width x height).
+        Factory default is 800x600.</string>
+    <string name="contacts_help">Chooses if baresip contacts, Android contacts, or both are used.
+        If both and contact with the same name exists in both, baresip contact is chosen.</string>
+    <string name="both">Both</string>
+    <string name="debug">Debug</string>
+    <string name="debug_help">If checked, provides debug and info level log messages to Logcat.</string>
+    <string name="sip_trace">SIP Trace</string>
+    <string name="sip_trace_help">If checked and if Debug is checked, Logcat messages include also SIP
+        request and response trace. Unchecked automatically at baresip start.</string>
+    <string name="reset_config">Reset to Factory Defaults</string>
+    <string name="reset_config_help">If checked, settings are reset to factory default values.</string>
+    <string name="reset_config_alert">Are you sure you want to reset settings to factory
+        default values\?</string>
+    <string name="reset">Reset</string>
+    <string name="read_cert_error">Failed to read file \'cert.pem\'.</string>
+    <string name="read_ca_certs_error">Failed to read file \'ca_certs.crt\'.</string>
+    <string name="config_restart">You need to restart baresip in order to activate the new
+        settings. Restart now\?
+    </string>
+    <string name="consent_request">Consent Request</string>
+    <string name="contacts_consent">If Android contacts is chosen, they can be used
+        in calling and messaging as references to SIP and tel URIs. baresip app does not store Android
+        contacts nor share them with anyone.  In order to make Android contacts available in baresip,
+        Google requires that you accept their use as described here and in app\'s
+        <a href="https://raw.githubusercontent.com/juha-h/baresip-studio/master/PrivacyPolicy.txt">Privacy Policy</a>.
+    </string>
+    <!-- Contact Activity -->
+    <string name="contact">Contact</string>
+    <string name="new_contact">New Contact</string>
+    <string name="contact_name">Name</string>
+    <string name="sip_or_tel_uri">SIP or tel URI</string>
+    <string name="user_domain_or_number">user@domain or telephone number</string>
+    <string name="invalid_contact">Invalid contact name \'%1$s\'</string>
+    <string name="contact_already_exists">Contact \'%1$s\' already exists.</string>
+    <string name="invalid_contact_uri">Invalid SIP URI</string>
+    <string name="android_contact_help">If checked, this contact is added to Android contacts.</string>
+    <string name="avatar_image">Profile image</string>
+    <!-- Contacts Activity -->
+    <string name="contacts">Contacts</string>
+    <string name="contact_action_question">Do you want to call or send message to \'%1$s\'\?</string>
+    <string name="send_message">Send Message</string>
+    <string name="contact_delete_question">Do you want to delete contact \'%1$s\'\?</string>
+    <string name="contacts_exceeded">Your maximum number of contacts %1$d has been exceeded.</string>
+    <!-- Generic -->
+    <string name="alert">Alert</string>
+    <string name="info">Info</string>
+    <string name="notice">Notice</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="accept">Accept</string>
+    <string name="deny">Deny</string>
+    <string name="user_id">User ID</string>
+    <string name="password">Password</string>
+    <string name="sip_uri" translatable="false">SIP URI</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="send">Send</string>
+    <string name="status">Status</string>
+    <string name="error">Error</string>
+    <string name="help">Help</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="anonymous">Anonymous</string>
+    <string name="unknown">Unknown</string>
+    <string name="dots" translatable="false">…</string>
+    <string name="bullet_item" translatable="false">\u2022 %1$s</string>
+    <string name="invalid_sip_or_tel_uri">Invalid SIP or tel URI \'%1$s\'</string>
+    <string name="baresip" translatable="false">baresip</string>
+    <string name="android" translatable="false">Android</string>
+
+    <!-- Main Activity -->
+    <string name="backup">Backup</string>
+    <string name="restore">Restore</string>
+    <string name="about">About</string>
+    <string name="restart">Restart</string>
+    <string name="quit">Quit</string>
+    <string name="outgoing_call_to_dots">Call to …</string>
+    <string name="incoming_call_from_dots">Call from …</string>
+    <string name="diverted_by_dots">Diverted by …</string>
+    <string name="transferring_call_to_dots">Transferring call to …</string>
+    <string name="invalid_sip_uri">Invalid SIP URI \'%1$s\'</string>
+    <string name="no_telephony_provider">Account \'%1$s\' has no Telephony Provider</string>
+    <string name="callee">Callee</string>
+    <string name="hangup">Hangup</string>
+    <string name="video_call">Video call</string>
+    <string name="video_request">Video Request</string>
+    <string name="allow_video">Accept sending and receiving video with \'%1$s\'\?</string>
+    <string name="allow_video_send">Accept sending of video to \'%1$s\'\?</string>
+    <string name="allow_video_recv">Accept receiving video from \'%1$s\'\?</string>
+    <string name="hold">Call Hold/Unhold</string>
+    <string name="call_is_on_hold">Call is on hold</string>
+    <string name="mic">Microphone On/Off</string>
+    <string name="rec_in_call">Recording can be turned on or off only when call is not
+        connected</string>
+    <string name="call_transfer">Call Transfer</string>
+    <string name="blind">Blind</string>
+    <string name="attended">Attended</string>
+    <string name="transfer_destination">Transfer destination</string>
+    <string name="choose_destination_uri">Choose destination URI</string>
+    <string name="transfer">Transfer</string>
+    <string name="transfer_failed">Transfer failed</string>
+    <string name="dtmf">DTMF</string>
+    <string name="call_info">Call Info</string>
+    <string name="call_info_not_available">No info available</string>
+    <string name="duration">Duration: %1$s (secs)</string>
+    <string name="codecs">Codecs</string>
+    <string name="rate">Current Rate: %1$s (Kbits/s)</string>
+    <string name="average_rate">Average Rate: %1$s (Kbits/s)</string>
+    <string name="packets">Packets</string>
+    <string name="lost">Lost</string>
+    <string name="jitter">Jitter: %1$s (ms)</string>
+    <string name="voicemail">Voicemail</string>
+    <string name="voicemail_messages">Voicemail Messages</string>
+    <string name="you_have">You have</string>
+    <string name="one_new_message">one new message</string>
+    <string name="new_messages">new messages</string>
+    <string name="one_old_message">one old message</string>
+    <string name="old_messages">old messages</string>
+    <string name="and">and</string>
+    <string name="no_messages">You have no messages</string>
+    <string name="listen">Listen</string>
+    <string name="messages">Messages</string>
+    <string name="dialpad">Dialpad</string>
+    <string name="call_already_active">You already have an active call.</string>
+    <string name="start_failed">Baresip failed to start. This may be due to an invalid Settings value.
+        Check Listen Address, TLS Certificate File, and TLS CA File.  Then restart baresip.
+    </string>
+    <string name="registering_failed">Registering of \`%1$s\` failed.</string>
+    <string name="verify">Verify Request</string>
+    <string name="verify_sas">Do you want to verify SAS &lt;%1$s&gt;\?</string>
+    <string name="transfer_request">Transfer Request</string>
+    <string name="transfer_request_query">Do you accept to transfer this call to \'%1$s\'\?</string>
+    <string name="call_failed">Call failed</string>
+    <string name="call_closed">Call is closed</string>
+    <string name="call_not_secure">This call is NOT secure!</string>
+    <string name="peer_not_verified">This call is SECURE, but peer is NOT verified!</string>
+    <string name="call_is_secure">This call is SECURE and peer is VERIFIED!
+        Do you want to unverify the peer\?
+    </string>
+    <string name="unverify">Unverify</string>
+    <string name="backed_up">Application data has been backed up to file \'%1$s\'. In Android
+        versions 9 and below, the file is in Download folder.</string>
+    <string name="backup_failed">Failed to back up application data to file
+        \'%1$s\'. Check Apps → baresip → Permissions → Storage.</string>
+    <string name="restart_request">Restart Request</string>
+    <string name="restored">Application data restored. baresip needs to be restarted.
+        Restart now\?
+    </string>
+    <string name="restore_failed">Failed to restore application data. Check that you gave correct
+        password and that the backup file is from this application. In Android versions 9 and below,
+        also check Apps → baresip → Permissions → Storage and that file \'%1$s\' exists
+        in Download folder.
+    </string>
+    <string name="no_notifications">You are not able to use this application without \"Notifications\"
+        permission.</string>
+    <string name="no_calls">baresip needs \"Microphone\" permission for voice calls.</string>
+    <string name="no_bluetooth">baresip is not able to detect Bluetooth connectivity without
+        \"Nearby devices\" permission.</string>
+    <string name="no_video_calls">Grant \"Camera\" permission to make or answer video calls.</string>
+    <string name="no_backup">You are not able create backup without \"Storage\" permission.</string>
+    <string name="no_restore">You are not able restore backup without \"Storage\" permission.</string>
+    <string name="no_android_contacts">You are not able to access Android contacts without
+        \"Contacts\" permission.</string>
+    <string name="no_cameras">You don\'t have any supported video cameras.</string>
+    <string name="show_password">Show Password</string>
+    <string name="no_network">No network connection!</string>
+    <string name="audio_focus_denied">Audio focus denied!</string>
+    <string name="permissions_rationale">Permissions rationale</string>
+    <string name="audio_permissions">baresip needs \"Microphone\" permission for voice calls,
+        \"Nearby devices\" permission for Bluetooth microphone/speaker detection, and
+        \"Notifications\" permission for posting notifications.</string>
+    <string name="audio_and_video_permissions">baresip+ needs \"Microphone\" permission for voice calls,
+        \"Camera\" permission for video calls, \"Nearby devices\" permission for Bluetooth
+        microphone/speaker detection, and \"Notifications\" permission for posting notifications.</string>
+</resources>

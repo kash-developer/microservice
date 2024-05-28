@@ -1,0 +1,48 @@
+{
+	"type": "object",
+	"properties": {
+		"DeviceList": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"DeviceID": {
+						"type": "string"
+					},
+					"SubDeviceList": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"SubDeviceID": {
+									"type": "string"
+								},
+								"Characteristic": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"Name": {
+												"type": "string"
+											},
+											"Type": {
+												"type": "string"
+											},
+											"Value": {
+												"type": [ "boolean", "integer", "string", "number", "array" ]
+											}
+										}
+									},
+									"required": [ "Name", "Type", "Value" ]
+								}
+							},
+							"required": [ "SubDeviceID", "Characteristic" ]
+						}
+					}
+				},
+				"required": [ "DeviceID", "SubDeviceList" ]
+			}
+		}
+	},
+	"required": [ "DeviceList" ]
+}

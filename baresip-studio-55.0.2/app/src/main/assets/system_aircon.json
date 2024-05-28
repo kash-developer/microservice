@@ -1,0 +1,19 @@
+{
+	"DebelLevel": 10,
+	"Http": {
+		"Port": 28890
+	},
+	"Device": {
+		"DeviceID": 2,
+		"SubDeviceIDs": [17, 18, 19, 20]
+	},
+	"SystemAircon": {
+		"Characteristic": {
+			"Version": 1,
+			"CompanyCode": 1,
+			"CoolingMaxTemperature": 30,
+			"CoolingMinTemperature": 18,
+			"DecimalPoint": true
+		}
+	}
+}

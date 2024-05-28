@@ -1,0 +1,32 @@
+Start---------------------<14:11:43:297> [homedevice.cpp:91:main()] 	set name: Forwarder
+<14:11:43:298> [homedevice.cpp:91:main()] 	set name: Controller
+<14:11:43:298> [homedevice.cpp:91:main()] 	set name: SystemAircon
+<14:11:43:298> [homedevice.cpp:91:main()] 	set name: Light
+<14:11:43:298> [homedevice.cpp:91:main()] 	set name: GasValve
+<14:11:43:298> [homedevice.cpp:91:main()] 	set name: Curtain
+<14:11:43:299> [homedevice.cpp:91:main()] 	set name: RemoteInspector
+<14:11:43:299> [homedevice.cpp:91:main()] 	set name: DoorLock
+<14:11:43:299> [homedevice.cpp:91:main()] 	set name: Vantilator
+<14:11:43:299> [homedevice.cpp:91:main()] 	set name: Breaker
+<14:11:43:299> [homedevice.cpp:91:main()] 	set name: PreventCrimeExt
+<14:11:43:300> [homedevice.cpp:91:main()] 	set name: Boiler
+<14:11:43:300> [homedevice.cpp:91:main()] 	set name: TemperatureController
+<14:11:43:300> [homedevice.cpp:91:main()] 	set name: PowerGate
+<14:11:43:300> [homedevice.cpp:91:main()] 	set name: Phone
+<14:11:43:317> [serial_device.cpp:243:SerialDevice::init()] 	open serial success: COM4, 9600
+<14:11:43:317> [httpu_server.cpp:288:HttpuServer::init()] 	create multicast socket
+<14:11:43:331> [httpu_server.cpp:54:HttpuServer::getMyAddrs()] 	myaddr: DONGHEE-GRAM
+<14:11:43:337> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.0.41
+<14:11:43:337> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.111.1
+<14:11:43:337> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.226.1
+<14:11:43:337> [httpu_server.cpp:74:HttpuServer::getMyAddrs()] 	addr is null: 3
+<14:11:43:339> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 580, 192.168.0.41, 224.0.1.2:17777
+<14:11:43:339> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.2 at 192.168.0.41
+<14:11:43:341> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 584, 192.168.111.1, 224.0.1.2:17777
+<14:11:43:341> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.2 at 192.168.111.1
+<14:11:43:342> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 588, 192.168.226.1, 224.0.1.2:17777
+<14:11:43:342> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.2 at 192.168.226.1
+<14:11:43:343> [httpu_server.cpp:308:HttpuServer::init()] 	socket(s) created: 3
+<14:11:43:346> [serial_device.cpp:449:SerialDevice::runReadThread_serial()] 	serial receiver thread start.
+<14:11:43:348> [httpu_server.cpp:354:HttpuServer::runServerThread()] 	HttpuServer started: 224.0.1.2 : 17777
+<14:11:58:115> [serial_device.cpp:462:SerialDevice::runReadThread_serial()] 	read serial port failed.

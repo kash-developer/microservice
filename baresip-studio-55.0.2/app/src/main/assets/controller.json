@@ -1,0 +1,78 @@
+{
+	"DebelLevel": 10,
+	"Http": {
+		"Port": 28880
+	},
+	"Device": {
+		"DeviceID": 232,
+		"SubDeviceIDs": [1]
+	},
+	"Controller": {
+		"Characteristics": {
+			"Version": 1,
+			"CompanyCode": 1
+		}
+	},	
+	
+	"Devices": ["aircon", "light", "gas", "curtain", "remote_inspector", "doorlock", "vantilator", "breaker", "prevent_crime_ext", "boiler", "temperature_controller", "power_gate"],
+	"light": {
+		"DeviceID": 14,
+		"id": "0x0e",
+		"SubDeviceIDs": [17, 18, 19, 20]
+	},
+	"doorlock": {
+		"DeviceID": 49,
+		"id": "0x31",
+		"SubDeviceIDs": [1]
+	},
+	"vantilator": {
+		"DeviceID": 50,
+		"id": "0x32",
+		"SubDeviceIDs": [1]
+	},
+	"gas": {
+		"DeviceID": 18,
+		"id": "0x12",
+		"SubDeviceIDs": [1]
+	},
+	"curtain": {
+		"DeviceID": 19,
+		"id": "0x13",
+		"SubDeviceIDs": [1]
+	},
+	"boiler": {
+		"DeviceID": 53,
+		"id": "0x35",
+		"SubDeviceIDs": [1]
+	},
+	"temperature_controller": {
+		"DeviceID": 54,
+		"id": "0x36",
+		"SubDeviceIDs": [17, 18, 19, 20]
+	},
+	"breaker": {
+		"DeviceID": 51,
+		"id": "0x33",
+		"SubDeviceIDs": [1, 2, 3, 4, 5, 6, 7, 8]
+	},
+	"prevent_crime_ext": {
+		"DeviceID": 52,
+		"id": "0x34",
+		"SubDeviceIDs": [1]
+	},
+	"remote_inspector": {
+		"DeviceID": 48,
+		"id": "0x30",
+		"SubDeviceIDs": [1, 2, 3, 4, 5]
+	},
+	"aircon": {
+		"DeviceID": 2,
+		"id": "0x02",
+		"SubDeviceIDs": [17, 18, 19, 20]
+	},
+	"power_gate": {
+		"DeviceID": 57,
+		"id": "0x39",
+		"SubDeviceIDs": [1, 2, 3, 4]
+	}
+}

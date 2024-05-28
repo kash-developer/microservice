@@ -1,0 +1,6 @@
+{
+	"Serial": {
+		"Port": "/dev/ttyUSB0",
+		"Speed": 9600
+	}
+}

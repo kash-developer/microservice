@@ -1,0 +1,20 @@
+{
+	"DebelLevel": 10,
+	"Http": {
+		"Port": 28887
+	},
+	"Device": {
+		"DeviceID": 54,
+		"SubDeviceIDs": [17, 18, 19, 20]
+	},
+	"TemperatureController": {
+		"Characteristics": {
+			"Version": 1,
+			"CompanyCode": 1,
+			"MaxTemperature": 30,
+			"MinTemperature": 18,
+			"DecimalPoint": true,
+			"OutgoingMode": true
+		}
+	}
+}

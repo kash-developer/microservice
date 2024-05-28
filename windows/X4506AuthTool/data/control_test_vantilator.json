@@ -1,0 +1,38 @@
+{
+	"individual": [
+		{
+			"CommandType": "PowerControl",
+			"Parameters":[
+				{
+					"Name": "Power",
+					"Type": "boolean",
+					"Value": true
+				}
+			]
+		},
+		{
+			"CommandType": "AirVolumeControl",
+			"Parameters":[
+				{
+					"Name": "AirVolume",
+					"Type": "integer",
+					"Value": 2
+				}
+			]
+		},
+		{
+			"CommandType": "PowerControl",
+			"Parameters":[
+				{
+					"Name": "Power",
+					"Type": "boolean",
+					"Value": false
+				}
+			]
+		}
+	],
+	"group": [
+	],
+	"all": [
+	]
+}
