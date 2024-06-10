@@ -3272,7 +3272,7 @@ Json::Value ControllerDevice::makeControlResponse(int device_id, int sub_id, Dev
 	}
 	else {
 		obj_statuses = Json::arrayValue;
-		obj_sub_device["SubDeviceID"] = sub_id;
+		obj_sub_device["SubDeviceID"] = int2hex_str(sub_id);
 		obj_sub_device["Status"] = obj_tmp["Status"];
 		obj_statuses.append(obj_sub_device);
 	}

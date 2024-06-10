@@ -216,7 +216,7 @@ void OpenApiTestBase::setDeviceId(int device_id, int device_sub_id, int virtual_
 	}
 
 	if (parseJson(test_filepath, &m_test_control_cmds, &err_str) == false) {
-		tracee("parse control info. failed: %s", err_str.c_str());
+		tracee("parse control info. failed: %s, %s", test_filepath.c_str(), err_str.c_str());
 		m_test_control_cmds = Json::Value();
 		m_test_control_cmds["individual"] = Json::Value();
 		m_test_control_cmds["group"] = Json::Value();
