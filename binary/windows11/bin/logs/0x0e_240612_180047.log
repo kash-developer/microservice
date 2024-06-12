@@ -1,0 +1,2597 @@
+[18:00:47] get the Information of sub devices---------
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/status/0x0e HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 597
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:47] Sub-Devices: 0x11, 0x12, 0x13, 0x14, 
+[18:00:47] Sub-Groups: 0x1f, 
+[18:00:47] end of getting the number of sub devices---------
+[18:00:47] Test Name: 1. 전체 명세 조회
+
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/characteristic HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 1546
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0x0e",
+			"SubDeviceList" : 
+			[
+				{
+					"Characteristic" : 
+					[
+						{
+							"Name" : "Version",
+							"Type" : "integer",
+							"Value" : 1
+						},
+						{
+							"Name" : "CompanyCode",
+							"Type" : "integer",
+							"Value" : 1
+						},
+						{
+							"Name" : "OnOffDeviceNumber",
+							"Type" : "integer",
+							"Value" : 4
+						}
+					],
+					"SubDeviceID" : "0x11"
+				},
+				{
+					"Characteristic" : 
+					[
+						{
+							"Name" : "Version",
+							"Type" : "integer",
+							"Value" : 1
+						},
+						{
+							"Name" : "CompanyCode",
+							"Type" : "integer",
+							"Value" : 1
+						},
+						{
+							"Name" : "OnOffDeviceNumber",
+							"Type" : "integer",
+							"Value" : 4
+						}
+					],
+					"SubDeviceID" : "0x12"
+				},
+				{
+					"Characteristic" : 
+					[
+						{
+							"Name" : "Version",
+							"Type" : "integer",
+							"Value" : 1
+						},
+						{
+							"Name" : "CompanyCode",
+							"Type" : "integer",
+							"Value" : 1
+						},
+						{
+							"Name" : "OnOffDeviceNumber",
+							"Type" : "integer",
+							"Value" : 4
+						}
+					],
+					"SubDeviceID" : "0x13"
+				},
+				{
+					"Characteristic" : 
+					[
+						{
+							"Name" : "Version",
+							"Type" : "integer",
+							"Value" : 1
+						},
+						{
+							"Name" : "CompanyCode",
+							"Type" : "integer",
+							"Value" : 1
+						},
+						{
+							"Name" : "OnOffDeviceNumber",
+							"Type" : "integer",
+							"Value" : 4
+						}
+					],
+					"SubDeviceID" : "0x14"
+				}
+			]
+		}
+	]
+}
+
+[18:00:47] validate characteristic success.
+[18:00:47] test success.
+[18:00:47] Test Name: 2. 장치 명세 조회
+
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/characteristic/0x0e HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 1317
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Characteristic" : 
+			[
+				{
+					"Name" : "Version",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "CompanyCode",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "OnOffDeviceNumber",
+					"Type" : "integer",
+					"Value" : 4
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Characteristic" : 
+			[
+				{
+					"Name" : "Version",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "CompanyCode",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "OnOffDeviceNumber",
+					"Type" : "integer",
+					"Value" : 4
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Characteristic" : 
+			[
+				{
+					"Name" : "Version",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "CompanyCode",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "OnOffDeviceNumber",
+					"Type" : "integer",
+					"Value" : 4
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Characteristic" : 
+			[
+				{
+					"Name" : "Version",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "CompanyCode",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "OnOffDeviceNumber",
+					"Type" : "integer",
+					"Value" : 4
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:47] validate characteristic success.
+[18:00:47] Test Name: 3. 그룹 명세 조회
+
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/characteristic/0x0e/0x1f HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 1317
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Characteristic" : 
+			[
+				{
+					"Name" : "Version",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "CompanyCode",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "OnOffDeviceNumber",
+					"Type" : "integer",
+					"Value" : 4
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Characteristic" : 
+			[
+				{
+					"Name" : "Version",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "CompanyCode",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "OnOffDeviceNumber",
+					"Type" : "integer",
+					"Value" : 4
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Characteristic" : 
+			[
+				{
+					"Name" : "Version",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "CompanyCode",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "OnOffDeviceNumber",
+					"Type" : "integer",
+					"Value" : 4
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Characteristic" : 
+			[
+				{
+					"Name" : "Version",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "CompanyCode",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "OnOffDeviceNumber",
+					"Type" : "integer",
+					"Value" : 4
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:47] validate characteristic success.
+[18:00:47] test success.
+[18:00:47] Test Name: 4. 개별 명세 조회
+
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/characteristic/0x0e/0x11 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 254
+
+{
+	"Characteristic" : 
+	[
+		{
+			"Name" : "Version",
+			"Type" : "integer",
+			"Value" : 1
+		},
+		{
+			"Name" : "CompanyCode",
+			"Type" : "integer",
+			"Value" : 1
+		},
+		{
+			"Name" : "OnOffDeviceNumber",
+			"Type" : "integer",
+			"Value" : 4
+		}
+	]
+}
+
+[18:00:47] validate characteristic success.
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/characteristic/0x0e/0x12 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 254
+
+{
+	"Characteristic" : 
+	[
+		{
+			"Name" : "Version",
+			"Type" : "integer",
+			"Value" : 1
+		},
+		{
+			"Name" : "CompanyCode",
+			"Type" : "integer",
+			"Value" : 1
+		},
+		{
+			"Name" : "OnOffDeviceNumber",
+			"Type" : "integer",
+			"Value" : 4
+		}
+	]
+}
+
+[18:00:47] validate characteristic success.
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/characteristic/0x0e/0x13 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 254
+
+{
+	"Characteristic" : 
+	[
+		{
+			"Name" : "Version",
+			"Type" : "integer",
+			"Value" : 1
+		},
+		{
+			"Name" : "CompanyCode",
+			"Type" : "integer",
+			"Value" : 1
+		},
+		{
+			"Name" : "OnOffDeviceNumber",
+			"Type" : "integer",
+			"Value" : 4
+		}
+	]
+}
+
+[18:00:47] validate characteristic success.
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/characteristic/0x0e/0x14 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 254
+
+{
+	"Characteristic" : 
+	[
+		{
+			"Name" : "Version",
+			"Type" : "integer",
+			"Value" : 1
+		},
+		{
+			"Name" : "CompanyCode",
+			"Type" : "integer",
+			"Value" : 1
+		},
+		{
+			"Name" : "OnOffDeviceNumber",
+			"Type" : "integer",
+			"Value" : 4
+		}
+	]
+}
+
+[18:00:47] validate characteristic success.
+[18:00:47] test success.
+[18:00:47] Test Name: 5. 전체 상태 조회
+
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/status HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 746
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0x0e",
+			"SubDeviceList" : 
+			[
+				{
+					"Status" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					],
+					"SubDeviceID" : "0x11"
+				},
+				{
+					"Status" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					],
+					"SubDeviceID" : "0x12"
+				},
+				{
+					"Status" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					],
+					"SubDeviceID" : "0x13"
+				},
+				{
+					"Status" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					],
+					"SubDeviceID" : "0x14"
+				}
+			]
+		}
+	]
+}
+
+[18:00:47] validate status success.
+[18:00:47] test success.
+[18:00:47] Test Name: 6. 장치 상태 조회
+
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/status/0x0e HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 597
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:47] validate status success.
+[18:00:47] test success.
+[18:00:47] Test Name: 7. 그룹 상태 조회
+
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/status/0x0e/0x1f HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 597
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:47] validate status success.
+[18:00:47] test success.
+[18:00:47] Test Name: 8. 개별 상태 조회
+
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/status/0x0e/0x11 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 94
+
+{
+	"Status" : 
+	[
+		{
+			"Name" : "Power",
+			"Type" : "boolean",
+			"Value" : false
+		}
+	]
+}
+
+[18:00:47] validate status success.
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/status/0x0e/0x12 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 94
+
+{
+	"Status" : 
+	[
+		{
+			"Name" : "Power",
+			"Type" : "boolean",
+			"Value" : false
+		}
+	]
+}
+
+[18:00:47] validate status success.
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/status/0x0e/0x13 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 94
+
+{
+	"Status" : 
+	[
+		{
+			"Name" : "Power",
+			"Type" : "boolean",
+			"Value" : false
+		}
+	]
+}
+
+[18:00:47] validate status success.
+[18:00:47] Send Request---------
+[18:00:47] GET /smarthome/v1/status/0x0e/0x14 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Length: 0
+
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 94
+
+{
+	"Status" : 
+	[
+		{
+			"Name" : "Power",
+			"Type" : "boolean",
+			"Value" : false
+		}
+	]
+}
+
+[18:00:47] validate status success.
+[18:00:47] test success.
+[18:00:47] Test Name: 9. 전체 제어
+
+[18:00:47] send individual control.
+[18:00:47] Send Request---------
+[18:00:47] POST /smarthome/v1/control HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 1190
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0x0e",
+			"SubDeviceList" : 
+			[
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "IndividualControl",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x11"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "IndividualControl",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x12"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "IndividualControl",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x13"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "IndividualControl",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x14"
+				}
+			]
+		}
+	]
+}
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 1138
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0x0e",
+			"SubDeviceList" : 
+			[
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc1",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x11"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc1",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x12"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc1",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x13"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc1",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x14"
+				}
+			]
+		}
+	]
+}
+
+[18:00:47] check all parameters OK.
+[18:00:47] validate control success.
+[18:00:47] Send Request---------
+[18:00:47] POST /smarthome/v1/control HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 1194
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0x0e",
+			"SubDeviceList" : 
+			[
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "IndividualControl",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x11"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "IndividualControl",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x12"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "IndividualControl",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x13"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "IndividualControl",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x14"
+				}
+			]
+		}
+	]
+}
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 1142
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0x0e",
+			"SubDeviceList" : 
+			[
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc1",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x11"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc1",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x12"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc1",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x13"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc1",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x14"
+				}
+			]
+		}
+	]
+}
+
+[18:00:47] check all parameters OK.
+[18:00:47] validate control success.
+[18:00:47] send group control.
+[18:00:47] Send Request---------
+[18:00:47] POST /smarthome/v1/control HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 360
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0x0e",
+			"SubDeviceList" : 
+			[
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "GroupControl",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x1f"
+				}
+			]
+		}
+	]
+}
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 1138
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0x0e",
+			"SubDeviceList" : 
+			[
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc2",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x11"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc2",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x12"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc2",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x13"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc2",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : true
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x14"
+				}
+			]
+		}
+	]
+}
+
+[18:00:47] check all parameters OK.
+[18:00:47] validate control success.
+[18:00:47] Send Request---------
+[18:00:47] POST /smarthome/v1/control HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 361
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0x0e",
+			"SubDeviceList" : 
+			[
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "GroupControl",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x1f"
+				}
+			]
+		}
+	]
+}
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 1142
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0x0e",
+			"SubDeviceList" : 
+			[
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc2",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x11"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc2",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x12"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc2",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x13"
+				},
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc2",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Power",
+									"Type" : "boolean",
+									"Value" : false
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x14"
+				}
+			]
+		}
+	]
+}
+
+[18:00:47] check all parameters OK.
+[18:00:47] validate control success.
+[18:00:47] send all control.
+[18:00:47] test success.
+[18:00:47] Test Name: 10. 장치 제어
+
+[18:00:47] send individual control.
+[18:00:47] Send Request---------
+[18:00:47] POST /smarthome/v1/control/0x0e HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 993
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "IndividualControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "IndividualControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "IndividualControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "IndividualControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:47] Received Response---------
+[18:00:47] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 941
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc1",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc1",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc1",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc1",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:47] check all parameters OK.
+[18:00:47] validate control success.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 997
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "IndividualControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "IndividualControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "IndividualControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "IndividualControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 945
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc1",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc1",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc1",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc1",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] send group control.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 265
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "GroupControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x1f"
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 941
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 266
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "GroupControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x1f"
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 945
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] send all control.
+[18:00:48] test success.
+[18:00:48] Test Name: 11. 그룹 제어
+
+[18:00:48] send group control.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e/0x1f HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 265
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "GroupControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x1f"
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 941
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : true
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e/0x1f HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 266
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "GroupControl",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x1f"
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 945
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x11"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x12"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x13"
+		},
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc2",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Power",
+							"Type" : "boolean",
+							"Value" : false
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x14"
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] test success.
+[18:00:48] Test Name: 12. 개별 제어
+
+[18:00:48] send individual control.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e/0x11 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 181
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "IndividualControl",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : true
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 168
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "0xc1",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : true
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e/0x12 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 181
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "IndividualControl",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : true
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 168
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "0xc1",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : true
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e/0x13 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 181
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "IndividualControl",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : true
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 168
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "0xc1",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : true
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e/0x14 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 181
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "IndividualControl",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : true
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 168
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "0xc1",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : true
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e/0x11 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 182
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "IndividualControl",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 169
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "0xc1",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e/0x12 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 182
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "IndividualControl",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 169
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "0xc1",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e/0x13 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 182
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "IndividualControl",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 169
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "0xc1",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] Send Request---------
+[18:00:48] POST /smarthome/v1/control/0x0e/0x14 HTTP/1.1
+Host: 127.0.0.1:28881
+Content-Type: appication/json
+Content-Length: 182
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "IndividualControl",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] Received Response---------
+[18:00:48] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 169
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "0xc1",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Power",
+					"Type" : "boolean",
+					"Value" : false
+				}
+			]
+		}
+	]
+}
+
+[18:00:48] check all parameters OK.
+[18:00:48] validate control success.
+[18:00:48] test success.

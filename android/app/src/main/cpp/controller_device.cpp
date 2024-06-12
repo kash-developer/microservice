@@ -3266,7 +3266,7 @@ Json::Value ControllerDevice::makeControlResponse(int device_id, int sub_id, Dev
 			return obj_ret;
 		}
 		obj_statuses = obj_tmp[0]["SubDeviceList"];
-	}
+	} 
 	else if (obj_tmp.isMember("SubDeviceList") == true) {
 		obj_statuses = obj_tmp["SubDeviceList"];
 	}

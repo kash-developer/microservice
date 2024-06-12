@@ -361,6 +361,7 @@ Json::Value HomeDevice::getStatus(std::string device_id, std::string sub_id)
 		}
 
 		ret["Status"] = sub_dev["Status"];
+		trace("status: \n%s", ret["Status"]);
 	}
 
 	return ret;

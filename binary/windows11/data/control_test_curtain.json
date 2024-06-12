@@ -1,0 +1,98 @@
+{
+	"individual": [
+		{
+			"CommandType": "IndividualControl",
+			"Parameters":[
+				{
+					"Name": "Operation",
+					"Type": "integer",
+					"Value": 0
+				}
+			]
+		},
+		{
+			"CommandType": "IndividualControl",
+			"Parameters":[
+				{
+					"Name": "Operation",
+					"Type": "integer",
+					"Value": 1
+				}
+			]
+		},
+		{
+			"CommandType": "IndividualControl",
+			"Parameters":[
+				{
+					"Name": "Operation",
+					"Type": "integer",
+					"Value": 2
+				}
+			]
+		}
+	],
+	"group": [
+		{
+			"CommandType": "AllControl",
+			"Parameters":[
+				{
+					"Name": "Operation",
+					"Type": "integer",
+					"Value": 0
+				}
+			]
+		},
+		{
+			"CommandType": "AllControl",
+			"Parameters":[
+				{
+					"Name": "Operation",
+					"Type": "integer",
+					"Value": 1
+				}
+			]
+		},
+		{
+			"CommandType": "AllControl",
+			"Parameters":[
+				{
+					"Name": "Operation",
+					"Type": "integer",
+					"Value": 2
+				}
+			]
+		}
+	],
+	"all": [
+		{
+			"CommandType": "AllControl",
+			"Parameters":[
+				{
+					"Name": "Operation",
+					"Type": "integer",
+					"Value": 0
+				}
+			]
+		},
+		{
+			"CommandType": "AllControl",
+			"Parameters":[
+				{
+					"Name": "Operation",
+					"Type": "integer",
+					"Value": 1
+				}
+			]
+		},
+		{
+			"CommandType": "AllControl",
+			"Parameters":[
+				{
+					"Name": "Operation",
+					"Type": "integer",
+					"Value": 2
+				}
+			]
+		}
+	]
+}

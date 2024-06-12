@@ -1,0 +1,20 @@
+{
+	"DebelLevel": 10,
+	"Http": {
+		"Port": 28886
+	},
+	"Device": {
+		"DeviceID": 53,
+		"SubDeviceIDs": [1]
+	},
+	"Boiler": {
+		"Characteristics": {
+			"Version": 1,
+			"CompanyCode": 1,
+			"MaxTemperature": 30,
+			"MinTemperature": 18,
+			"DecimalPoint": true,
+			"OutgoingMode": true
+		}
+	}
+}

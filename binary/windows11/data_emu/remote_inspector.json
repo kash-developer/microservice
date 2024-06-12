@@ -1,0 +1,43 @@
+{
+	"DebelLevel": 10,
+	"Http": {
+		"Port": 28892
+	},
+	"Device": {
+		"DeviceID": 48,
+		"SubDeviceIDs": [1, 2, 3, 4, 5]
+	},
+	"RemoteInspector": {
+		"Characteristic": {
+			"Version": 1,
+			"CompanyCode": 1,
+
+			"Description": "Dont't Touch Below Numbers. Hard Coded",
+			
+			"WaterCurrentLength": 3,
+			"WaterAccumulatedLength": 3,
+			"WaterCurrentIntegerLength": 3,
+			"WaterAccumulatedIntegerLength": 5,
+
+			"GasCurrentLength": 3,
+			"GasAccumulatedLength": 3,
+			"GasCurrentIntegerLength": 3,
+			"GasAccumulatedIntegerLength": 5,
+
+			"ElectricityCurrentLength": 3,
+			"ElectricityAccumulatedLength": 3,
+			"ElectricityCurrentIntegerLength": 6,
+			"ElectricityAccumulatedIntegerLength": 5,
+
+			"HotWaterCurrentLength": 3,
+			"HotWaterAccumulatedLength": 3,
+			"HotWaterCurrentIntegerLength": 3,
+			"HotWaterAccumulatedIntegerLength": 5,
+
+			"HeatCurrentLength": 3,
+			"HeatAccumulatedLength": 3,
+			"HeatCurrentIntegerLength": 3,
+			"HeatAccumulatedIntegerLength": 4
+		}
+	}
+}

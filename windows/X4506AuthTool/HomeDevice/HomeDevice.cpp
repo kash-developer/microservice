@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
 		//return -1;
 		arg_vs.push_back("HomeDevice.exe");
 		arg_vs.push_back("../../../data");
-		arg_vs.push_back("Controller");
+		arg_vs.push_back("Phone");
 		/*
 		arg_vs.push_back("SystemAircon");
 		arg_vs.push_back("Light");

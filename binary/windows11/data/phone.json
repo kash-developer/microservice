@@ -1,0 +1,15 @@
+{
+	"DebelLevel": 10,
+	"Http": {
+		"Port": 28891
+	},
+	"Device": {
+		"DeviceID": 234,
+		"SubDeviceIDs": [1]
+	},
+	"Phone": {
+		"Characteristic": {
+			"ServerAddr": "192.168.0.101"
+		}
+	}
+}

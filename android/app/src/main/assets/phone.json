@@ -9,6 +9,8 @@
 	},
 	"Phone": {
 		"Characteristic": {
+			"Version": 1,
+			"CompanyCode": 1,
 			"ServerAddr": "192.168.0.101"
 		}
 	}

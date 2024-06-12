@@ -1,0 +1,17 @@
+{
+	"DebelLevel": 10,
+	"Http": {
+		"Port": 28889
+	},
+	"Device": {
+		"DeviceID": 52,
+		"SubDeviceIDs": [1]
+	},
+	"PreventCrimeExt": {
+		"Characteristics": {
+			"Version": 1,
+			"CompanyCode": 1,
+			"CapableSetType": [true, true, true, true, false, false, false, false]
+		}
+	}
+}

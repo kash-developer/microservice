@@ -1,0 +1,48 @@
+{
+	"individual": [
+		{
+			"CommandType": "IndividualControl",
+			"Parameters":[
+				{
+					"Name": "Power",
+					"Type": "boolean",
+					"Value": true
+				}
+			]
+		},
+		{
+			"CommandType": "IndividualControl",
+			"Parameters":[
+				{
+					"Name": "Power",
+					"Type": "boolean",
+					"Value": false
+				}
+			]
+		}
+	],
+	"group": [
+		{
+			"CommandType": "GroupControl",
+			"Parameters":[
+				{
+					"Name": "Power",
+					"Type": "boolean",
+					"Value": true
+				}
+			]
+		},
+		{
+			"CommandType": "GroupControl",
+			"Parameters":[
+				{
+					"Name": "Power",
+					"Type": "boolean",
+					"Value": false
+				}
+			]
+		}
+	],
+	"all": [
+	]
+}

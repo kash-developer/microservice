@@ -1,0 +1,38 @@
+{
+	"individual": [
+		{
+			"CommandType": "IndividualControl",
+			"Parameters":[
+				{
+					"Name": "Closed",
+					"Type": "boolean",
+					"Value": true
+				}
+			]
+		}
+	],
+	"group": [
+		{
+			"CommandType": "AllControl",
+			"Parameters":[
+				{
+					"Name": "Closed",
+					"Type": "boolean",
+					"Value": true
+				}
+			]
+		}
+	],
+	"all": [
+		{
+			"CommandType": "AllControl",
+			"Parameters":[
+				{
+					"Name": "Closed",
+					"Type": "boolean",
+					"Value": true
+				}
+			]
+		}
+	]
+}
