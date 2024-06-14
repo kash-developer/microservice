@@ -1642,6 +1642,9 @@ std::string HomeDevice::getDeviceNameString(int device_id)
 	case PHONE_DEVICE_ID:
 		ret = "Phone";
 		break;
+	case ENTRANCE_DEVICE_ID:
+		ret = "Entrance";
+		break;
 	default:
 		break;
 	}

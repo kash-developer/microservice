@@ -1,0 +1,516 @@
+[16:26:46] get the Information of sub devices---------
+[16:26:46] Send Request---------
+[16:26:46] GET /smarthome/v1/status/0xeb HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Length: 0
+
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 189
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "LastOpen",
+					"Type" : "string",
+					"Value" : "2024-06-14T16:26:03"
+				}
+			],
+			"SubDeviceID" : "0x01"
+		}
+	]
+}
+
+[16:26:46] Sub-Devices: 0x01, 
+[16:26:46] Sub-Groups: 0x0f, 
+[16:26:46] end of getting the number of sub devices---------
+[16:26:46] Test Name: 1. 전체 명세 조회
+
+[16:26:46] Send Request---------
+[16:26:46] GET /smarthome/v1/characteristic HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Length: 0
+
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 354
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0xeb",
+			"SubDeviceList" : 
+			[
+				{
+					"Characteristic" : 
+					[
+						{
+							"Name" : "Version",
+							"Type" : "integer",
+							"Value" : 1
+						},
+						{
+							"Name" : "CompanyCode",
+							"Type" : "integer",
+							"Value" : 1
+						}
+					],
+					"SubDeviceID" : "0x01"
+				}
+			]
+		}
+	]
+}
+
+[16:26:46] validate characteristic success.
+[16:26:46] test success.
+[16:26:46] Test Name: 2. 장치 명세 조회
+
+[16:26:46] Send Request---------
+[16:26:46] GET /smarthome/v1/characteristic/0xeb HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Length: 0
+
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 261
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Characteristic" : 
+			[
+				{
+					"Name" : "Version",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "CompanyCode",
+					"Type" : "integer",
+					"Value" : 1
+				}
+			],
+			"SubDeviceID" : "0x01"
+		}
+	]
+}
+
+[16:26:46] validate characteristic success.
+[16:26:46] Test Name: 3. 그룹 명세 조회
+
+[16:26:46] Send Request---------
+[16:26:46] GET /smarthome/v1/characteristic/0xeb/0x0f HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Length: 0
+
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 261
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Characteristic" : 
+			[
+				{
+					"Name" : "Version",
+					"Type" : "integer",
+					"Value" : 1
+				},
+				{
+					"Name" : "CompanyCode",
+					"Type" : "integer",
+					"Value" : 1
+				}
+			],
+			"SubDeviceID" : "0x01"
+		}
+	]
+}
+
+[16:26:46] validate characteristic success.
+[16:26:46] test success.
+[16:26:46] Test Name: 4. 개별 명세 조회
+
+[16:26:46] Send Request---------
+[16:26:46] GET /smarthome/v1/characteristic/0xeb/0x01 HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Length: 0
+
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 174
+
+{
+	"Characteristic" : 
+	[
+		{
+			"Name" : "Version",
+			"Type" : "integer",
+			"Value" : 1
+		},
+		{
+			"Name" : "CompanyCode",
+			"Type" : "integer",
+			"Value" : 1
+		}
+	]
+}
+
+[16:26:46] validate characteristic success.
+[16:26:46] test success.
+[16:26:46] Test Name: 5. 전체 상태 조회
+
+[16:26:46] Send Request---------
+[16:26:46] GET /smarthome/v1/status HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Length: 0
+
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 272
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0xeb",
+			"SubDeviceList" : 
+			[
+				{
+					"Status" : 
+					[
+						{
+							"Name" : "LastOpen",
+							"Type" : "string",
+							"Value" : "2024-06-14T16:26:03"
+						}
+					],
+					"SubDeviceID" : "0x01"
+				}
+			]
+		}
+	]
+}
+
+[16:26:46] validate status success.
+[16:26:46] test success.
+[16:26:46] Test Name: 6. 장치 상태 조회
+
+[16:26:46] Send Request---------
+[16:26:46] GET /smarthome/v1/status/0xeb HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Length: 0
+
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 189
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "LastOpen",
+					"Type" : "string",
+					"Value" : "2024-06-14T16:26:03"
+				}
+			],
+			"SubDeviceID" : "0x01"
+		}
+	]
+}
+
+[16:26:46] validate status success.
+[16:26:46] test success.
+[16:26:46] Test Name: 7. 그룹 상태 조회
+
+[16:26:46] Send Request---------
+[16:26:46] GET /smarthome/v1/status/0xeb/0x0f HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Length: 0
+
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 189
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Status" : 
+			[
+				{
+					"Name" : "LastOpen",
+					"Type" : "string",
+					"Value" : "2024-06-14T16:26:03"
+				}
+			],
+			"SubDeviceID" : "0x01"
+		}
+	]
+}
+
+[16:26:46] validate status success.
+[16:26:46] test success.
+[16:26:46] Test Name: 8. 개별 상태 조회
+
+[16:26:46] Send Request---------
+[16:26:46] GET /smarthome/v1/status/0xeb/0x01 HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Length: 0
+
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 112
+
+{
+	"Status" : 
+	[
+		{
+			"Name" : "LastOpen",
+			"Type" : "string",
+			"Value" : "2024-06-14T16:26:03"
+		}
+	]
+}
+
+[16:26:46] validate status success.
+[16:26:46] test success.
+[16:26:46] Test Name: 9. 전체 제어
+
+[16:26:46] send individual control.
+[16:26:46] Send Request---------
+[16:26:46] POST /smarthome/v1/control HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Type: appication/json
+Content-Length: 356
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0xeb",
+			"SubDeviceList" : 
+			[
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "Open",
+							"Parameters" : 
+							[
+								{
+									"Name" : "Password",
+									"Type" : "string",
+									"Value" : "1234"
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x01"
+				}
+			]
+		}
+	]
+}
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 353
+
+{
+	"DeviceList" : 
+	[
+		{
+			"DeviceID" : "0xeb",
+			"SubDeviceList" : 
+			[
+				{
+					"Control" : 
+					[
+						{
+							"CommandType" : "0xc1",
+							"Parameters" : 
+							[
+								{
+									"Name" : "ErrorCode",
+									"Type" : "integer",
+									"Value" : 0
+								}
+							]
+						}
+					],
+					"SubDeviceID" : "0x01"
+				}
+			]
+		}
+	]
+}
+
+[16:26:46] check all parameters OK.
+[16:26:46] validate control success.
+[16:26:46] send group control.
+[16:26:46] send all control.
+[16:26:46] test success.
+[16:26:46] Test Name: 10. 장치 제어
+
+[16:26:46] send individual control.
+[16:26:46] Send Request---------
+[16:26:46] POST /smarthome/v1/control/0xeb HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Type: appication/json
+Content-Length: 261
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "Open",
+					"Parameters" : 
+					[
+						{
+							"Name" : "Password",
+							"Type" : "string",
+							"Value" : "1234"
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x01"
+		}
+	]
+}
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 258
+
+{
+	"SubDeviceList" : 
+	[
+		{
+			"Control" : 
+			[
+				{
+					"CommandType" : "0xc1",
+					"Parameters" : 
+					[
+						{
+							"Name" : "ErrorCode",
+							"Type" : "integer",
+							"Value" : 0
+						}
+					]
+				}
+			],
+			"SubDeviceID" : "0x01"
+		}
+	]
+}
+
+[16:26:46] check all parameters OK.
+[16:26:46] validate control success.
+[16:26:46] send group control.
+[16:26:46] send all control.
+[16:26:46] test success.
+[16:26:46] Test Name: 11. 그룹 제어
+
+[16:26:46] send group control.
+[16:26:46] test success.
+[16:26:46] Test Name: 12. 개별 제어
+
+[16:26:46] send individual control.
+[16:26:46] Send Request---------
+[16:26:46] POST /smarthome/v1/control/0xeb/0x01 HTTP/1.1
+Host: 127.0.0.1:28892
+Content-Type: appication/json
+Content-Length: 172
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "Open",
+			"Parameters" : 
+			[
+				{
+					"Name" : "Password",
+					"Type" : "string",
+					"Value" : "1234"
+				}
+			]
+		}
+	]
+}
+
+[16:26:46] Received Response---------
+[16:26:46] HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json
+Content-Length: 169
+
+{
+	"Control" : 
+	[
+		{
+			"CommandType" : "0xc1",
+			"Parameters" : 
+			[
+				{
+					"Name" : "ErrorCode",
+					"Type" : "integer",
+					"Value" : 0
+				}
+			]
+		}
+	]
+}
+
+[16:26:46] check all parameters OK.
+[16:26:46] validate control success.
+[16:26:46] test success.

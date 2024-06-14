@@ -1,0 +1,16 @@
+{
+	"DebelLevel": 10,
+	"Http": {
+		"Port": 28892
+	},
+	"Device": {
+		"DeviceID": 235,
+		"SubDeviceIDs": [1]
+	},
+	"Entrance": {
+		"Characteristic": {
+			"Version": 1,
+			"CompanyCode": 1
+		}
+	}
+}

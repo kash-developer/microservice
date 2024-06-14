@@ -456,15 +456,38 @@
 	"Phone": {
 		"Call": {
 			"Target": ["individual"],
-			"RequestCode": "0x42",
+			"RequestCode": "0x41",
 			"RequestParameters": [
 				{
-					"Name": "CallTo",
+					"Name": "CallNumber",
 					"Type": "string"
 				}
 			],
-			"ResponseCode": "0xc2",
+			"ResponseCode": "0xc1",
 			"ResponseParameters": [
+				{
+					"Name": "ErrorCode",
+					"Type": "integer"
+				}
+			]
+		}
+	},
+	"Entrance": {
+		"Open": {
+			"Target": ["individual"],
+			"RequestCode": "0x41",
+			"RequestParameters": [
+				{
+					"Name": "Password",
+					"Type": "string"
+				}
+			],
+			"ResponseCode": "0xc1",
+			"ResponseParameters": [
+				{
+					"Name": "ErrorCode",
+					"Type": "integer"
+				}
 			]
 		}
 	}

@@ -1,5 +1,5 @@
 
-copy /y Debug\HomeDevice.exe .
+copy /y Release\HomeDevice.exe .
 
 set _argc=0
 for %%i in (%*) do set /A _argc+=1

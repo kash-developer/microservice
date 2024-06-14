@@ -9,7 +9,7 @@
 #include <home_device_lib.h>
 #include <TestBase.h>
 
-#define TEST_LOG_DIR "./logs/"
+#define TEST_LOG_DIR "../logs/"
 
 #define TEST_REQUEST_ALL		0
 #define TEST_REQUEST_DEVICE		1

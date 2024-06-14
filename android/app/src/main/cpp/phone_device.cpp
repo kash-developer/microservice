@@ -158,11 +158,11 @@ int PhoneDevice::processHttpCommand(int device_id, int sub_id, Json::Value cmd_o
 		return -1;
 	}
 
-	if ((cmd.compare("Call") == 0) || (int_cmd == 0x42)) {
+	if ((cmd.compare("Call") == 0) || (int_cmd == 0x41)) {
 #ifdef __ANDROID__
 		recvCommand(cmd_obj);
 #endif
-		setLastCall(sub_id, params["CallTo"]["Value"].asString());
+		setLastCall(sub_id, params["CallNumber"]["Value"].asString());
 	}
 	else {
 		res_obj = createErrorResponse(ERROR_CODE_INVALID_COMMAND_TYPE);
@@ -180,8 +180,12 @@ int PhoneDevice::processHttpCommand(int device_id, int sub_id, Json::Value cmd_o
 			ret_params.clear();
 			if ((cmd.compare("Call") == 0) || (int_cmd == 0x42)) {
 				ret_param.clear();
+				ret_param["Name"] = "ErrorCode";
+				ret_param["Value"] = 0;
+				ret_param["Type"] = "integer";
+				ret_params.append(ret_param);
 
-				control["CommandType"] = "0xc2";
+				control["CommandType"] = "0xc1";
 				control["Parameters"] = ret_params;
 			}
 			else {

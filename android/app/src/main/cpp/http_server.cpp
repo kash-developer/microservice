@@ -12,7 +12,7 @@
 
 #ifdef WIN32
 #include <Windows.h>
-#define sleep Sleep
+//#define sleep Sleep
 #include <winsock2.h>
 #else
 #include <sys/socket.h>

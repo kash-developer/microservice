@@ -189,6 +189,9 @@ void OpenApiTestBase::setDeviceId(int device_id, int device_sub_id, int virtual_
 	case PHONE_DEVICE_ID:
 		test_filepath += std::string("/control_test_phone.json");
 		break;
+	case ENTRANCE_DEVICE_ID:
+		test_filepath += std::string("/control_test_entrance.json");
+		break;
 	case MICROWAVEOVEN_DEVICE_ID:
 	case DISHWASHER_DEVICE_ID:
 	case DRUMWASHER_DEVICE_ID:

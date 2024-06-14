@@ -23,7 +23,7 @@
     <ProjectGuid>{8CA90959-5024-4107-A0A1-C822C9A1A149}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>X4506Lib</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -39,6 +39,7 @@
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -74,11 +75,10 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(Solutiondir)\..\..\src;$(Solutiondir)\..\..\linux\include;$(Solutiondir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4996;4005</DisableSpecificWarnings>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -102,13 +102,13 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(Solutiondir)\..\..\src;$(Solutiondir)\..\..\linux\include;$(Solutiondir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -141,6 +141,7 @@
     <ClCompile Include="..\..\..\src\controller_device.cpp" />
     <ClCompile Include="..\..\..\src\curtain_device.cpp" />
     <ClCompile Include="..\..\..\src\doorlock_device.cpp" />
+    <ClCompile Include="..\..\..\src\entrance_device.cpp" />
     <ClCompile Include="..\..\..\src\forwarder_lib.cpp" />
     <ClCompile Include="..\..\..\src\gasvalve_device.cpp" />
     <ClCompile Include="..\..\..\src\home_device_lib.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="..\..\..\src\controller_device.h" />
     <ClInclude Include="..\..\..\src\curtain_device.h" />
     <ClInclude Include="..\..\..\src\doorlock_device.h" />
+    <ClInclude Include="..\..\..\src\entrance_device.h" />
     <ClInclude Include="..\..\..\src\forwarder_lib.h" />
     <ClInclude Include="..\..\..\src\gasvalve_device.h" />
     <ClInclude Include="..\..\..\src\home_device_lib.h" />

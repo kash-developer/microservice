@@ -47,7 +47,7 @@
 
 HomeDevice* createHomeDevice(std::string filename);
 
-#define MAX_DEVICE_LENGTH	13
+#define MAX_DEVICE_LENGTH	14
 static struct DeviceSupportList g_device_list[] = {
 	{ "SystemAircon", SYSTEMAIRCON_DEVICE_ID, "system_aircon.json" },
 	{ "Light", LIGHT_DEVICE_ID, "light.json" },
@@ -61,7 +61,8 @@ static struct DeviceSupportList g_device_list[] = {
 	{ "TemperatureController", TEMPERATURECONTROLLER_DEVICE_ID, "temperature_controller.json" },
 	{ "PowerGate", POWERGATE_DEVICE_ID, "powergate.json" },
 	{ "PreventCrimeExt", PREVENTCRIMEEXT_DEVICE_ID, "prevent_crime_ext.json" },
-	{ "Phone", PHONE_DEVICE_ID, "phone.json" }
+	{ "Phone", PHONE_DEVICE_ID, "phone.json" },
+	{ "Entrance", ENTRANCE_DEVICE_ID, "entrance.json" }
 };
 
 const std::vector<struct DeviceSupportList> DeviceController::getDeviceSupport()
@@ -226,6 +227,9 @@ int DeviceController::setDeviceId(int device_id)
 		m_test = new OpenApiTestBase();
 		break;
 	case PHONE_DEVICE_ID:
+		m_test = new OpenApiTestBase();
+		break;
+	case ENTRANCE_DEVICE_ID:
 		m_test = new OpenApiTestBase();
 		break;
 	case MICROWAVEOVEN_DEVICE_ID:

@@ -1,0 +1,18 @@
+{
+	"individual": [
+		{
+			"CommandType": "Call",
+			"Parameters":[
+				{
+					"Name": "CallNumber",
+					"Type": "string",
+					"Value": "1234"
+				}
+			]
+		}
+	],
+	"group": [
+	],
+	"all": [
+	]
+}

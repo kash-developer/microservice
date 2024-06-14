@@ -1,0 +1,18 @@
+{
+	"individual": [
+		{
+			"CommandType": "Open",
+			"Parameters":[
+				{
+					"Name": "Password",
+					"Type": "string",
+					"Value": "1234"
+				}
+			]
+		}
+	],
+	"group": [
+	],
+	"all": [
+	]
+}

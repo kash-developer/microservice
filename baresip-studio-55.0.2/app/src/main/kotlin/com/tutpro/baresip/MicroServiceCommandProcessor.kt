@@ -112,7 +112,7 @@ class MicroServiceCommandProcessor(parent: MainActivity): Thread() {
                     val value = jobj_param.getString("Value")
 
                     Log.w(TAG, "in json: $key, $value")
-                    if (key == "CallTo") {
+                    if (key == "CallNumber") {
                         call_to = value
                         is_found = true
                         break

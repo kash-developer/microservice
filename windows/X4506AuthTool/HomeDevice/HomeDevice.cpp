@@ -25,6 +25,7 @@
 #include <powergate_device.h>
 #include <remote_inspector_device.h>
 #include <phone_device.h>
+#include <entrance_device.h>
 
 #include <json/json.h>
 
@@ -55,7 +56,8 @@ struct DeviceConf g_device_confs[] = {
 	{ BOILER_DEVICE_ID, "", "boiler.json" },
 	{ TEMPERATURECONTROLLER_DEVICE_ID, "", "temperature_controller.json" },
 	{ POWERGATE_DEVICE_ID, "", "powergate.json" },
-	{ PHONE_DEVICE_ID, "", "phone.json" }
+	{ PHONE_DEVICE_ID, "", "phone.json" },
+	{ ENTRANCE_DEVICE_ID, "", "entrance.json" }
 };
 
 int main(int argc, char* argv[])
@@ -294,6 +296,9 @@ HomeDevice* createHomeDevice(std::string filename)
 		break;
 	case PHONE_DEVICE_ID:
 		hd = new PhoneDevice();
+		break;
+	case ENTRANCE_DEVICE_ID:
+		hd = new EntranceDevice();
 		break;
 	default:
 		tracee("invalid device id: %d", device_id);

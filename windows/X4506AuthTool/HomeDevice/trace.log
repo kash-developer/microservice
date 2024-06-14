@@ -1,21 +1,22 @@
-Start---------------------<17:37:16:037> [homedevice.cpp:91:main()] 	set name: Forwarder
-<17:37:16:037> [homedevice.cpp:91:main()] 	set name: Controller
-<17:37:16:038> [homedevice.cpp:91:main()] 	set name: SystemAircon
-<17:37:16:038> [homedevice.cpp:91:main()] 	set name: Light
-<17:37:16:038> [homedevice.cpp:91:main()] 	set name: GasValve
-<17:37:16:038> [homedevice.cpp:91:main()] 	set name: Curtain
-<17:37:16:038> [homedevice.cpp:91:main()] 	set name: RemoteInspector
-<17:37:16:038> [homedevice.cpp:91:main()] 	set name: DoorLock
-<17:37:16:038> [homedevice.cpp:91:main()] 	set name: Vantilator
-<17:37:16:038> [homedevice.cpp:91:main()] 	set name: Breaker
-<17:37:16:039> [homedevice.cpp:91:main()] 	set name: PreventCrimeExt
-<17:37:16:039> [homedevice.cpp:91:main()] 	set name: Boiler
-<17:37:16:039> [homedevice.cpp:91:main()] 	set name: TemperatureController
-<17:37:16:039> [homedevice.cpp:91:main()] 	set name: PowerGate
-<17:37:16:039> [homedevice.cpp:91:main()] 	set name: Phone
-<17:37:16:044> [homedevice.cpp:303:createHomeDevice()] 	init: ../../../data/phone.json
-<17:37:16:044> [phone_device.cpp:24:PhoneDevice::init()] 	in phone init.
-<17:37:16:045> [home_device_lib.cpp:118:HomeDevice::init()] 	device init: 
+Start---------------------<18:56:35:205> [homedevice.cpp:93:main()] 	set name: Forwarder
+<18:56:35:205> [homedevice.cpp:93:main()] 	set name: Controller
+<18:56:35:205> [homedevice.cpp:93:main()] 	set name: SystemAircon
+<18:56:35:205> [homedevice.cpp:93:main()] 	set name: Light
+<18:56:35:205> [homedevice.cpp:93:main()] 	set name: GasValve
+<18:56:35:206> [homedevice.cpp:93:main()] 	set name: Curtain
+<18:56:35:206> [homedevice.cpp:93:main()] 	set name: RemoteInspector
+<18:56:35:206> [homedevice.cpp:93:main()] 	set name: DoorLock
+<18:56:35:206> [homedevice.cpp:93:main()] 	set name: Vantilator
+<18:56:35:206> [homedevice.cpp:93:main()] 	set name: Breaker
+<18:56:35:206> [homedevice.cpp:93:main()] 	set name: PreventCrimeExt
+<18:56:35:206> [homedevice.cpp:93:main()] 	set name: Boiler
+<18:56:35:207> [homedevice.cpp:93:main()] 	set name: TemperatureController
+<18:56:35:207> [homedevice.cpp:93:main()] 	set name: PowerGate
+<18:56:35:207> [homedevice.cpp:93:main()] 	set name: Phone
+<18:56:35:207> [homedevice.cpp:93:main()] 	set name: Entrance
+<18:56:35:212> [homedevice.cpp:308:createHomeDevice()] 	init: ../../../data/phone.json
+<18:56:35:212> [phone_device.cpp:24:PhoneDevice::init()] 	in phone init.
+<18:56:35:213> [home_device_lib.cpp:118:HomeDevice::init()] 	device init: 
 {
 	"DebelLevel" : 10,
 	"DebugLevel" : null,
@@ -35,41 +36,43 @@ Start---------------------<17:37:16:037> [homedevice.cpp:91:main()] 	set name: F
 	{
 		"Characteristic" : 
 		{
-			"ServerAddr" : "192.168.0.101"
+			"CompanyCode" : 1,
+			"ServerAddr" : "192.168.0.101",
+			"Version" : 1
 		}
 	}
 }
 
-<17:37:16:046> [home_device_lib.cpp:176:HomeDevice::init()] 	http: 28891
-<17:37:16:046> [httpu_server.cpp:288:HttpuServer::init()] 	create multicast socket
-<17:37:16:092> [httpu_server.cpp:54:HttpuServer::getMyAddrs()] 	myaddr: DONGHEE-GRAM
-<17:37:16:104> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.111.1
-<17:37:16:105> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.226.1
-<17:37:16:105> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.0.10
-<17:37:16:105> [httpu_server.cpp:74:HttpuServer::getMyAddrs()] 	addr is null: 3
-<17:37:16:106> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 600, 192.168.111.1, 224.0.1.2:17777
-<17:37:16:106> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.2 at 192.168.111.1
-<17:37:16:106> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 608, 192.168.226.1, 224.0.1.2:17777
-<17:37:16:106> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.2 at 192.168.226.1
-<17:37:16:107> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 612, 192.168.0.10, 224.0.1.2:17777
-<17:37:16:107> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.2 at 192.168.0.10
-<17:37:16:107> [httpu_server.cpp:308:HttpuServer::init()] 	socket(s) created: 3
-<17:37:16:108> [httpu_server.cpp:288:HttpuServer::init()] 	create multicast socket
-<17:37:16:109> [httpu_server.cpp:54:HttpuServer::getMyAddrs()] 	myaddr: DONGHEE-GRAM
-<17:37:16:109> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.111.1
-<17:37:16:110> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.226.1
-<17:37:16:110> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.0.10
-<17:37:16:110> [httpu_server.cpp:74:HttpuServer::getMyAddrs()] 	addr is null: 3
-<17:37:16:110> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 616, 192.168.111.1, 224.0.1.1:65123
-<17:37:16:111> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.1 at 192.168.111.1
-<17:37:16:111> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 604, 192.168.226.1, 224.0.1.1:65123
-<17:37:16:111> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.1 at 192.168.226.1
-<17:37:16:112> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 572, 192.168.0.10, 224.0.1.1:65123
-<17:37:16:112> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.1 at 192.168.0.10
-<17:37:16:112> [httpu_server.cpp:308:HttpuServer::init()] 	socket(s) created: 3
-<17:37:16:114> [tools.cpp:34:parseJson()] 	file open failed: ./control_info.json
-<17:37:16:114> [home_device_lib.cpp:1746:HomeDevice::generateCmdInfo()] 	open or parse file failed: ./control_info.json
-<17:37:16:116> [phone_device.cpp:120:PhoneDevice::setStatus()] 	set status: 
+<18:56:35:214> [home_device_lib.cpp:176:HomeDevice::init()] 	http: 28891
+<18:56:35:214> [httpu_server.cpp:288:HttpuServer::init()] 	create multicast socket
+<18:56:35:280> [httpu_server.cpp:54:HttpuServer::getMyAddrs()] 	myaddr: DONGHEE-GRAM
+<18:56:35:292> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.0.41
+<18:56:35:293> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.111.1
+<18:56:35:293> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.226.1
+<18:56:35:293> [httpu_server.cpp:74:HttpuServer::getMyAddrs()] 	addr is null: 3
+<18:56:35:294> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 596, 192.168.0.41, 224.0.1.2:17777
+<18:56:35:294> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.2 at 192.168.0.41
+<18:56:35:295> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 600, 192.168.111.1, 224.0.1.2:17777
+<18:56:35:296> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.2 at 192.168.111.1
+<18:56:35:296> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 588, 192.168.226.1, 224.0.1.2:17777
+<18:56:35:296> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.2 at 192.168.226.1
+<18:56:35:297> [httpu_server.cpp:308:HttpuServer::init()] 	socket(s) created: 3
+<18:56:35:297> [httpu_server.cpp:288:HttpuServer::init()] 	create multicast socket
+<18:56:35:298> [httpu_server.cpp:54:HttpuServer::getMyAddrs()] 	myaddr: DONGHEE-GRAM
+<18:56:35:298> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.0.41
+<18:56:35:299> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.111.1
+<18:56:35:299> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.226.1
+<18:56:35:299> [httpu_server.cpp:74:HttpuServer::getMyAddrs()] 	addr is null: 3
+<18:56:35:299> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 612, 192.168.0.41, 224.0.1.1:65123
+<18:56:35:300> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.1 at 192.168.0.41
+<18:56:35:300> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 616, 192.168.111.1, 224.0.1.1:65123
+<18:56:35:301> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.1 at 192.168.111.1
+<18:56:35:301> [httpu_server.cpp:155:HttpuServer::createMulticastSocket()] 	createMulticastSock: 620, 192.168.226.1, 224.0.1.1:65123
+<18:56:35:301> [httpu_server.cpp:160:HttpuServer::createMulticastSocket()] 	join group 224.0.1.1 at 192.168.226.1
+<18:56:35:302> [httpu_server.cpp:308:HttpuServer::init()] 	socket(s) created: 3
+<18:56:35:304> [tools.cpp:34:parseJson()] 	file open failed: ./control_info.json
+<18:56:35:304> [home_device_lib.cpp:1749:HomeDevice::generateCmdInfo()] 	open or parse file failed: ./control_info.json
+<18:56:35:306> [phone_device.cpp:120:PhoneDevice::setStatus()] 	set status: 
 {
 	"DeviceList" : 
 	[
@@ -93,331 +96,15 @@ Start---------------------<17:37:16:037> [homedevice.cpp:91:main()] 	set name: F
 	]
 }
 
-<17:37:16:117> [httpu_server.cpp:54:HttpuServer::getMyAddrs()] 	myaddr: DONGHEE-GRAM
-<17:37:16:117> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.111.1
-<17:37:16:118> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.226.1
-<17:37:16:118> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.0.10
-<17:37:16:118> [httpu_server.cpp:74:HttpuServer::getMyAddrs()] 	addr is null: 3
-<17:37:16:120> [home_device_lib.cpp:271:HomeDevice::setDataHomePath()] 	set data home: ../../../data
-<17:37:16:153> [httpu_server.cpp:354:HttpuServer::runServerThread()] 	HttpuServer started: 224.0.1.2 : 17777
-<17:37:16:154> [http_server.cpp:130:HttpServer::runServerThread()] 	HttpServer started: 28891
-<17:37:16:154> [http_server.cpp:130:HttpServer::runServerThread()] 	HttpServer started: 28891
-<17:37:16:155> [http_server.cpp:130:HttpServer::runServerThread()] 	HttpServer started: 28891
-<17:37:16:157> [http_server.cpp:321:HttpServer::runClosingSocketThread()] 	ClosingSocketThread started.
-<17:37:16:158> [httpu_server.cpp:354:HttpuServer::runServerThread()] 	HttpuServer started: 224.0.1.1 : 65123
-<17:37:25:529> [http_server.cpp:232:HttpServer::processClientThread()] 	received request----------------
-GET /smarthome/v1/status/0xea HTTP/1.1
-Host: 127.0.0.1:28891
-Content-Length: 0
-
-
-<17:37:25:529> [home_device_lib.cpp:842:HomeDevice::recvHttpRequest()] 	get http request: GET, /smarthome/v1/status/0xea
-
-<17:37:25:531> [phone_device.cpp:120:PhoneDevice::setStatus()] 	set status: 
-{
-	"DeviceList" : 
-	[
-		{
-			"DeviceID" : "0xea",
-			"SubDeviceList" : 
-			[
-				{
-					"Status" : 
-					[
-						{
-							"Name" : "LastCall",
-							"Type" : "string",
-							"Value" : ""
-						}
-					],
-					"SubDeviceID" : "0x01"
-				}
-			]
-		}
-	]
-}
-
-<17:37:30:532> [home_device_lib.cpp:299:HomeDevice::getStatus()] 	get status: 0xea, 0xff
-<17:37:30:535> [http_response.cpp:61:HttpResponse::sendResponse()] 	send response........----...
-<17:37:30:536> [http_response.cpp:62:HttpResponse::sendResponse()] 	HTTP/1.1 200 OK
-<17:37:30:536> [http_response.cpp:71:HttpResponse::sendResponse()] 	Connection: close
-<17:37:30:536> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Type: application/json
-<17:37:30:536> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Length: 170
-<17:37:30:536> [http_response.cpp:73:HttpResponse::sendResponse()] 	---------------------------
-<17:37:30:537> [http_response.cpp:89:HttpResponse::sendResponse()] 	end of sending response: 261
-
-<17:38:14:119> [http_server.cpp:232:HttpServer::processClientThread()] 	received request----------------
-GET /smarthome/v1/status/0xea HTTP/1.1
-Host: 127.0.0.1:28891
-Content-Length: 0
-
-
-<17:38:14:120> [home_device_lib.cpp:842:HomeDevice::recvHttpRequest()] 	get http request: GET, /smarthome/v1/status/0xea
-
-<17:38:14:121> [phone_device.cpp:120:PhoneDevice::setStatus()] 	set status: 
-{
-	"DeviceList" : 
-	[
-		{
-			"DeviceID" : "0xea",
-			"SubDeviceList" : 
-			[
-				{
-					"Status" : 
-					[
-						{
-							"Name" : "LastCall",
-							"Type" : "string",
-							"Value" : ""
-						}
-					],
-					"SubDeviceID" : "0x01"
-				}
-			]
-		}
-	]
-}
-
-<17:38:14:122> [home_device_lib.cpp:299:HomeDevice::getStatus()] 	get status: 0xea, 0xff
-<17:38:14:123> [http_response.cpp:61:HttpResponse::sendResponse()] 	send response........----...
-<17:38:14:124> [http_response.cpp:62:HttpResponse::sendResponse()] 	HTTP/1.1 200 OK
-<17:38:14:124> [http_response.cpp:71:HttpResponse::sendResponse()] 	Connection: close
-<17:38:14:124> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Type: application/json
-<17:38:14:124> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Length: 170
-<17:38:14:124> [http_response.cpp:73:HttpResponse::sendResponse()] 	---------------------------
-<17:38:14:125> [http_response.cpp:89:HttpResponse::sendResponse()] 	end of sending response: 261
-
-<17:38:14:131> [http_server.cpp:232:HttpServer::processClientThread()] 	received request----------------
-GET /smarthome/v1/characteristic HTTP/1.1
-Host: 127.0.0.1:28891
-Content-Length: 0
-
-
-<17:38:14:131> [home_device_lib.cpp:842:HomeDevice::recvHttpRequest()] 	get http request: GET, /smarthome/v1/characteristic
-
-<17:38:14:132> [home_device_lib.cpp:377:HomeDevice::getCharacteristic()] 	get characteristic: 0xff, 0xff
-<17:38:14:135> [http_response.cpp:61:HttpResponse::sendResponse()] 	send response........----...
-<17:38:14:135> [http_response.cpp:62:HttpResponse::sendResponse()] 	HTTP/1.1 200 OK
-<17:38:14:135> [http_response.cpp:71:HttpResponse::sendResponse()] 	Connection: close
-<17:38:14:136> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Type: application/json
-<17:38:14:136> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Length: 478
-<17:38:14:136> [http_response.cpp:73:HttpResponse::sendResponse()] 	---------------------------
-<17:38:14:136> [http_response.cpp:89:HttpResponse::sendResponse()] 	end of sending response: 569
-
-<17:38:14:190> [http_server.cpp:232:HttpServer::processClientThread()] 	received request----------------
-GET /smarthome/v1/characteristic/0xea HTTP/1.1
-Host: 127.0.0.1:28891
-Content-Length: 0
-
-
-<17:38:14:191> [home_device_lib.cpp:842:HomeDevice::recvHttpRequest()] 	get http request: GET, /smarthome/v1/characteristic/0xea
-
-<17:38:14:191> [home_device_lib.cpp:377:HomeDevice::getCharacteristic()] 	get characteristic: 0xea, 0xff
-<17:38:14:193> [http_response.cpp:61:HttpResponse::sendResponse()] 	send response........----...
-<17:38:14:193> [http_response.cpp:62:HttpResponse::sendResponse()] 	HTTP/1.1 200 OK
-<17:38:14:193> [http_response.cpp:71:HttpResponse::sendResponse()] 	Connection: close
-<17:38:14:193> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Type: application/json
-<17:38:14:193> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Length: 375
-<17:38:14:194> [http_response.cpp:73:HttpResponse::sendResponse()] 	---------------------------
-<17:38:14:194> [http_response.cpp:89:HttpResponse::sendResponse()] 	end of sending response: 466
-
-<17:38:14:218> [http_server.cpp:232:HttpServer::processClientThread()] 	received request----------------
-GET /smarthome/v1/characteristic/0xea/0x0f HTTP/1.1
-Host: 127.0.0.1:28891
-Content-Length: 0
-
-
-<17:38:14:218> [home_device_lib.cpp:842:HomeDevice::recvHttpRequest()] 	get http request: GET, /smarthome/v1/characteristic/0xea/0x0f
-
-<17:38:14:219> [home_device_lib.cpp:377:HomeDevice::getCharacteristic()] 	get characteristic: 0xea, 0x0f
-<17:38:14:222> [http_response.cpp:61:HttpResponse::sendResponse()] 	send response........----...
-<17:38:14:222> [http_response.cpp:62:HttpResponse::sendResponse()] 	HTTP/1.1 200 OK
-<17:38:14:222> [http_response.cpp:71:HttpResponse::sendResponse()] 	Connection: close
-<17:38:14:222> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Type: application/json
-<17:38:14:222> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Length: 375
-<17:38:14:223> [http_response.cpp:73:HttpResponse::sendResponse()] 	---------------------------
-<17:38:14:223> [http_response.cpp:89:HttpResponse::sendResponse()] 	end of sending response: 466
-
-<17:38:14:251> [http_server.cpp:232:HttpServer::processClientThread()] 	received request----------------
-GET /smarthome/v1/characteristic/0xea/0x01 HTTP/1.1
-Host: 127.0.0.1:28891
-Content-Length: 0
-
-
-<17:38:14:251> [home_device_lib.cpp:842:HomeDevice::recvHttpRequest()] 	get http request: GET, /smarthome/v1/characteristic/0xea/0x01
-
-<17:38:14:252> [home_device_lib.cpp:377:HomeDevice::getCharacteristic()] 	get characteristic: 0xea, 0x01
-<17:38:14:256> [http_response.cpp:61:HttpResponse::sendResponse()] 	send response........----...
-<17:38:14:256> [http_response.cpp:62:HttpResponse::sendResponse()] 	HTTP/1.1 200 OK
-<17:38:14:256> [http_response.cpp:71:HttpResponse::sendResponse()] 	Connection: close
-<17:38:14:257> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Type: application/json
-<17:38:14:257> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Length: 278
-<17:38:14:257> [http_response.cpp:73:HttpResponse::sendResponse()] 	---------------------------
-<17:38:14:257> [http_response.cpp:89:HttpResponse::sendResponse()] 	end of sending response: 369
-
-<17:38:14:281> [http_server.cpp:232:HttpServer::processClientThread()] 	received request----------------
-GET /smarthome/v1/status HTTP/1.1
-Host: 127.0.0.1:28891
-Content-Length: 0
-
-
-<17:38:14:282> [home_device_lib.cpp:842:HomeDevice::recvHttpRequest()] 	get http request: GET, /smarthome/v1/status
-
-<17:38:14:283> [phone_device.cpp:120:PhoneDevice::setStatus()] 	set status: 
-{
-	"DeviceList" : 
-	[
-		{
-			"DeviceID" : "0xea",
-			"SubDeviceList" : 
-			[
-				{
-					"Status" : 
-					[
-						{
-							"Name" : "LastCall",
-							"Type" : "string",
-							"Value" : ""
-						}
-					],
-					"SubDeviceID" : "0x01"
-				}
-			]
-		}
-	]
-}
-
-<17:38:14:284> [home_device_lib.cpp:299:HomeDevice::getStatus()] 	get status: 0xff, 0xff
-<17:38:14:287> [http_response.cpp:61:HttpResponse::sendResponse()] 	send response........----...
-<17:38:14:288> [http_response.cpp:62:HttpResponse::sendResponse()] 	HTTP/1.1 200 OK
-<17:38:14:288> [http_response.cpp:71:HttpResponse::sendResponse()] 	Connection: close
-<17:38:14:288> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Type: application/json
-<17:38:14:288> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Length: 253
-<17:38:14:288> [http_response.cpp:73:HttpResponse::sendResponse()] 	---------------------------
-<17:38:14:289> [http_response.cpp:89:HttpResponse::sendResponse()] 	end of sending response: 344
-
-<17:38:14:324> [http_server.cpp:232:HttpServer::processClientThread()] 	received request----------------
-GET /smarthome/v1/status/0xea HTTP/1.1
-Host: 127.0.0.1:28891
-Content-Length: 0
-
-
-<17:38:14:325> [home_device_lib.cpp:842:HomeDevice::recvHttpRequest()] 	get http request: GET, /smarthome/v1/status/0xea
-
-<17:38:14:326> [phone_device.cpp:120:PhoneDevice::setStatus()] 	set status: 
-{
-	"DeviceList" : 
-	[
-		{
-			"DeviceID" : "0xea",
-			"SubDeviceList" : 
-			[
-				{
-					"Status" : 
-					[
-						{
-							"Name" : "LastCall",
-							"Type" : "string",
-							"Value" : ""
-						}
-					],
-					"SubDeviceID" : "0x01"
-				}
-			]
-		}
-	]
-}
-
-<17:38:14:327> [home_device_lib.cpp:299:HomeDevice::getStatus()] 	get status: 0xea, 0xff
-<17:38:14:328> [http_response.cpp:61:HttpResponse::sendResponse()] 	send response........----...
-<17:38:14:329> [http_response.cpp:62:HttpResponse::sendResponse()] 	HTTP/1.1 200 OK
-<17:38:14:329> [http_response.cpp:71:HttpResponse::sendResponse()] 	Connection: close
-<17:38:14:329> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Type: application/json
-<17:38:14:329> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Length: 170
-<17:38:14:329> [http_response.cpp:73:HttpResponse::sendResponse()] 	---------------------------
-<17:38:14:329> [http_response.cpp:89:HttpResponse::sendResponse()] 	end of sending response: 261
-
-<17:38:14:366> [http_server.cpp:232:HttpServer::processClientThread()] 	received request----------------
-GET /smarthome/v1/status/0xea/0x0f HTTP/1.1
-Host: 127.0.0.1:28891
-Content-Length: 0
-
-
-<17:38:14:366> [home_device_lib.cpp:842:HomeDevice::recvHttpRequest()] 	get http request: GET, /smarthome/v1/status/0xea/0x0f
-
-<17:38:14:368> [phone_device.cpp:120:PhoneDevice::setStatus()] 	set status: 
-{
-	"DeviceList" : 
-	[
-		{
-			"DeviceID" : "0xea",
-			"SubDeviceList" : 
-			[
-				{
-					"Status" : 
-					[
-						{
-							"Name" : "LastCall",
-							"Type" : "string",
-							"Value" : ""
-						}
-					],
-					"SubDeviceID" : "0x01"
-				}
-			]
-		}
-	]
-}
-
-<17:38:14:369> [home_device_lib.cpp:299:HomeDevice::getStatus()] 	get status: 0xea, 0x0f
-<17:38:14:371> [http_response.cpp:61:HttpResponse::sendResponse()] 	send response........----...
-<17:38:14:371> [http_response.cpp:62:HttpResponse::sendResponse()] 	HTTP/1.1 200 OK
-<17:38:14:371> [http_response.cpp:71:HttpResponse::sendResponse()] 	Connection: close
-<17:38:14:371> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Type: application/json
-<17:38:14:371> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Length: 170
-<17:38:14:371> [http_response.cpp:73:HttpResponse::sendResponse()] 	---------------------------
-<17:38:14:372> [http_response.cpp:89:HttpResponse::sendResponse()] 	end of sending response: 261
-
-<17:38:14:405> [http_server.cpp:232:HttpServer::processClientThread()] 	received request----------------
-GET /smarthome/v1/status/0xea/0x01 HTTP/1.1
-Host: 127.0.0.1:28891
-Content-Length: 0
-
-
-<17:38:14:405> [home_device_lib.cpp:842:HomeDevice::recvHttpRequest()] 	get http request: GET, /smarthome/v1/status/0xea/0x01
-
-<17:38:14:407> [phone_device.cpp:120:PhoneDevice::setStatus()] 	set status: 
-{
-	"DeviceList" : 
-	[
-		{
-			"DeviceID" : "0xea",
-			"SubDeviceList" : 
-			[
-				{
-					"Status" : 
-					[
-						{
-							"Name" : "LastCall",
-							"Type" : "string",
-							"Value" : ""
-						}
-					],
-					"SubDeviceID" : "0x01"
-				}
-			]
-		}
-	]
-}
-
-<17:38:14:407> [home_device_lib.cpp:299:HomeDevice::getStatus()] 	get status: 0xea, 0x01
-<17:38:14:408> [home_device_lib.cpp:364:HomeDevice::getStatus()] 	status: 
-°2ð
-<17:38:14:409> [http_response.cpp:61:HttpResponse::sendResponse()] 	send response........----...
-<17:38:14:409> [http_response.cpp:62:HttpResponse::sendResponse()] 	HTTP/1.1 200 OK
-<17:38:14:409> [http_response.cpp:71:HttpResponse::sendResponse()] 	Connection: close
-<17:38:14:409> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Type: application/json
-<17:38:14:409> [http_response.cpp:71:HttpResponse::sendResponse()] 	Content-Length: 93
-<17:38:14:410> [http_response.cpp:73:HttpResponse::sendResponse()] 	---------------------------
-<17:38:14:410> [http_response.cpp:89:HttpResponse::sendResponse()] 	end of sending response: 183
-
+<18:56:35:309> [httpu_server.cpp:54:HttpuServer::getMyAddrs()] 	myaddr: DONGHEE-GRAM
+<18:56:35:309> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.0.41
+<18:56:35:310> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.111.1
+<18:56:35:310> [httpu_server.cpp:80:HttpuServer::getMyAddrs()] 	addr is 192.168.226.1
+<18:56:35:310> [httpu_server.cpp:74:HttpuServer::getMyAddrs()] 	addr is null: 3
+<18:56:35:311> [home_device_lib.cpp:271:HomeDevice::setDataHomePath()] 	set data home: ../../../data
+<18:56:35:349> [httpu_server.cpp:354:HttpuServer::runServerThread()] 	HttpuServer started: 224.0.1.2 : 17777
+<18:56:35:350> [http_server.cpp:130:HttpServer::runServerThread()] 	HttpServer started: 28891
+<18:56:35:351> [http_server.cpp:130:HttpServer::runServerThread()] 	HttpServer started: 28891
+<18:56:35:352> [http_server.cpp:130:HttpServer::runServerThread()] 	HttpServer started: 28891
+<18:56:35:353> [http_server.cpp:321:HttpServer::runClosingSocketThread()] 	ClosingSocketThread started.
+<18:56:35:354> [httpu_server.cpp:354:HttpuServer::runServerThread()] 	HttpuServer started: 224.0.1.1 : 65123
