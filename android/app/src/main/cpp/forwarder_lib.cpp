@@ -13,6 +13,54 @@
 #include <unistd.h>
 #endif
 
+#ifdef __ANDROID__
+extern "C" int jni_writeSerial(const uint8_t* data, int len);
+
+int Forwarder::init(Json::Value& conf_json)
+{
+	trace("before init msd")
+		if (m_msd.init(SERIAL_MULTICAST_PORT) < 0) {
+			tracee("serial device (multicast) init failed.");
+			return -1;
+		}
+	if (m_msd.run() < 0) {
+		tracee("run serial device (multicast) failed.");
+		return -1;
+	}
+	trace("forwarder init success.")
+		return 0;
+}
+int Forwarder::run()
+{
+	m_run_flag = true;
+	m_m2s_tid = new std::thread(&Forwarder::m2sThread, this);
+	return 0;
+}
+void Forwarder::stop() {}
+void Forwarder::m2sThread()
+{
+	struct SerialQueueInfo q_info;
+
+	while (true) {
+		if (m_run_flag != true) {
+			break;
+		}
+
+		if (m_msd.get(&q_info) < 0) {
+			usleep(10000);
+			continue;
+		}
+		tracee("send to serial.");
+		jni_writeSerial(q_info.m_addr, q_info.m_len);
+	}
+}
+void Forwarder::s2mThread() {}
+
+int Forwarder::receivedSerial(uint8_t* data, int len)
+{
+	return m_msd.send_multicast(data, len);
+}
+#else
 int Forwarder::init(Json::Value& conf_json)
 {
 
@@ -25,46 +73,46 @@ int Forwarder::init(Json::Value& conf_json)
 
 	m_run_flag = false;
 
-	if(conf_json["Serial"].type() == Json::objectValue){
+	if (conf_json["Serial"].type() == Json::objectValue) {
 		json_obj = conf_json["Serial"];
-		if(json_obj["Speed"].type() == Json::intValue){
+		if (json_obj["Speed"].type() == Json::intValue) {
 			serial_speed = json_obj["Speed"].asInt();
 		}
-		else{
+		else {
 			tracee("there is no serial speed.");
 			return -1;
 		}
 
-		if(json_obj["Port"].type() == Json::stringValue){
+		if (json_obj["Port"].type() == Json::stringValue) {
 			serial_port = json_obj["Port"].asString();
 		}
-		else{
+		else {
 			tracee("there is no serial port.");
 			return -1;
 		}
 	}
-	else{
+	else {
 		tracee("there is no serial.");
 		return -1;
 	}
 
-	if(m_ssd.init(serial_port, serial_speed) < 0){
+	if (m_ssd.init(serial_port, serial_speed) < 0) {
 		tracee("serial device (serial) init failed: %s, %d", serial_port.c_str(), serial_speed);
 		return -1;
 	}
-	if(m_msd.init(SERIAL_MULTICAST_PORT) < 0){
+	if (m_msd.init(SERIAL_MULTICAST_PORT) < 0) {
 		tracee("serial device (multicast) init failed.");
 		return -1;
 	}
-	
-    if(m_ssd.run() < 0){
-        tracee("run serial device (serial) failed.");
-        return -1;
-    }
-    if(m_msd.run() < 0){
-        tracee("run serial device (multicast) failed.");
-        return -1;
-    }
+
+	if (m_ssd.run() < 0) {
+		tracee("run serial device (serial) failed.");
+		return -1;
+	}
+	if (m_msd.run() < 0) {
+		tracee("run serial device (multicast) failed.");
+		return -1;
+	}
 
 	return 0;
 }
@@ -81,27 +129,27 @@ int Forwarder::run()
 
 void Forwarder::stop()
 {
-	if(m_run_flag == false){
+	if (m_run_flag == false) {
 		return;
 	}
 
 	m_run_flag = false;
 	m_msd.stop();
 	m_ssd.stop();
-	
-	
+
+
 }
 
 void Forwarder::m2sThread()
 {
 	struct SerialQueueInfo q_info;
 
-	while(true){
-		if(m_run_flag != true){
+	while (true) {
+		if (m_run_flag != true) {
 			break;
 		}
 
-		if (m_msd.get(&q_info) < 0){
+		if (m_msd.get(&q_info) < 0) {
 			usleep(10000);
 			continue;
 		}
@@ -115,8 +163,8 @@ void Forwarder::s2mThread()
 {
 	struct SerialQueueInfo q_info;
 
-	while(true){
-		if (m_run_flag != true){
+	while (true) {
+		if (m_run_flag != true) {
 			break;
 		}
 
@@ -129,14 +177,5 @@ void Forwarder::s2mThread()
 		//delete[] q_info.m_addr;
 	}
 }
-
-#ifdef __ANDROID__
-int Forwarder::receivedSerial(uint8_t* data, int len)
-{
-	//return m_ssd.receivedSerial(data, len);
-	return m_ssd.send_multicast(data, len);
-}
 #endif
-
-
 

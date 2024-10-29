@@ -44,142 +44,6 @@ int SerialDevice::init()
 	return init(SERIAL_MULTICAST_PORT);
 }
 
-#if 0
-int SerialDevice::init(int port)
-{
-	int on_off;
-//	struct ip_mreq mreq;
-	struct sockaddr_in addr;
-	struct sockaddr_in addr2;
-	socklen_t addr_len;
-
-	if(m_use_serial != -1){
-		tracee("SerialDevice is already initialized: %d", m_use_serial);
-		return -1;
-	}
-
-	m_read_thread = NULL;
-	m_run_flag = false;
-
-	m_sfd = INVALID_HANDLE_VALUE;
-
-	m_multicast_port = port;
-	trace("set receiving port: %d", m_multicast_port);
-
-	//create socket
-	m_mrfd = socket(AF_INET, SOCK_DGRAM, 0);
-	if(m_mrfd < 0){
-		trace("receive socket creation failed.");
-		return -1;
-	}
-
-	//*
-	int broadcast = 1;
-	if (setsockopt(m_mrfd, SOL_SOCKET, SO_BROADCAST, (char*)&broadcast, sizeof(broadcast)) < 0) {
-		tracee("set broadcast failed.");
-		closesocket(m_mrfd);
-		return -1;
-	}
-	//*/
-
-	//set re-use option
-	on_off = 1;
-	if(setsockopt(m_mrfd, SOL_SOCKET, SO_REUSEADDR, (char*)&on_off, sizeof(on_off)) != 0){
-		trace("setsockopt for message multi-UDP failed");
-		closesocket(m_mrfd);
-		return -1;
-	}
-
-	int loop = 1;
-	setsockopt(m_mrfd, IPPROTO_IP, IP_MULTICAST_LOOP, (char*)&loop, sizeof(loop));
-
-	addr.sin_family = AF_INET;
-	//addr.sin_addr.s_addr = htonl(INADDR_ANY);
-	addr.sin_addr.s_addr = inet_addr("127.0.0.1");
-	//addr.sin_addr.s_addr = inet_addr("192.168.0.10");
-	addr.sin_port = htons(m_multicast_port);
-
-	if(bind(m_mrfd, (struct sockaddr*)&addr, sizeof(addr)) == -1){
-		trace("bind ssdp socket failed.");
-		return -1;
-	}
-
-	/*
-	int loop = 1;
-	setsockopt(m_mrfd, IPPROTO_IP, IP_MULTICAST_LOOP, (char*)&loop, sizeof(loop));
-
-	mreq.imr_multiaddr.s_addr = inet_addr(MULTICAST_ADDR);
-	//mreq.imr_interface.s_addr = inet_addr("192.168.0.25");
-	mreq.imr_interface.s_addr = inet_addr("127.0.0.1");
-	//mreq.imr_interface.s_addr = inet_addr("192.168.0.10");
-	if(setsockopt(m_mrfd, IPPROTO_IP, IP_ADD_MEMBERSHIP, (const char*)&mreq, sizeof(mreq)) < 0){
-		tracee("join group failed: %s", MULTICAST_ADDR);
-		closesocket(m_mrfd);
-		return -1;
-	}
-	//*/
-
-	//create socket
-	m_msfd = socket(AF_INET, SOCK_DGRAM, 0);
-	if(m_msfd < 0){
-		tracee("send socket creation failed.");
-		closesocket(m_mrfd);
-		m_mrfd = -1;
-		return -1;
-	}
-
-	broadcast = 1;
-	if (setsockopt(m_msfd, SOL_SOCKET, SO_BROADCAST, (char*)&broadcast, sizeof(broadcast)) < 0) {
-		tracee("set broadcast failed.");
-		closesocket(m_mrfd);
-		return -1;
-	}
-
-	memset(&addr, 0, sizeof(addr));
-	addr.sin_family = AF_INET;
-	//addr.sin_addr.s_addr = INADDR_ANY;
-	addr.sin_addr.s_addr = inet_addr("127.0.0.1");
-	addr.sin_port = htons(0);
-	if(bind(m_msfd, (struct sockaddr*)&addr, sizeof(addr)) < 0){
-		tracee("bind sending socket failed.");
-		closesocket(m_mrfd);
-		closesocket(m_msfd);
-		m_mrfd = -1;
-		m_msfd = -1;
-		return -1;
-	}
-
-	memset(&addr2, 0, sizeof(struct sockaddr));
-	addr_len = sizeof(struct sockaddr);
-	if((on_off = getsockname(m_msfd, (struct sockaddr*)&addr2, &addr_len)) < 0){
-		tracee("getsockname failed: %d", on_off);
-		int error = WSAGetLastError();
-		tracee("sockname: %d", error);
-
-		wchar_t *s = NULL;
-		FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
-			NULL, WSAGetLastError(),
-			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-			(LPWSTR)&s, 0, NULL);
-		printf("ah: %S\n", s);
-		fprintf(stderr, "ah: %S\n", s);
-		LocalFree(s);
-
-		closesocket(m_mrfd);
-		closesocket(m_msfd);
-		m_mrfd = -1;
-		m_msfd = -1;
-		return -1;
-	}
-	trace("my sock port: %d", ntohs(addr2.sin_port));
-	m_sending_port = ntohs(addr2.sin_port);
-
-	m_use_serial = 0;
-
-	return 0;
-}
-#endif
-
 
 int SerialDevice::init(int port)
 {
@@ -549,23 +413,30 @@ std::string SerialDevice::printBytes(const uint8_t* bytes, int len)
 }
 
 
+#ifdef __ANDROID__
+extern "C" int jni_writeSerial(const uint8_t* data, int len);
+#endif
 int SerialDevice::send(const uint8_t* bytes, int len)
 {
 	int ret;
 
 	ret = -1;
-	if(m_use_serial == 0){
+	if (m_use_serial == 0) {
 		ret = send_multicast(bytes, len);
+#ifdef __ANDROID__
+		jni_writeSerial(bytes, len);
+#endif
 	}
-	else if(m_use_serial == 1){
+	else if (m_use_serial == 1) {
 		ret = send_serial(bytes, len);
 	}
-	else{
+	else {
 		tracee("use serial flag: %d", m_use_serial);
 	}
 
 	return ret;
 }
+
 
 int SerialDevice::send_multicast(const uint8_t* bytes, int len)
 {
@@ -577,11 +448,7 @@ int SerialDevice::send_multicast(const uint8_t* bytes, int len)
 	//trace("serial data send: %s", bytes_string.c_str());
 	sock_infos = m_httpu_server->getSocketInfos();
 	for (unsigned int i = 0; i < sock_infos.size(); i++) {
-#ifdef __ANDROID__
-		m_httpu_server->send(sock_infos[i].m_socket, "255.255.255.255", SERIAL_MULTICAST_PORT, bytes, len);
-#else
 		m_httpu_server->send(sock_infos[i].m_socket, SERIAL_MULTICAST_ADDR, SERIAL_MULTICAST_PORT, bytes, len);
-#endif
 	}
 
 	return 0;

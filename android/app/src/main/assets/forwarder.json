@@ -1,6 +1,6 @@
 {
 	"Serial": {
-		"Port": "COM4",
-		"Speed": 9600
+		"Port": "COM3",
+		"Speed": 38400
 	}
 }

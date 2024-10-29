@@ -2365,3 +2365,34 @@ Content-Length: 169
 <16:26:46:455> [x4506authtooldlg.cpp:343:CX4506AuthToolDlg::checkTestStoppedThread()] 	event: 11: 1, 12. 개별 제어
 <16:26:46:463> [x4506authtooldlg.cpp:343:CX4506AuthToolDlg::checkTestStoppedThread()] 	event: -1: -1, 
 <16:26:46:463> [x4506authtooldlg.cpp:345:CX4506AuthToolDlg::checkTestStoppedThread()] 	test complete event!!!!!
+<16:29:53:057> [devicecontroller.cpp:150:DeviceController::stop()] 	let's stop device controller
+<16:29:53:057> [devicecontroller.cpp:304:DeviceController::stopTest()] 	test already stopped: 0xeb
+<16:29:53:057> [devicecontroller.cpp:152:DeviceController::stop()] 	after stopTest
+<16:29:53:057> [serial_device.cpp:348:SerialDevice::stop()] 	let's stop serial device.
+<16:29:53:057> [httpu_server.cpp:322:HttpuServer::stop()] 	let's stop httpu server...
+<16:29:53:057> [home_device_lib.cpp:1395:HomeDevice::runSerialCommandReceiverThread()] 	serial command receiver stoppped.
+<16:29:53:057> [httpu_server.cpp:387:HttpuServer::runServerThread()] 	recvfrom failed: 9
+<16:29:53:057> [httpu_server.cpp:417:HttpuServer::runServerThread()] 	HttpuServer stopped.
+<16:29:53:058> [httpu_server.cpp:332:HttpuServer::stop()] 	httpu server stopped.
+<16:29:53:058> [serial_device.cpp:361:SerialDevice::stop()] 	serial device stopped.
+<16:29:53:058> [http_server.cpp:183:HttpServer::stop()] 	let's stop http server.
+<16:29:53:058> [http_message.cpp:105:HttpMessage::recvLine()] 	select error
+<16:29:53:058> [http_message.cpp:293:HttpMessage::recvMessage()] 	http_recv_lien filaed.
+<16:29:53:058> [http_server.cpp:221:HttpServer::processClientThread()] 	recv http request failed.
+<16:29:53:058> [http_message.cpp:105:HttpMessage::recvLine()] 	select error
+<16:29:53:058> [http_message.cpp:293:HttpMessage::recvMessage()] 	http_recv_lien filaed.
+<16:29:53:058> [http_server.cpp:221:HttpServer::processClientThread()] 	recv http request failed.
+<16:29:53:058> [http_server.cpp:169:HttpServer::runServerThread()] 	HttpServer Stopped.
+<16:29:53:058> [http_server.cpp:169:HttpServer::runServerThread()] 	HttpServer Stopped.
+<16:29:53:058> [http_message.cpp:105:HttpMessage::recvLine()] 	select error
+<16:29:53:059> [http_message.cpp:293:HttpMessage::recvMessage()] 	http_recv_lien filaed.
+<16:29:53:059> [http_server.cpp:221:HttpServer::processClientThread()] 	recv http request failed.
+<16:29:53:059> [http_server.cpp:169:HttpServer::runServerThread()] 	HttpServer Stopped.
+<16:29:53:072> [http_server.cpp:198:HttpServer::stop()] 	http server stopped.
+<16:29:53:998> [devicecontroller.cpp:155:DeviceController::stop()] 	device controller stopped.
+<16:29:53:998> [serial_device.cpp:348:SerialDevice::stop()] 	let's stop serial device.
+<16:29:53:998> [httpu_server.cpp:322:HttpuServer::stop()] 	let's stop httpu server...
+<16:29:53:998> [httpu_server.cpp:332:HttpuServer::stop()] 	httpu server stopped.
+<16:29:53:998> [serial_device.cpp:361:SerialDevice::stop()] 	serial device stopped.
+<16:29:53:998> [http_server.cpp:183:HttpServer::stop()] 	let's stop http server.
+<16:29:53:998> [http_server.cpp:198:HttpServer::stop()] 	http server stopped.

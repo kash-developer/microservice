@@ -144,23 +144,26 @@ Java_com_etri_microdeviceservice_DeviceService_cppStartForwarder(JNIEnv *jenv, j
     trace("start forwarder.");
     trace("json: %s", str_json.c_str());
 
+    /*
     if(parseConfJson(str_json, &json_obj) < 0){
         tracee("parse json failed.");
         return -1;
     }
+     */
 
     g_forwarder = new Forwarder();
     if(g_forwarder->init(json_obj) < 0){
         tracee("forwarder init failed.");
         return -1;
     }
+    trace("forwarder init success")
     if(g_forwarder->run() < 0){
         tracee("forwarder run failed.");
         delete g_forwarder;
         g_forwarder = NULL;
         return -1;
     }
-
+    trace("forwarder started.")
     return 0;
 }
 
@@ -318,7 +321,10 @@ Java_com_etri_microdeviceservice_DeviceService_cpponNewData(JNIEnv *jenv, jobjec
 
     jenv->ReleaseByteArrayElements(jarray, jbuf, 0);
 
+    trace("before recv serial");
     g_forwarder->receivedSerial(buf, len);
+    trace("after recv serial");
+
     delete[] buf;
 
     return;
@@ -386,7 +392,7 @@ jni_writeSerial(const uint8_t* data, int len)
 
     g_serial_q.push(serial_data_buf);
 
-    trace("write to q. len: %d", len);
+    tracee("write to q. len: %d", len);
 
     return 0;
 }

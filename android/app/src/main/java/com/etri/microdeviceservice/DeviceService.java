@@ -83,6 +83,7 @@ public class DeviceService implements SerialInputOutputManager.Listener {
             while(true){
                 data = pollSerialData_internal();
                 if(data == null){
+                    android.util.Log.e("**my", "no serial data");
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e){
@@ -90,6 +91,7 @@ public class DeviceService implements SerialInputOutputManager.Listener {
                     continue;
                 }
 
+                android.util.Log.e("**my", "got serial data");
                 writeSerial(data);
             }
         }
@@ -341,11 +343,9 @@ public class DeviceService implements SerialInputOutputManager.Listener {
             android.util.Log.e("**my","there is no configuration for Forwarder.");
         }
         else{
-            /*
             if(cppStartForwarder(str_json) < 0){
                 android.util.Log.e("**my","failed to start forwarder.");
             }
-             */
         }
 
         return;
@@ -417,7 +417,7 @@ public class DeviceService implements SerialInputOutputManager.Listener {
         }
         try{
             m_port.write(data, 0);
-            android.util.Log.e("**my","write...." + byteArrayToHex(data));
+            android.util.Log.e("**my","write to serial: " + byteArrayToHex(data));
         } catch(Exception e){
             android.util.Log.e("**my","write failed.");
             return -1;
@@ -427,7 +427,7 @@ public class DeviceService implements SerialInputOutputManager.Listener {
 
     @Override
     public void onNewData(byte[] data) {
-        android.util.Log.e("**my", "onNewData: " + data.length + ": " + byteArrayToHex(data));
+        android.util.Log.e("**my", "onNewData from serial: " + data.length + ": " + byteArrayToHex(data));
         cpponNewData(data);
     }
 
