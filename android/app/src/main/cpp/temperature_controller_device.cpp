@@ -46,11 +46,24 @@ int TemperatureControllerDevice::init(Json::Value& conf_json, std::vector<int> s
 	if(conf_json[m_device_name].type() == Json::objectValue){
 		tmp_json_obj = conf_json[m_device_name];
 
+		m_use_old_characteristic = true;
+		if (tmp_json_obj["UseOldCharacteristic"].type() == Json::booleanValue) {
+			m_use_old_characteristic = tmp_json_obj["UseOldCharacteristic"].asBool();
+			trace("use old characteristic: %d", m_use_old_characteristic);
+		}
+
 		if (tmp_json_obj["Characteristics"].type() == Json::objectValue) {
 			tmp_json_obj = tmp_json_obj["Characteristics"];
 
-			if (tmp_json_obj["Version"].type() == Json::intValue) {
-				m_characteristic.m_version = tmp_json_obj["Version"].asInt();
+			if (m_use_old_characteristic == true) {
+				trace("use old characteristic.");
+				m_characteristic.m_version = 0;
+			}
+			else {
+				trace("use new characteristic.");
+				if (tmp_json_obj["Version"].type() == Json::intValue) {
+					m_characteristic.m_version = tmp_json_obj["Version"].asInt();
+				}
 			}
 			if (tmp_json_obj["CompanyCode"].type() == Json::intValue) {
 				m_characteristic.m_company_code = tmp_json_obj["CompanyCode"].asInt();
@@ -71,11 +84,6 @@ int TemperatureControllerDevice::init(Json::Value& conf_json, std::vector<int> s
 	}
 
 	for (unsigned int i = 0; i < m_sub_ids.size(); i++) {
-		obj_char["Name"] = "Version";
-		obj_char["Type"] = "interger";
-		obj_char["Value"] = m_characteristic.m_version;
-		obj_chars.append(obj_char);
-
 		obj_char["Name"] = "CompanyCode";
 		obj_char["Type"] = "interger";
 		obj_char["Value"] = m_characteristic.m_company_code;
@@ -105,6 +113,30 @@ int TemperatureControllerDevice::init(Json::Value& conf_json, std::vector<int> s
 		obj_char["Type"] = "integer";
 		obj_char["Value"] = m_characteristic.m_controller_number;
 		obj_chars.append(obj_char);
+
+		if (m_use_old_characteristic == true) {
+			obj_char["Name"] = "ControlType";
+			obj_char["Type"] = "interger";
+			obj_char["Value"] = 0x01;
+			obj_chars.append(obj_char);
+
+			obj_char["Name"] = "ReservationMode";
+			obj_char["Type"] = "boolean";
+			obj_char["Value"] = false;
+			obj_chars.append(obj_char);
+
+			obj_char["Name"] = "HotWaterMode";
+			obj_char["Type"] = "boolean";
+			obj_char["Value"] = false;
+			obj_chars.append(obj_char);
+
+		}
+		else {
+			obj_char["Name"] = "Version";
+			obj_char["Type"] = "interger";
+			obj_char["Value"] = m_characteristic.m_version;
+			obj_chars.append(obj_char);
+		}
 
 		sub_device.clear();
 		sub_device["SubDeviceID"] = int2hex_str(m_sub_ids[i]);
@@ -270,7 +302,7 @@ int TemperatureControllerDevice::processHttpCommand(int device_id, int sub_id, J
 			if ((cmd.compare("HeatingControl") == 0) || (int_cmd == 0x43)) {
 				ret_param.clear();
 				ret_param["Name"] = "Heating";
-				ret_param["Value"] = m_statuses[0].m_heating;
+				ret_param["Value"] = m_statuses[i].m_heating;
 				ret_param["Type"] = "boolean";
 				ret_params.append(ret_param);
 
@@ -280,7 +312,7 @@ int TemperatureControllerDevice::processHttpCommand(int device_id, int sub_id, J
 			else if ((cmd.compare("SetTemperatureControl") == 0) || (int_cmd == 0x44)) {
 				ret_param.clear();
 				ret_param["Name"] = "SettingTemperature";
-				ret_param["Value"] = m_statuses[0].m_setting_temperature;
+				ret_param["Value"] = m_statuses[i].m_setting_temperature;
 				ret_param["Type"] = "number";
 				ret_params.append(ret_param);
 
@@ -290,7 +322,7 @@ int TemperatureControllerDevice::processHttpCommand(int device_id, int sub_id, J
 			else if ((cmd.compare("SetOutGoingModeControl") == 0) || (int_cmd == 0x45)) {
 				ret_param.clear();
 				ret_param["Name"] = "Outgoing";
-				ret_param["Value"] = m_statuses[0].m_outgoing;
+				ret_param["Value"] = m_statuses[i].m_outgoing;
 				ret_param["Type"] = "boolean";
 				ret_params.append(ret_param);
 
@@ -357,20 +389,35 @@ int TemperatureControllerDevice::processTemperatureControllerSerialCommand(Seria
 	//chractoristic info
 	else if(cmd_info->m_command_type == 0x0f){
 		res_type = 0x8f;
-		body_len = 11;
 
-		res_body_bytes[0] = m_characteristic.m_version;
-		res_body_bytes[1] = m_characteristic.m_company_code;
-		res_body_bytes[2] = 0x00;
-		res_body_bytes[3] = m_characteristic.m_max_temperature;
-		res_body_bytes[4] = m_characteristic.m_min_temperature;
-		res_body_bytes[5] = m_characteristic.m_decimal_point_flag ? 0x10 : 0x00;
-		res_body_bytes[5] |= m_characteristic.m_outgoing_mode_flag ? 0x02 : 0x00;
-		res_body_bytes[6] = m_characteristic.m_controller_number;
-		res_body_bytes[7] = 0x00;
-		res_body_bytes[8] = 0x00;
-		res_body_bytes[9] = 0x00;
-		res_body_bytes[10] = 0x00;
+		if (m_use_old_characteristic == true) {
+			body_len = 0x07;
+
+			res_body_bytes[0] = 0;
+			res_body_bytes[1] = m_characteristic.m_company_code;
+			res_body_bytes[2] = 0x01;
+			res_body_bytes[3] = m_characteristic.m_max_temperature;
+			res_body_bytes[4] = m_characteristic.m_min_temperature;
+			res_body_bytes[5] = m_characteristic.m_decimal_point_flag ? 0x10 : 0x00;
+			res_body_bytes[5] |= m_characteristic.m_outgoing_mode_flag ? 0x02 : 0x00;
+			res_body_bytes[6] = m_characteristic.m_controller_number;
+		}
+		else {
+			body_len = 0x0b;
+
+			res_body_bytes[0] = m_characteristic.m_version;
+			res_body_bytes[1] = m_characteristic.m_company_code;
+			res_body_bytes[2] = 0x00;
+			res_body_bytes[3] = m_characteristic.m_max_temperature;
+			res_body_bytes[4] = m_characteristic.m_min_temperature;
+			res_body_bytes[5] = m_characteristic.m_decimal_point_flag ? 0x10 : 0x00;
+			res_body_bytes[5] |= m_characteristic.m_outgoing_mode_flag ? 0x02 : 0x00;
+			res_body_bytes[6] = m_characteristic.m_controller_number;
+			res_body_bytes[7] = 0x00;
+			res_body_bytes[8] = 0x00;
+			res_body_bytes[9] = 0x00;
+			res_body_bytes[10] = 0x00;
+		}
 	}
 	else if(cmd_info->m_command_type == 0x43){
 		heatingControl(cmd_info->m_sub_id, cmd_info->m_data[0]);
@@ -394,10 +441,10 @@ int TemperatureControllerDevice::processTemperatureControllerSerialCommand(Seria
 		for (unsigned int i = 0; i < m_statuses.size(); i++) {
 			if ((cmd_info->m_sub_id == m_statuses[i].m_sub_id) || ((cmd_info->m_sub_id & 0x0f) == 0x0f)) {
 				res_body_bytes[0] = 0;
-				res_body_bytes[1] |= m_statuses[0].m_heating ? 0x01 << i : 0x00;
-				res_body_bytes[2] |= m_statuses[0].m_outgoing ? 0x01 << i : 0x00;
-				res_body_bytes[3] |= m_statuses[0].m_reservation ? 0x01 << i : 0x00;
-				res_body_bytes[4] |= m_statuses[0].m_hotwater_exclusive ? 0x01 << i : 0x00;
+				res_body_bytes[1] |= m_statuses[i].m_heating ? 0x01 << i : 0x00;
+				res_body_bytes[2] |= m_statuses[i].m_outgoing ? 0x01 << i : 0x00;
+				res_body_bytes[3] |= m_statuses[i].m_reservation ? 0x01 << i : 0x00;
+				res_body_bytes[4] |= m_statuses[i].m_hotwater_exclusive ? 0x01 << i : 0x00;
 
 				res_body_bytes[5 + (i * 2)] = int(m_statuses[i].m_setting_temperature);
 				if (m_statuses[i].m_setting_temperature - int(m_statuses[i].m_setting_temperature) > 0) {
@@ -411,7 +458,7 @@ int TemperatureControllerDevice::processTemperatureControllerSerialCommand(Seria
 				idx++;
 			}
 		}
-		body_len = 5 + (idx * 2);
+		body_len = 0x05 + (idx * 2);
 
 		//no such sub_id
 		if (idx == 0) {

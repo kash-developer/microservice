@@ -66,6 +66,7 @@ struct DeviceInformation {
 	std::string m_device_name;
 	std::string m_base_url;
 	int m_type;
+	bool m_use_old_characteristic;
 };
 
 struct OpenApiCommandInfo {

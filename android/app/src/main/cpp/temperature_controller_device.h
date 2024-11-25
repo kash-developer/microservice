@@ -30,6 +30,7 @@ class TemperatureControllerDevice : public HomeDevice {
 private:
 	struct TemperatureControllerCharacteristic m_characteristic;
 	std::vector<struct TemperatureControllerStatus> m_statuses;
+	bool m_use_old_characteristic;
 
 public:
 

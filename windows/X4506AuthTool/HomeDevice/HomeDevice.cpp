@@ -202,6 +202,15 @@ int main(int argc, char* argv[])
 			}
 			break;
 		}
+		else if (cmd == 'c') {
+			printf("print configuration\n");
+			if (parseJson(filename, &conf_json, &err) == false) {
+				tracee("parse conf file failed: %s", argv[1]);
+				tracee("%s", err.c_str());
+				return -1;
+			}
+			printf("%s\n", conf_json.toStyledString().c_str());
+		}
 		else if (cmd == 'p') {
 			printf("print device list.\n");
 			if (controller != NULL) {

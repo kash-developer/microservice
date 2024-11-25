@@ -350,7 +350,7 @@ int BoilerDevice::processBoilerSerialCommand(SerialCommandInfo* cmd_info)
 	//chractoristic info
 	else if(cmd_info->m_command_type == 0x0f){
 		res_type = 0x8f;
-		body_len = 11;
+		body_len = 0x0b;
 
 		res_body_bytes[0] = m_characteristic.m_version;
 		res_body_bytes[1] = m_characteristic.m_company_code;
@@ -396,7 +396,7 @@ int BoilerDevice::processBoilerSerialCommand(SerialCommandInfo* cmd_info)
 					res_body_bytes[3] |= 0x80;
 				}
 				res_body_bytes[4] = 0x00;
-				body_len = 5;
+				body_len = 0x05;
 
 				break;
 			}

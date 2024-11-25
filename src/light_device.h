@@ -19,6 +19,7 @@ class LightDevice : public HomeDevice {
 private:
 	struct LightCharacteristic m_characteristic;
 	std::vector<struct LightStatus> m_statuses;
+	bool m_use_old_characteristic;
 
 public:
 

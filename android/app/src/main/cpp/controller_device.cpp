@@ -91,7 +91,6 @@ int ControllerDevice::init(Json::Value& conf_json, std::vector<int> sub_ids, int
 		}
 	}
 
-
 	if (conf_json["Devices"].type() != Json::arrayValue) {
 		tracee("invalid devices.");
 		delete m_discovery_httpu_server;
@@ -136,6 +135,13 @@ int ControllerDevice::init(Json::Value& conf_json, std::vector<int> sub_ids, int
 			tracee("invalid sub device id: %s", registered_devices[i].c_str());
 			continue;
 		}
+		if (tmp_json_obj["UseOldCharacteristic"].type() != Json::booleanValue) {
+			device_info.m_use_old_characteristic = true;
+		}
+		else {
+			device_info.m_use_old_characteristic = tmp_json_obj["UseOldCharacteristic"].asBool();
+		}
+
 		is_fault = false;
 		for (unsigned int j = 0; j < tmp_json_obj["SubDeviceIDs"].size(); j++) {
 			if (tmp_json_obj["SubDeviceIDs"][j].type() != Json::intValue) {
@@ -1100,23 +1106,40 @@ Json::Value ControllerDevice::getDeviceCharacteristic_light(int device_id, int s
 
 	sub_devices.clear();
 	characteristics.clear();
-
 	characteristic.clear();
-	characteristic["Name"] = "Version";
-	characteristic["Type"] = "integer";
-	characteristic["Value"] = cmd_info.m_data[0];
-	characteristics.append(characteristic);
 
-	characteristic["Name"] = "CompanyCode";
-	characteristic["Type"] = "integer";
-	characteristic["Value"] = cmd_info.m_data[1];
-	characteristics.append(characteristic);
+	if (device_info.m_use_old_characteristic == true) {
+		characteristic["Name"] = "OnOffDeviceNumber";
+		characteristic["Type"] = "integer";
+		characteristic["Value"] = cmd_info.m_data[1];
+		characteristics.append(characteristic);
 
-	characteristic["Name"] = "OnOffDeviceNumber";
-	characteristic["Type"] = "integer";
-	characteristic["Value"] = cmd_info.m_data[2];
-	characteristics.append(characteristic);
+		characteristic["Name"] = "DimmingDeviceNumber";
+		characteristic["Type"] = "integer";
+		characteristic["Value"] = cmd_info.m_data[2];
+		characteristics.append(characteristic);
 
+		characteristic["Name"] = "DimmingDeviceIndex";
+		characteristic["Type"] = "integer";
+		characteristic["Value"] = (cmd_info.m_data[3] << 8) + (cmd_info.m_data[4]);
+		characteristics.append(characteristic);
+	}
+	else {
+		characteristic["Name"] = "Version";
+		characteristic["Type"] = "integer";
+		characteristic["Value"] = 0;
+		characteristics.append(characteristic);
+
+		characteristic["Name"] = "CompanyCode";
+		characteristic["Type"] = "integer";
+		characteristic["Value"] = cmd_info.m_data[1];
+		characteristics.append(characteristic);
+
+		characteristic["Name"] = "OnOffDeviceNumber";
+		characteristic["Type"] = "integer";
+		characteristic["Value"] = cmd_info.m_data[2];
+		characteristics.append(characteristic);
+	}
 	sub_device["Characteristic"] = characteristics;
 	sub_device["SubDeviceID"] = int2hex_str(req_sub_id);
 
@@ -1693,11 +1716,6 @@ Json::Value ControllerDevice::getDeviceCharacteristic_temperatureController(int 
 	sub_devices.clear();
 	characteristics.clear();
 
-	characteristic["Name"] = "Version";
-	characteristic["Type"] = "interger";
-	characteristic["Value"] = cmd_info.m_data[0];
-	characteristics.append(characteristic);
-
 	characteristic["Name"] = "CompanyCode";
 	characteristic["Type"] = "interger";
 	characteristic["Value"] = cmd_info.m_data[1];
@@ -1731,6 +1749,29 @@ Json::Value ControllerDevice::getDeviceCharacteristic_temperatureController(int 
 	characteristic["Type"] = "integer";
 	characteristic["Value"] = cmd_info.m_data[6];
 	characteristics.append(characteristic);
+
+	if (device_info.m_use_old_characteristic == true) {
+		characteristic["Name"] = "ControlType";
+		characteristic["Type"] = "integer";
+		characteristic["Value"] = 0x01;
+		characteristics.append(characteristic);
+
+		characteristic["Name"] = "ReservationMode";
+		characteristic["Type"] = "boolean";
+		characteristic["Value"] = false;
+		characteristics.append(characteristic);
+
+		characteristic["Name"] = "HotWaterMode";
+		characteristic["Type"] = "boolean";
+		characteristic["Value"] = false;
+		characteristics.append(characteristic);
+	}
+	else {
+		characteristic["Name"] = "Version";
+		characteristic["Type"] = "interger";
+		characteristic["Value"] = cmd_info.m_data[0];
+		characteristics.append(characteristic);
+	}
 
 	sub_device["SubDeviceID"] = int2hex_str(req_sub_id);
 	sub_device["Characteristic"] = characteristics;
@@ -2823,22 +2864,22 @@ Json::Value ControllerDevice::getDeviceStatus_temperatureController(int device_i
 
 		status["Name"] = "Heating";
 		status["Type"] = "boolean";
-		status["Value"] = cmd_info.m_data[1] & 0x02 ? true : false;
+		status["Value"] = cmd_info.m_data[1] & (0x01 << i) ? true : false;
 		statuses.append(status);
 
 		status["Name"] = "Outgoing";
 		status["Type"] = "boolean";
-		status["Value"] = cmd_info.m_data[2] & 0x02 ? true : false;
+		status["Value"] = cmd_info.m_data[2] & (0x01 << i) ? true : false;
 		statuses.append(status);
 
 		status["Name"] = "Reservation";
 		status["Type"] = "boolean";
-		status["Value"] = cmd_info.m_data[3] & 0x01 ? true : false;
+		status["Value"] = cmd_info.m_data[3] & (0x01 << i) ? true : false;
 		statuses.append(status);
 
 		status["Name"] = "HotwaterExclusive";
 		status["Type"] = "boolean";
-		status["Value"] = cmd_info.m_data[4] & 0x01 ? true : false;
+		status["Value"] = cmd_info.m_data[4] & (0x01 << i) ? true : false;
 		statuses.append(status);
 
 		tmp_double = cmd_info.m_data[5 + i*2] & 0x7f;

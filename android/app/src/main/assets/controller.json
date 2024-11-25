@@ -18,7 +18,8 @@
 	"light": {
 		"DeviceID": 14,
 		"id": "0x0e",
-		"SubDeviceIDs": [17, 18, 19, 20]
+		"SubDeviceIDs": [17, 18, 19, 20],
+		"UseOldCharacteristic": true
 	},
 	"doorlock": {
 		"DeviceID": 49,
@@ -48,7 +49,8 @@
 	"temperature_controller": {
 		"DeviceID": 54,
 		"id": "0x36",
-		"SubDeviceIDs": [17, 18, 19, 20]
+		"SubDeviceIDs": [17, 18, 19, 20],
+		"UseOldCharacteristic": true
 	},
 	"breaker": {
 		"DeviceID": 51,

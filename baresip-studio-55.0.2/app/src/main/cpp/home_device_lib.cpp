@@ -793,8 +793,8 @@ std::string HomeDevice::serializeOpenApiResponse(std::vector<struct OpenApiComma
 		for (unsigned int i = 0; i < responses.size(); i++) {
 			if ((responses[i].m_sub_id & 0x0f) == 0x0f) {
 				obj_ret["SubDeviceList"] = Json::Value(Json::arrayValue);
-				for (unsigned int i = 0; i < responses.size(); i++) {
-					serializeOpenApiResponse_device_group(obj_ret["SubDeviceList"], responses[i].m_sub_id, responses[i].m_obj);
+				for (unsigned int j = 0; j < responses.size(); j++) {
+					serializeOpenApiResponse_device_group(obj_ret["SubDeviceList"], responses[j].m_sub_id, responses[j].m_obj);
 				}
 			}
 			else {

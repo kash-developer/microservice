@@ -8,6 +8,7 @@
 		"SubDeviceIDs": [17, 18, 19, 20]
 	},
 	"Light": {
+		"UseOldCharacteristic": true,
 		"Characteristics": {
 			"Version": 1,
 			"CompanyCode": 1

@@ -38,16 +38,29 @@ int LightDevice::init(Json::Value& conf_json, std::vector<int> sub_ids, int http
 	if (conf_json[m_device_name].type() == Json::objectValue) {
 		tmp_json_obj = conf_json[m_device_name];
 
+		m_use_old_characteristic = true;
+		if (tmp_json_obj["UseOldCharacteristic"].type() == Json::booleanValue) {
+			m_use_old_characteristic = tmp_json_obj["UseOldCharacteristic"].asBool();
+			trace("use old characteristic: %d", m_use_old_characteristic);
+		}
+
 		if (tmp_json_obj["Characteristics"].type() == Json::objectValue) {
 			tmp_json_obj = tmp_json_obj["Characteristics"];
-
-			if (tmp_json_obj["Version"].type() == Json::intValue) {
-				m_characteristic.m_version = tmp_json_obj["Version"].asInt();
-				trace("set version: %d, %d", m_characteristic.m_version, tmp_json_obj["Version"].asInt());
+			if (m_use_old_characteristic == true) {
+				trace("use old characteristic.");
+				m_characteristic.m_version = 0;
+				m_characteristic.m_company_code = -1;
 			}
-			if (tmp_json_obj["CompanyCode"].type() == Json::intValue) {
-				m_characteristic.m_company_code = tmp_json_obj["CompanyCode"].asInt();
-				trace("set company code: %d, %d", m_characteristic.m_company_code, tmp_json_obj["CompanyCode"].asInt());
+			else {
+				trace("use new characteristic.");
+				if (tmp_json_obj["Version"].type() == Json::intValue) {
+					m_characteristic.m_version = tmp_json_obj["Version"].asInt();
+					trace("set version: %d, %d", m_characteristic.m_version, tmp_json_obj["Version"].asInt());
+				}
+				if (tmp_json_obj["CompanyCode"].type() == Json::intValue) {
+					m_characteristic.m_company_code = tmp_json_obj["CompanyCode"].asInt();
+					trace("set company code: %d, %d", m_characteristic.m_company_code, tmp_json_obj["CompanyCode"].asInt());
+				}
 			}
 		}
 	}
@@ -55,20 +68,33 @@ int LightDevice::init(Json::Value& conf_json, std::vector<int> sub_ids, int http
 	for (unsigned int i = 0; i < m_sub_ids.size(); i++) {
 		obj_chars.clear();
 
-		obj_char["Name"] = "Version";
-		obj_char["Type"] = "integer";
-		obj_char["Value"] = m_characteristic.m_version;
-		obj_chars.append(obj_char);
-
-		obj_char["Name"] = "CompanyCode";
-		obj_char["Type"] = "integer";
-		obj_char["Value"] = m_characteristic.m_company_code;
-		obj_chars.append(obj_char);
-
 		obj_char["Name"] = "OnOffDeviceNumber";
 		obj_char["Type"] = "integer";
 		obj_char["Value"] = m_characteristic.m_onoff_dev_number;
 		obj_chars.append(obj_char);
+
+		if (m_use_old_characteristic == true) {
+			obj_char["Name"] = "DimmingDeviceNumber";
+			obj_char["Type"] = "integer";
+			obj_char["Value"] = 0;
+			obj_chars.append(obj_char);
+
+			obj_char["Name"] = "DimmingDeviceIndex";
+			obj_char["Type"] = "integer";
+			obj_char["Value"] = 0;
+			obj_chars.append(obj_char);
+		}
+		else {
+			obj_char["Name"] = "Version";
+			obj_char["Type"] = "integer";
+			obj_char["Value"] = m_characteristic.m_version;
+			obj_chars.append(obj_char);
+
+			obj_char["Name"] = "CompanyCode";
+			obj_char["Type"] = "integer";
+			obj_char["Value"] = m_characteristic.m_company_code;
+			obj_chars.append(obj_char);
+		}
 
 		sub_device.clear();
 		sub_device["SubDeviceID"] = int2hex_str(m_sub_ids[i]);
@@ -286,11 +312,22 @@ int LightDevice::processLightSerialCommand(SerialCommandInfo* cmd_info)
 	else if(cmd_info->m_command_type == 0x0f){
 		res_type = 0x8f;
 
-		res_body_bytes[0] = m_characteristic.m_version;
-		res_body_bytes[1] = m_characteristic.m_company_code;
-		res_body_bytes[2] = m_characteristic.m_onoff_dev_number;
+		if (m_use_old_characteristic == true) {
+			res_body_bytes[0] = 0;
+			res_body_bytes[1] = m_characteristic.m_onoff_dev_number;
+			res_body_bytes[2] = 0;
+			res_body_bytes[3] = 0;
+			res_body_bytes[4] = 0;
 
-		body_len = 0x0b;
+			body_len = 0x05;
+		}
+		else {
+			res_body_bytes[0] = m_characteristic.m_version;
+			res_body_bytes[1] = m_characteristic.m_company_code;
+			res_body_bytes[2] = m_characteristic.m_onoff_dev_number;
+
+			body_len = 0x0b;
+		}
 	}
 	//request light control: on/off, dimming level
 	else if(cmd_info->m_command_type == 0x41){

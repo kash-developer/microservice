@@ -51,32 +51,6 @@ void Forwarder::m2sThread()
 			continue;
 		}
 		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
-		tracee("send to serial.");
 		jni_writeSerial(q_info.m_addr, q_info.m_len);
 	}
 }

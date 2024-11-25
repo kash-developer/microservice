@@ -81,8 +81,8 @@ int PreventCrimeExtDevice::init(Json::Value& conf_json, std::vector<int> sub_ids
 		obj_char["Name"] = "CapableSetType";
 		obj_char["Type"] = "booleanarray";
 		obj_capable_set_types.clear();
-		for (int i = 0; i < PREVENT_CRIME_EXT_MAX_SENSOR_NUMBER; i++) {
-			obj_capable_set_types.append(m_characteristic.m_capable_set_type[i]);
+		for (int j = 0; j < PREVENT_CRIME_EXT_MAX_SENSOR_NUMBER; j++) {
+			obj_capable_set_types.append(m_characteristic.m_capable_set_type[j]);
 		}
 		obj_char["Value"] = obj_capable_set_types;
 		obj_chars.append(obj_char);
@@ -245,8 +245,8 @@ int PreventCrimeExtDevice::processHttpCommand(int device_id, int sub_id, Json::V
 				ret_param["Value"] = Json::Value(Json::arrayValue);
 				ret_param["Type"] = "booleanarray";
 
-				for (int i = 0; i < PREVENT_CRIME_EXT_MAX_SENSOR_NUMBER; i++) {
-					ret_param["Value"].append(m_statuses[i].m_set);
+				for (int j = 0; j < PREVENT_CRIME_EXT_MAX_SENSOR_NUMBER; j++) {
+					ret_param["Value"].append(m_statuses[j].m_set);
 				}
 				ret_params.append(ret_param);
 
@@ -255,8 +255,8 @@ int PreventCrimeExtDevice::processHttpCommand(int device_id, int sub_id, Json::V
 				ret_param["Value"] = Json::Value(Json::arrayValue);
 				ret_param["Type"] = "integerarray";
 
-				for (int i = 0; i < PREVENT_CRIME_EXT_MAX_SENSOR_NUMBER; i++) {
-					ret_param["Value"].append(m_statuses[i].m_type);
+				for (int j = 0; j < PREVENT_CRIME_EXT_MAX_SENSOR_NUMBER; j++) {
+					ret_param["Value"].append(m_statuses[j].m_type);
 				}
 				ret_params.append(ret_param);
 
@@ -269,8 +269,8 @@ int PreventCrimeExtDevice::processHttpCommand(int device_id, int sub_id, Json::V
 				ret_param["Value"] = Json::Value(Json::arrayValue);
 				ret_param["Type"] = "booleanarray";
 
-				for (int i = 0; i < PREVENT_CRIME_EXT_MAX_SENSOR_NUMBER; i++) {
-					ret_param["Value"].append(m_statuses[i].m_set);
+				for (int j = 0; j < PREVENT_CRIME_EXT_MAX_SENSOR_NUMBER; j++) {
+					ret_param["Value"].append(m_statuses[j].m_set);
 				}
 				ret_params.append(ret_param);
 
@@ -279,8 +279,8 @@ int PreventCrimeExtDevice::processHttpCommand(int device_id, int sub_id, Json::V
 				ret_param["Value"] = Json::Value(Json::arrayValue);
 				ret_param["Type"] = "integerarray";
 
-				for (int i = 0; i < PREVENT_CRIME_EXT_MAX_SENSOR_NUMBER; i++) {
-					ret_param["Value"].append(m_statuses[i].m_type);
+				for (int j = 0; j < PREVENT_CRIME_EXT_MAX_SENSOR_NUMBER; j++) {
+					ret_param["Value"].append(m_statuses[j].m_type);
 				}
 				ret_params.append(ret_param);
 

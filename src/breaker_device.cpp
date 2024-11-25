@@ -207,10 +207,10 @@ int BreakerDevice::processHttpCommand(int device_id, int sub_id, Json::Value cmd
 			}
 			else if ((cmd.compare("AllRelayControl") == 0) || (int_cmd == 0x42)) {
 				ret_param.clear();
-				for (unsigned int i = 0; i < 8; i++) {
-					ret_param["Name"] = std::to_string(i) + "_LightRelayClosed";
-					if (i < m_statuses.size()) {
-						ret_param["Value"] = m_statuses[i].m_light_relay_closed;
+				for (unsigned int j = 0; j < 8; j++) {
+					ret_param["Name"] = std::to_string(j) + "_LightRelayClosed";
+					if (j < m_statuses.size()) {
+						ret_param["Value"] = m_statuses[j].m_light_relay_closed;
 					}
 					else {
 						ret_param["Value"] = false;
