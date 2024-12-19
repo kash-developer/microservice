@@ -347,7 +347,7 @@ function sendCommand()
 	console.log("path: ", url)
 	console.log("command: ", command)
 
-	http.open("POST", url, false);
+	http.open("PUT", url, false);
 	http.send(JSON.stringify(command));
 
 	if(http.status != 200){
@@ -426,7 +426,9 @@ function drawControlTables(json_entries)
 	
 	for(var i=0; i<controlls.length; i++){
 		control = controlls[i];
-		var opt = "<option>" + control["CommandType"] + "</option>"
+		console.log(control);
+		//var opt = "<option>" + control["CommandType"] + "</option>"
+		var opt = "<option value=\"" + control["CommandType"] + "\">" + control["HumanCommandType"] + " (" + control["CommandType"] + ")"+ "</option>"
 		cmd_sel.innerHTML += opt;
 	}
 

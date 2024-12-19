@@ -59,7 +59,7 @@ protected:
 	FILE* createLogFile(int dev_id, int sub_id);
 	int writeLog(std::string log_str);
 
-	Json::Value sendPostRequest(std::string url, Json::Value body);
+	Json::Value sendPutRequest(std::string url, Json::Value body);
 	Json::Value sendGetRequest(std::string url);
 	bool checkCharacteristic(int type, Json::Value jobj);
 	bool checkStatus(int type, Json::Value jobj);

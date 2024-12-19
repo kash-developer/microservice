@@ -1,7 +1,7 @@
 {
 	"individual": [
 		{
-			"CommandType": "HeatingControl",
+			"CommandType": "0x43",
 			"Parameters":[
 				{
 					"Name": "Heating",
@@ -11,7 +11,7 @@
 			]
 		},
 		{
-			"CommandType": "HeatingControl",
+			"CommandType": "0x43",
 			"Parameters":[
 				{
 					"Name": "Heating",
@@ -21,7 +21,7 @@
 			]
 		},
 		{
-			"CommandType": "SetTemperatureControl",
+			"CommandType": "0x44",
 			"Parameters":[
 				{
 					"Name": "SettingTemperature",
@@ -31,7 +31,7 @@
 			]
 		},
 		{
-			"CommandType": "SetOutGoingModeControl",
+			"CommandType": "0x45",
 			"Parameters":[
 				{
 					"Name": "Outgoing",
@@ -41,7 +41,7 @@
 			]
 		},
 		{
-			"CommandType": "SetOutGoingModeControl",
+			"CommandType": "0x45",
 			"Parameters":[
 				{
 					"Name": "Outgoing",

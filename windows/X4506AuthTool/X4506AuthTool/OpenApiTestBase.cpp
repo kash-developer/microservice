@@ -554,7 +554,7 @@ int OpenApiTestBase::writeLog(std::string log_str)
 	return 0;
 }
 
-Json::Value OpenApiTestBase::sendPostRequest(std::string url, Json::Value body)
+Json::Value OpenApiTestBase::sendPutRequest(std::string url, Json::Value body)
 {
 	HttpRequest* req;
 	HttpResponse* res;
@@ -566,7 +566,7 @@ Json::Value OpenApiTestBase::sendPostRequest(std::string url, Json::Value body)
 	char* str;
 
 	req = new HttpRequest();
-	req->setMethod("POST");
+	req->setMethod("PUT");
 	req->setUrl(url);
 	req->setBody((uint8_t*)body.toStyledString().c_str(), body.toStyledString().length(), "appication/json");
 	res = req->sendRequest();
@@ -1479,13 +1479,13 @@ int OpenApiTestBase::test_base_9(struct TestItem* item)
 			jobj_dev_list.append(jobj_dev);
 			jobj_control["DeviceList"] = jobj_dev_list;
 
-			jobj_res = sendPostRequest(url, jobj_control);
+			jobj_res = sendPutRequest(url, jobj_control);
 			if (jobj_res == Json::Value::null) {
 				tracee("send post request failed: %s", url.c_str());
 				item->m_result = TEST_RESULT_FAIL;
-				item->m_description = "send POST request failed.";
+				item->m_description = "send PUT request failed.";
 
-				writeLog("send POST request failed.");
+				writeLog("send PUT request failed.");
 
 				return item->m_result;
 			}
@@ -1524,13 +1524,13 @@ int OpenApiTestBase::test_base_9(struct TestItem* item)
 			jobj_dev_list.append(jobj_dev);
 			jobj_control["DeviceList"] = jobj_dev_list;
 
-			jobj_res = sendPostRequest(url, jobj_control);
+			jobj_res = sendPutRequest(url, jobj_control);
 			if (jobj_res == Json::Value::null) {
 				tracee("send post request failed: %s", url.c_str());
 				item->m_result = TEST_RESULT_FAIL;
-				item->m_description = "send POST request failed.";
+				item->m_description = "send PUT request failed.";
 
-				writeLog("send POST request failed.");
+				writeLog("send PUT request failed.");
 
 				return item->m_result;
 			}
@@ -1567,13 +1567,13 @@ int OpenApiTestBase::test_base_9(struct TestItem* item)
 			jobj_dev_list.append(jobj_dev);
 			jobj_control["DeviceList"] = jobj_dev_list;
 
-			jobj_res = sendPostRequest(url, jobj_control);
+			jobj_res = sendPutRequest(url, jobj_control);
 			if (jobj_res == Json::Value::null) {
 				tracee("send post request failed: %s", url.c_str());
 				item->m_result = TEST_RESULT_FAIL;
-				item->m_description = "send POST request failed.";
+				item->m_description = "send PUT request failed.";
 
-				writeLog("send POST request failed.");
+				writeLog("send PUT request failed.");
 
 				return item->m_result;
 			}
@@ -1627,13 +1627,13 @@ int OpenApiTestBase::test_base_10(struct TestItem* item)
 
 			jobj_control["SubDeviceList"] = jobj_sub_list;
 
-			jobj_res = sendPostRequest(url, jobj_control);
+			jobj_res = sendPutRequest(url, jobj_control);
 			if (jobj_res == Json::Value::null) {
 				tracee("send post request failed: %s", url.c_str());
 				item->m_result = TEST_RESULT_FAIL;
-				item->m_description = "send POST request failed.";
+				item->m_description = "send PUT request failed.";
 
-				writeLog("send POST request failed.");
+				writeLog("send PUT request failed.");
 
 				return item->m_result;
 			}
@@ -1667,13 +1667,13 @@ int OpenApiTestBase::test_base_10(struct TestItem* item)
 
 			jobj_control["SubDeviceList"] = jobj_sub_list;
 
-			jobj_res = sendPostRequest(url, jobj_control);
+			jobj_res = sendPutRequest(url, jobj_control);
 			if (jobj_res == Json::Value::null) {
 				tracee("send post request failed: %s", url.c_str());
 				item->m_result = TEST_RESULT_FAIL;
-				item->m_description = "send POST request failed.";
+				item->m_description = "send PUT request failed.";
 
-				writeLog("send POST request failed.");
+				writeLog("send PUT request failed.");
 
 				return item->m_result;
 			}
@@ -1705,13 +1705,13 @@ int OpenApiTestBase::test_base_10(struct TestItem* item)
 
 			jobj_control["SubDeviceList"] = jobj_sub_list;
 
-			jobj_res = sendPostRequest(url, jobj_control);
+			jobj_res = sendPutRequest(url, jobj_control);
 			if (jobj_res == Json::Value::null) {
 				tracee("send post request failed: %s", url.c_str());
 				item->m_result = TEST_RESULT_FAIL;
-				item->m_description = "send POST request failed.";
+				item->m_description = "send PUT request failed.";
 
-				writeLog("send POST request failed.");
+				writeLog("send PUT request failed.");
 
 				return item->m_result;
 			}
@@ -1765,13 +1765,13 @@ int OpenApiTestBase::test_base_11(struct TestItem* item)
 
 				jobj_control["SubDeviceList"].append(jobj_sub);
 
-				jobj_res = sendPostRequest(url, jobj_control);
+				jobj_res = sendPutRequest(url, jobj_control);
 				if (jobj_res == Json::Value::null) {
 					tracee("send post request failed: %s", url.c_str());
 					item->m_result = TEST_RESULT_FAIL;
-					item->m_description = "send POST request failed.";
+					item->m_description = "send PUT request failed.";
 
-					writeLog("send POST request failed.");
+					writeLog("send PUT request failed.");
 
 					return item->m_result;
 				}
@@ -1821,13 +1821,13 @@ int OpenApiTestBase::test_base_12(struct TestItem* item)
 				jobj_sub["Control"].append(m_test_control_cmds["individual"][i]);
 				jobj_control = jobj_sub;
 
-				jobj_res = sendPostRequest(url, jobj_control);
+				jobj_res = sendPutRequest(url, jobj_control);
 				if (jobj_res == Json::Value::null) {
 					tracee("send post request failed: %s", url.c_str());
 					item->m_result = TEST_RESULT_FAIL;
-					item->m_description = "send POST request failed.";
+					item->m_description = "send PUT request failed.";
 
-					writeLog("send POST request failed.");
+					writeLog("send PUT request failed.");
 
 					return item->m_result;
 				}

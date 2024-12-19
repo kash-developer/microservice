@@ -1,7 +1,7 @@
 {
 	"individual": [
 		{
-			"CommandType": "IndividualControl",
+			"CommandType": "0x41",
 			"Parameters":[
 				{
 					"Name": "Closed",
@@ -13,7 +13,7 @@
 	],
 	"group": [
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Closed",
@@ -25,7 +25,7 @@
 	],
 	"all": [
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Closed",

@@ -1,7 +1,7 @@
 {
 	"individual": [
 		{
-			"CommandType": "IndividualControl",
+			"CommandType": "0x41",
 			"Parameters":[
 				{
 					"Name": "Operation",
@@ -11,7 +11,7 @@
 			]
 		},
 		{
-			"CommandType": "IndividualControl",
+			"CommandType": "0x41",
 			"Parameters":[
 				{
 					"Name": "Operation",
@@ -21,7 +21,7 @@
 			]
 		},
 		{
-			"CommandType": "IndividualControl",
+			"CommandType": "0x41",
 			"Parameters":[
 				{
 					"Name": "Operation",
@@ -33,7 +33,7 @@
 	],
 	"group": [
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Operation",
@@ -43,7 +43,7 @@
 			]
 		},
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Operation",
@@ -53,7 +53,7 @@
 			]
 		},
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Operation",
@@ -65,7 +65,7 @@
 	],
 	"all": [
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Operation",
@@ -75,7 +75,7 @@
 			]
 		},
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Operation",
@@ -85,7 +85,7 @@
 			]
 		},
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Operation",

@@ -952,7 +952,7 @@ bool HomeDevice::recvHttpRequest(HttpRequest* request, HttpResponse* response)
 			response->setBody((uint8_t*)res_str.c_str(), res_str.size(), mime.c_str());
 		}
 	}
-	if(method.compare("POST") == 0){
+	if(method.compare("PUT") == 0){
 		if (str_cmd.compare("control") == 0) {
 			len = request->getBody((uint8_t**)&body, &mime_type);
 
@@ -1768,7 +1768,9 @@ Json::Value HomeDevice::generateCmdInfo(int device_id, std::vector<int> sub_ids)
 
 		cmd_type = cmd_types[i];
 		obj_control_cmd = obj_control_info[cmd_type];
-		obj_control["CommandType"] = cmd_type;
+		trace("obj_control_cmd: %s", obj_control_cmd.toStyledString().c_str());
+		obj_control["CommandType"] = obj_control_cmd["RequestCode"].asString();
+		obj_control["HumanCommandType"] = cmd_type;
 
 		if (obj_control_cmd.isMember("Target") == false) {
 			tracee("there is no 'target' in: %s / %s", target_dev_name.c_str(), cmd_type.c_str());
@@ -1815,9 +1817,11 @@ Json::Value HomeDevice::generateCmdInfo(int device_id, std::vector<int> sub_ids)
 			obj_params.append(obj_param);
 		}
 
-		obj_control["CommandType"] = cmd_type;
 		obj_control["Parameters"] = obj_params;
 		obj_control["SubDeviceIDs"] = obj_sub_ids;
+
+
+
 
 		obj_controlls.append(obj_control);
 	}

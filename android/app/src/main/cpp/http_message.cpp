@@ -93,7 +93,7 @@ int HttpMessage::recvLine(SOCKET sock, std::string* buffer)
 		FD_SET(sock, &fdset);
 		FD_SET(sock, &efdset);
 
-		timeout.tv_sec = HTTP_RESPONSE_TIMEOUT;
+		timeout.tv_sec = HTTP_RESPONSE_TIMEOUT * 10;
 		timeout.tv_usec = 0;
 
 		ret = select(((int)sock) + 1, &fdset, NULL, &efdset, &timeout);

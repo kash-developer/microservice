@@ -575,7 +575,7 @@ bool ControllerDevice::recvHttpRequest(HttpRequest* request, HttpResponse* respo
 		}
 		is_processed = true;
 	}
-	else if(method.compare("POST") == 0){
+	else if(method.compare("PUT") == 0){
 		/*
 		len = request->getBody((uint8_t**)&body, &mime_type);
 
@@ -3362,7 +3362,9 @@ int ControllerDevice::controlDevice_systemAircon(int device_id, int sub_id, Devi
 	int param_num;
 	bool power;
 	double double_temperature;
-	int int_temperature;
+	int int_temperature, int_cmd;
+
+	int_cmd = hex_str2int(cmd);
 
 	memset(bytes, 0x00, 64);
 
@@ -3371,7 +3373,7 @@ int ControllerDevice::controlDevice_systemAircon(int device_id, int sub_id, Devi
 	bytes[2] = sub_id;
 	bytes[4] = 1;
 
-	if (cmd.compare("SetPowerControl") == 0) {
+	if ((cmd.compare("SetPowerControl") == 0) || (int_cmd == 0x43)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3390,7 +3392,7 @@ int ControllerDevice::controlDevice_systemAircon(int device_id, int sub_id, Devi
 		bytes[3] = 0x43;
 		bytes[5] = power ? 1 : 0;
 	}
-	else if (cmd.compare("SetTemperatureControl") == 0) {
+	else if ((cmd.compare("SetTemperatureControl") == 0) || (int_cmd == 0x44)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3466,7 +3468,9 @@ int ControllerDevice::controlDevice_light(int device_id, int sub_id, DeviceInfor
 	SerialCommandInfo cmd_info;
 	Json::Value tmp_obj;
 	bool power;
-	int param_num;
+	int param_num, int_cmd;
+
+	int_cmd = hex_str2int(cmd);
 
 	memset(bytes, 0x00, 64);
 
@@ -3475,7 +3479,8 @@ int ControllerDevice::controlDevice_light(int device_id, int sub_id, DeviceInfor
 	bytes[2] = sub_id;
 	bytes[4] = 1;
 
-	if(cmd.compare("IndividualControl") == 0){
+	//if(cmd.compare("IndividualControl") == 0){
+	if ((cmd.compare("IndividualControl") == 0) || (int_cmd == 0x41)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3494,7 +3499,8 @@ int ControllerDevice::controlDevice_light(int device_id, int sub_id, DeviceInfor
 		bytes[3] = 0x41;
 		bytes[5] = power ? 1 : 0;
 	}
-	else if(cmd.compare("GroupControl") == 0){
+	//else if(cmd.compare("GroupControl") == 0){
+	else if ((cmd.compare("GroupControl") == 0) || (int_cmd == 0x42)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3549,7 +3555,9 @@ int ControllerDevice::controlDevice_gasValve(int device_id, int sub_id, DeviceIn
 	SerialCommandInfo cmd_info;
 	Json::Value tmp_obj;
 	bool closed;
-	int param_num;
+	int param_num, int_cmd;
+
+	int_cmd = hex_str2int(cmd);
 
 	memset(bytes, 0x00, 64);
 
@@ -3558,7 +3566,7 @@ int ControllerDevice::controlDevice_gasValve(int device_id, int sub_id, DeviceIn
 	bytes[2] = sub_id;
 	bytes[4] = 1;
 
-	if(cmd.compare("IndividualControl") == 0){
+	if ((cmd.compare("IndividualControl") == 0) || (int_cmd == 0x41)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3576,7 +3584,7 @@ int ControllerDevice::controlDevice_gasValve(int device_id, int sub_id, DeviceIn
 		bytes[3] = 0x41;
 		bytes[5] = closed ? 0x01 : 0x00;
 	}
-	else if (cmd.compare("AllControl") == 0) {
+	else if ((cmd.compare("AllControl") == 0) || (int_cmd == 0x42)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3630,7 +3638,9 @@ int ControllerDevice::controlDevice_curtain(int device_id, int sub_id, DeviceInf
 	SerialCommandInfo cmd_info;
 	Json::Value tmp_obj;
 	int operation;
-	int param_num;
+	int param_num, int_cmd;
+
+	int_cmd = hex_str2int(cmd);
 
 	memset(bytes, 0x00, 64);
 
@@ -3639,7 +3649,7 @@ int ControllerDevice::controlDevice_curtain(int device_id, int sub_id, DeviceInf
 	bytes[2] = sub_id;
 	bytes[4] = 2;
 
-	if (cmd.compare("IndividualControl") == 0) {
+	if ((cmd.compare("IndividualControl") == 0) || (int_cmd == 0x41)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3657,7 +3667,7 @@ int ControllerDevice::controlDevice_curtain(int device_id, int sub_id, DeviceInf
 		bytes[3] = 0x41;
 		bytes[5] = operation;
 	}
-	else if (cmd.compare("AllControl") == 0) {
+	else if ((cmd.compare("AllControl") == 0) || (int_cmd == 0x42)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3716,6 +3726,9 @@ int ControllerDevice::controlDevice_doorLock(int device_id, int sub_id, DeviceIn
 	SerialCommandInfo cmd_info;
 	Json::Value tmp_obj;
 	bool param_num, open_flag;
+	int int_cmd;
+
+	int_cmd = hex_str2int(cmd);
 
 	memset(bytes, 0x00, 64);
 
@@ -3724,7 +3737,7 @@ int ControllerDevice::controlDevice_doorLock(int device_id, int sub_id, DeviceIn
 	bytes[2] = sub_id;
 	bytes[4] = 1;
 
-	if (cmd.compare("IndividualControl") == 0) {
+	if ((cmd.compare("IndividualControl") == 0) || (int_cmd == 0x41)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3743,7 +3756,7 @@ int ControllerDevice::controlDevice_doorLock(int device_id, int sub_id, DeviceIn
 		bytes[3] = 0x41;
 		bytes[5] = open_flag ? 1 : 0;
 	}
-	else if (cmd.compare("AllControl") == 0) {
+	else if ((cmd.compare("AllControl") == 0) || (int_cmd == 0x42)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3799,7 +3812,9 @@ int ControllerDevice::controlDevice_vantilator(int device_id, int sub_id, Device
 	bool power;
 	int vol;
 	Json::Value tmp_obj;
-	int param_num;
+	int param_num, int_cmd;
+
+	int_cmd = hex_str2int(cmd);
 
 	memset(bytes, 0x00, 64);
 
@@ -3808,7 +3823,7 @@ int ControllerDevice::controlDevice_vantilator(int device_id, int sub_id, Device
 	bytes[2] = sub_id;
 	bytes[4] = 1;
 
-	if(cmd.compare("PowerControl") == 0){
+	if ((cmd.compare("PowerControl") == 0) || (int_cmd == 0x41)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3827,7 +3842,7 @@ int ControllerDevice::controlDevice_vantilator(int device_id, int sub_id, Device
 		bytes[3] = 0x41;
 		bytes[5] = power ? 1 : 0;
 	}
-	else if(cmd.compare("AirVolumeControl") == 0){
+	else if ((cmd.compare("AirVolumeControl") == 0) || (int_cmd == 0x42)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3873,7 +3888,9 @@ int ControllerDevice::controlDevice_breaker(int device_id, int sub_id, DeviceInf
 	bool closed;
 	SerialCommandInfo cmd_info;
 	Json::Value tmp_obj;
-	int param_num;
+	int param_num, int_cmd;
+
+	int_cmd = hex_str2int(cmd);
 
 	memset(bytes, 0x00, 64);
 
@@ -3881,7 +3898,7 @@ int ControllerDevice::controlDevice_breaker(int device_id, int sub_id, DeviceInf
 	bytes[1] = device_id;
 	bytes[2] = sub_id;
 
-	if(cmd.compare("IndividualRelayControl") == 0){
+	if((cmd.compare("IndividualRelayControl") == 0) || (int_cmd == 0x41)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3903,7 +3920,7 @@ int ControllerDevice::controlDevice_breaker(int device_id, int sub_id, DeviceInf
 
 		last_idx = 5;
 	}
-	else if(cmd.compare("AllRelayControl") == 0){
+	else if((cmd.compare("AllRelayControl") == 0) || (int_cmd == 0x42)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3964,7 +3981,9 @@ int ControllerDevice::controlDevice_boiler(int device_id, int sub_id, DeviceInfo
 	bool heating, outgoing;
 	int int_temperature;
 	double double_temperature;
-	int param_num;
+	int param_num, int_cmd;
+
+	int_cmd = hex_str2int(cmd);
 
 	memset(bytes, 0x00, 64);
 
@@ -3973,7 +3992,7 @@ int ControllerDevice::controlDevice_boiler(int device_id, int sub_id, DeviceInfo
 	bytes[2] = sub_id;
 	bytes[4] = 1;
 
-	if(cmd.compare("HeatingControl") == 0){
+	if ((cmd.compare("HeatingControl") == 0) || (int_cmd == 0x43)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -3992,7 +4011,7 @@ int ControllerDevice::controlDevice_boiler(int device_id, int sub_id, DeviceInfo
 		bytes[3] = 0x43;
 		bytes[5] = heating ? 0x01 : 0x00;
 	}
-	else if(cmd.compare("SetTemperatureControl") == 0){
+	else if ((cmd.compare("SetTemperatureControl") == 0) || (int_cmd == 0x44)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -4016,7 +4035,7 @@ int ControllerDevice::controlDevice_boiler(int device_id, int sub_id, DeviceInfo
 		}
 		bytes[5] = int_temperature;
 	}
-	else if(cmd.compare("SetOutGoingModeControl") == 0){
+	else if ((cmd.compare("SetOutGoingModeControl") == 0) || (int_cmd == 0x45)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -4074,7 +4093,9 @@ int ControllerDevice::controlDevice_preventCrimeExt(int device_id, int sub_id, D
 	bool sensor_set[8];
 	int sensor_types[8];
 	int len;
-	int param_num;
+	int param_num, int_cmd;
+
+	int_cmd = hex_str2int(cmd);
 
 	memset(bytes, 0x00, 64);
 
@@ -4085,7 +4106,7 @@ int ControllerDevice::controlDevice_preventCrimeExt(int device_id, int sub_id, D
 	memset(sensor_set, false, sizeof(sensor_set));
 	memset(sensor_types, false, sizeof(sensor_types));
 
-	if(cmd.compare("SetSensorSetControl") == 0){
+	if ((cmd.compare("SetSensorSetControl") == 0) || (int_cmd == 0x43)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -4118,7 +4139,7 @@ int ControllerDevice::controlDevice_preventCrimeExt(int device_id, int sub_id, D
 
 		last_idx = 5;
 	}
-	else if(cmd.compare("SetSensorTypeControl") == 0){
+	else if ((cmd.compare("SetSensorTypeControl") == 0) || (int_cmd == 0x44)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -4207,8 +4228,10 @@ int ControllerDevice::controlDevice_powerGate(int device_id, int sub_id, DeviceI
 	SerialCommandInfo cmd_info;
 	Json::Value tmp_obj;
 	int last_idx;
-	int param_num, dev_num;
+	int param_num, dev_num, int_cmd;
 	bool power;
+
+	int_cmd = hex_str2int(cmd);
 
 	dev_num = 0;
 	for (unsigned int i = 0; i < m_devices.size(); i++) {
@@ -4224,7 +4247,7 @@ int ControllerDevice::controlDevice_powerGate(int device_id, int sub_id, DeviceI
 	bytes[1] = device_id;
 	bytes[2] = sub_id;
 
-	if(cmd.compare("IndividualControl") == 0){
+	if ((cmd.compare("IndividualControl") == 0) || (int_cmd == 0x41)) {
 		param_num = 0;
 		for (unsigned int i = 0; i < params.size(); i++) {
 			tmp_obj = params[i];
@@ -4246,7 +4269,7 @@ int ControllerDevice::controlDevice_powerGate(int device_id, int sub_id, DeviceI
 
 		last_idx = 5;
 	}
-	else if(cmd.compare("AllControl") == 0){
+	else if ((cmd.compare("AllControl") == 0) || (int_cmd == 0x42)) {
 		if (dev_num == 0) {
 			tracee("the device has no sub device: %x", device_id);
 			return -1;

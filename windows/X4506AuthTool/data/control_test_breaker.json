@@ -1,7 +1,7 @@
 {
 	"individual": [
 		{
-			"CommandType": "IndividualRelayControl",
+			"CommandType": "0x41",
 			"Parameters":[
 				{
 					"Name": "LightRelayClosed",
@@ -11,7 +11,7 @@
 			]
 		},
 		{
-			"CommandType": "IndividualRelayControl",
+			"CommandType": "0x41",
 			"Parameters":[
 				{
 					"Name": "LightRelayClosed",
@@ -23,7 +23,7 @@
 	],
 	"group": [
 		{
-			"CommandType": "AllRelayControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "LightRelayClosed",
@@ -33,7 +33,7 @@
 			]
 		},
 		{
-			"CommandType": "AllRelayControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "LightRelayClosed",
@@ -45,7 +45,7 @@
 	],
 	"all": [
 		{
-			"CommandType": "AllRelayControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "LightRelayClosed",
@@ -54,7 +54,7 @@
 				}			]
 		},
 		{
-			"CommandType": "AllRelayControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "LightRelayClosed",

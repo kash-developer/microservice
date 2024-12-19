@@ -1,7 +1,7 @@
 {
 	"individual": [
 		{
-			"CommandType": "SetPowerControl",
+			"CommandType": "0x43",
 			"Parameters":[
 				{
 					"Name": "Power",
@@ -11,7 +11,7 @@
 			]
 		},
 		{
-			"CommandType": "SetTemperatureControl",
+			"CommandType": "0x44",
 			"Parameters":[
 				{
 					"Name": "SettingTemperature",
@@ -21,7 +21,7 @@
 			]
 		},
 		{
-			"CommandType": "SetPowerControl",
+			"CommandType": "0x43",
 			"Parameters":[
 				{
 					"Name": "Power",
@@ -33,7 +33,7 @@
 	],
 	"group": [
 		{
-			"CommandType": "SetPowerControl",
+			"CommandType": "0x43",
 			"Parameters":[
 				{
 					"Name": "Power",
@@ -43,7 +43,7 @@
 			]
 		},
 		{
-			"CommandType": "SetTemperatureControl",
+			"CommandType": "0x44",
 			"Parameters":[
 				{
 					"Name": "SettingTemperature",
@@ -53,7 +53,7 @@
 			]
 		},
 		{
-			"CommandType": "SetPowerControl",
+			"CommandType": "0x43",
 			"Parameters":[
 				{
 					"Name": "Power",
@@ -65,7 +65,7 @@
 	],
 	"all": [
 		{
-			"CommandType": "SetPowerControl",
+			"CommandType": "0x43",
 			"Parameters":[
 				{
 					"Name": "Power",
@@ -75,7 +75,7 @@
 			]
 		},
 		{
-			"CommandType": "SetTemperatureControl",
+			"CommandType": "0x44",
 			"Parameters":[
 				{
 					"Name": "SettingTemperature",
@@ -85,7 +85,7 @@
 			]
 		},
 		{
-			"CommandType": "SetPowerControl",
+			"CommandType": "0x43",
 			"Parameters":[
 				{
 					"Name": "Power",

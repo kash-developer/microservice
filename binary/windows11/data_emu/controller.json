@@ -14,7 +14,8 @@
 		}
 	},	
 	
-	"Devices": ["aircon", "light", "gas", "curtain", "remote_inspector", "doorlock", "vantilator", "breaker", "prevent_crime_ext", "boiler", "temperature_controller", "power_gate"],
+	"Devices2": ["aircon", "light", "gas", "curtain", "remote_inspector", "doorlock", "vantilator", "breaker", "prevent_crime_ext", "boiler", "temperature_controller", "power_gate"],
+	"Devices": ["light", "temperature_controller"],
 	"light": {
 		"DeviceID": 14,
 		"id": "0x0e",

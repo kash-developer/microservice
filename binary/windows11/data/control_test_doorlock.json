@@ -1,7 +1,7 @@
 {
 	"individual": [
 		{
-			"CommandType": "IndividualControl",
+			"CommandType": "0x41",
 			"Parameters":[
 				{
 					"Name": "Opened",
@@ -11,7 +11,7 @@
 			]
 		},
 		{
-			"CommandType": "IndividualControl",
+			"CommandType": "0x41",
 			"Parameters":[
 				{
 					"Name": "Opened",
@@ -23,7 +23,7 @@
 	],
 	"group": [
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Opened",
@@ -33,7 +33,7 @@
 			]
 		},
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Opened",
@@ -45,7 +45,7 @@
 	],
 	"all": [
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Opened",
@@ -55,7 +55,7 @@
 			]
 		},
 		{
-			"CommandType": "AllControl",
+			"CommandType": "0x42",
 			"Parameters":[
 				{
 					"Name": "Opened",

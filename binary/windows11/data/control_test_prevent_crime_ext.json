@@ -1,7 +1,7 @@
 {
 	"individual": [
 		{
-			"CommandType": "SetSensorSetControl",
+			"CommandType": "0x43",
 			"Parameters":[
 				{
 					"Name": "SensorSet",
@@ -11,7 +11,7 @@
 			]
 		},
 		{
-			"CommandType": "SetSensorSetControl",
+			"CommandType": "0x43",
 			"Parameters":[
 				{
 					"Name": "SensorSet",
@@ -21,7 +21,7 @@
 			]
 		},
 		{
-			"CommandType": "SetSensorTypeControl",
+			"CommandType": "0x44",
 			"Parameters":[
 				{
 					"Name": "SensorTypes",
@@ -31,7 +31,7 @@
 			]
 		},
 		{
-			"CommandType": "SetSensorTypeControl",
+			"CommandType": "0x44",
 			"Parameters":[
 				{
 					"Name": "SensorTypes",
@@ -41,7 +41,7 @@
 			]
 		},
 		{
-			"CommandType": "SetSensorTypeControl",
+			"CommandType": "0x44",
 			"Parameters":[
 				{
 					"Name": "SensorTypes",
